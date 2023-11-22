@@ -1,18 +1,22 @@
-import React from 'react'
-import Navbar from'./components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Listings from './components/Listings'
+// App.js
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Page from './components/Page';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Hero />
-      <About />
-      <Listings />
-    </div>
+      <Page content="hero" />
+      <Page content="about" />
+      {/* <Page content="listings" />
+      <Page content="contact" /> */}
+      <Footer />
+    </Router>
   );
 }
 
 export default App;
+

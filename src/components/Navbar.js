@@ -1,44 +1,55 @@
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from './images/logo.png'
-
-import './Navbar.css'
+// Navbar.js
+import React, { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from './images/logo.png';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
+  const [click, setClick] = useState(false);
 
-    const [click, setClick] = useState(false)
-    const handleClick = () => setClick(!click)
+  const handleClick = () => setClick(!click);
+  const closeMenu = () => setClick(false);
 
-    const closeMenu = () => setClick(false)
-
-    return (
-        <div className='header'>
-            <nav className='navbar'>
-                <a href='/' className='logo'>
-                    <img src={logo} alt='logo' />
-                </a>
-                <div className='hamburger' onClick={handleClick}>
-                    {click ? (<FaTimes size={30} style={{ color: '#ffffff' }} />)
-                        : (<FaBars size={30} style={{ color: '#ffffff' }} />)}
-
-                </div>
-                <ul className={click ? "nav-menu active" : "nav-menu"}>
-                    <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Home</a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='#about' onClick={closeMenu}>About</a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='#listings' onClick={closeMenu}>Listings</a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='#demo' onClick={closeMenu}>Contact us</a>
-                    </li>
-                </ul>
-            </nav>
+  return (
+    <div className='header'>
+      <nav className='navbar'>
+        <RouterLink to='/' className='logo'>
+          <img src={logo} alt='logo' />
+        </RouterLink>
+        <div className='hamburger' onClick={handleClick}>
+          {click ? (
+            <FaTimes size={30} style={{ color: '#ffffff' }} />
+          ) : (
+            <FaBars size={30} style={{ color: '#ffffff' }} />
+          )}
         </div>
-    )
-}
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+            <ScrollLink to='hero' smooth={true} duration={500} onClick={closeMenu}>
+              Home
+            </ScrollLink>
+          </li>
+          <li className='nav-item'>
+            <ScrollLink to='about' smooth={true} duration={500} delay={100} onClick={closeMenu}>
+              About
+            </ScrollLink>
+          </li>
+          <li className='nav-item'>
+            <ScrollLink to='listings' smooth={true} duration={500} onClick={closeMenu}>
+              Showroom
+            </ScrollLink>
+          </li>
+          <li className='nav-item'>
+            <ScrollLink to='contact' smooth={true} duration={500} onClick={closeMenu}>
+              Contact us
+            </ScrollLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;
