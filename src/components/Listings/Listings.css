@@ -1,4 +1,8 @@
-
+.icon {
+    width: 20px; /* Adjust the width as needed */
+    height: auto;
+    margin-right: 5px; /* Adjust the margin as needed */
+}
 
 .listings-header {
     text-align: center;
@@ -37,14 +41,14 @@
     background-color: #fff;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    opacity: 1;
-    transform: translateX(0);
-    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Added transition for box-shadow */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .vehicle-listing:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Red shadow on hover */
+    box-shadow: 0 0 20px #9F6C01;
 }
 
 .image-container {
@@ -84,15 +88,14 @@
 .price {
     font-size: 1.8rem;
     font-weight: bold;
+    color: #9F6C01;
 }
 
 body {
-    font-family: 'Your Chosen Font', sans-serif;
+    font-family: sans-serif;
 }
 
 .name {
-    font-size: 1.4rem;
-    font-weight: bold;
     font-size: 1.6rem;
     font-weight: 600;
 }
@@ -117,20 +120,19 @@ body {
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    display: flex;
     max-width: 80%;
     max-height: 80%;
     overflow: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-image {
-    max-width: 100%;
-    max-height: 70vh;
-    display: block;
-    margin: 0 auto;
+.image-carousel-container {
+    flex: 1;
+}
+
+.image-carousel {
+    position: relative;
 }
 
 .carousel-button {
@@ -151,6 +153,126 @@ body {
     right: 10px;
 }
 
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.image-counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #fff;
+}
+
+.enquire-button {
+    background-color: #44bcd8;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.enquire-button:hover {
+    background-color: #555555;
+}
+
+
+.enquiry-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.enquiry-form {
+    max-width: 200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.enquiry-form h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+    width: 110%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 36px;
+    background: #fff;
+    color: #333;
+
+}
+
+.enquiry-form textarea {
+    height: 100px;
+}
+
+.enquiry-form label {
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.enquiry-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.enquiry-form button:hover {
+    background-color: rgb(85, 85, 85)555;
+}
+
+.enquiry-form h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.enquiry-form label {
+    margin-bottom: 10px;
+}
+
+
+.enquiry-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.enquiry-form button:hover {
+    background-color: #555;
+}
+
 @media (max-width: 768px) {
     .vehicle-listing {
         flex-direction: column;
@@ -159,10 +281,14 @@ body {
 
     .image-container {
         max-width: 100%;
+        max-height: 60vh; /* Adjust the height to your preference */
+        overflow: hidden;
     }
 
     .image-container img {
         width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .details-container {
@@ -170,4 +296,51 @@ body {
         border-left: none;
         text-align: center;
     }
+
+    .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        position: relative; /* Added position: relative; */
+    }
+
+    .image-carousel-container {
+        max-height: 100vh; /* Adjust the height to match the image height */
+        overflow: hidden;
+    }
+
+    .image-carousel img {
+        max-width: 100%;
+        max-height: 50vh;
+        object-fit: contain;
+    }
+
+    .enquire-button {
+        margin-top: 10px;
+        display: block;
+    }
+
+    .enquiry-form-container {
+        width: 100%;
+        padding: 10px;
+        display: none;
+        position: absolute; /* Added position: absolute; */
+        top: 50%; /* Added top: 50%; */
+        left: 50%; /* Added left: 50%; */
+        transform: translate(-50%, -50%); /* Added transform to center the form */
+    }
+
+    .enquiry-form {
+        max-width: 100%;
+    }
+
+    .show-enquiry-form .enquiry-form-container {
+        display: flex;
+    }
 }
+
+
+
+

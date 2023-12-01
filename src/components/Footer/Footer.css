@@ -1,74 +1,156 @@
 /* Footer.css */
 
 .footer {
-    background-color: #222; /* Change the background color as per your design */
-    color: #fff;
-    padding: 40px 0;
-    cursor: pointer;
+  background-color: #222;
+  /* Change the background color as per your design */
+  color: #fff;
+  padding: 40px 0;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* New styles for columns */
+.columns {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.column {
+  flex: 1;
+  text-align: left;
+  /* Align text to the left */
+  padding: 0 15px;
+  /* Adjust the padding as needed */
+}
+
+/* Add space and pipe between columns */
+.column:not(:last-child) {
+  margin-right: 10px;
+  border-right: 1px solid #fff;
+  /* Pipe style */
+  padding-right: 10px;
+}
+
+/* Add an additional pipe between logo and navigation */
+.column:first-child {
+  border-right: 1px solid #fff;
+  /* Pipe style */
+  padding-right: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  max-width: 150px;
+  /* Adjust the max-width as needed */
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-item {
+  font-size: 18px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+  padding: 5px;
+  color: rgb(255, 255, 255);
+  border-bottom: 3px solid var(--secondary-color);
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00f;
+  /* Change the color on hover as per your design */
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  width: 50px;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .columns {
+    flex-direction: column; /* Change to column layout for mobile view */
+    align-items: center; /* Center-align items horizontally in the column for mobile view */
   }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .column {
+    text-align: center; /* Center-align text in the column for mobile view */
+    padding: 0; /* Remove padding for mobile view */
   }
-  
+
+  .column:not(:last-child) {
+    margin-right: 0;
+    border-right: none; /* Remove border for mobile view */
+    padding-right: 0;
+  }
+
+  .column:first-child {
+    border-right: none; /* Remove border for mobile view */
+    padding-right: 0;
+  }
+
+  .logo {
+    max-width: 120px; /* Adjust the max-width as needed for mobile view */
+  }
+
   ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 10px; /* Adjust gap between navigation items for better spacing in mobile view */
   }
-  
+
   .nav-item {
-    font-size: 18px;
+    font-size: 16px; /* Adjust font size for better visibility in mobile view */
   }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s ease;
+
+  .column:not(:last-child) {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
   }
-  
-  .nav-item a:hover {
-    padding: 5px;
-    color: rgb(255, 255, 255);
-    border-bottom: 3px solid var(--secondary-color); 
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .social-icons a {
-    color: #fff;
-    font-size: 24px;
-    transition: color 0.3s ease;
-  }
-  
-  .social-icons a:hover {
-    color: #00f; /* Change the color on hover as per your design */
-  }
-  
-  .bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .line {
-    width: 50px;
-    height: 2px;
-    background-color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 14px;
-    margin: 0;
-  }
-  
+}

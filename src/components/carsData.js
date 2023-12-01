@@ -5,6 +5,7 @@ export const carsData = [
         mileage: 50000,
         transmissionType: 'Automatic',
         price: 250000,
+        fuelType:  'Petrol',
         dealershipAddress: '123 Main St, Cityville',
         imageUrl: require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
         imageUrls: [
@@ -34,6 +35,7 @@ export const carsData = [
         mileage: 20000,
         transmissionType: 'Manual',
         price: 300000,
+        fuelType:  'Petrol',
         dealershipAddress: '456 Oak St, Townsville',
         imageUrl: require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
         imageUrls: [
@@ -74,6 +76,7 @@ export const carsData = [
         mileage: 20000,
         transmissionType: 'Automatic',
         price: 400000,
+        fuelType:  'Petrol',
         dealershipAddress: '789 Oak St, Citytown',
         imageUrl: require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
         imageUrls: [
@@ -104,6 +107,7 @@ export const carsData = [
         mileage: 15000,
         transmissionType: 'Automatic',
         price: 1999900,
+        fuelType:  'Diesel',
         dealershipAddress: '456 Pine St, Citytown',
         imageUrl: require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
         imageUrls: [
@@ -133,6 +137,7 @@ export const carsData = [
         mileage: 30000,
         transmissionType: 'Automatic',
         price: 150000,
+        fuelType:  'Petrol',
         dealershipAddress: '789 Oak St, Cityville',
         imageUrl: require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
         imageUrls: [
@@ -160,25 +165,30 @@ export const carsData = [
         mileage: 25000,
         transmissionType: 'Automatic',
         price: 600000,
+        fuelType:  'Petrol',
         dealershipAddress: '303 Maple St, Downtown',
         imageUrl: '',
     },
-    {
-        name: '2017 Volkswagen Golf GTI For Sale',
-        used: true,
-        mileage: 35000,
-        transmissionType: 'Automatic',
-        price: 350000,
-        dealershipAddress: '404 Birch St, Uptown',
-        imageUrl: '',
-    },
+
     {
         name: '2014 Chevrolet Silverado 1500 LT Crew Cab For Sale',
         used: false,
         mileage: 45000,
         transmissionType: 'Automatic',
         price: 400000,
+        fuelType:  'Diesel',
         dealershipAddress: '505 Walnut St, Riverside',
+        imageUrl: '',
+    },
+
+    {
+        name: '2017 Volkswagen Golf GTI For Sale',
+        used: true,
+        mileage: 35000,
+        transmissionType: 'Automatic',
+        price: 350000,
+        fuelType:  'Petrol',
+        dealershipAddress: '404 Birch St, Uptown',
         imageUrl: '',
     },
 
