@@ -1,80 +1,139 @@
+/* Hero.css */
+
+/* Styling for the hero section */
 .hero {
     background-color: var(--overlay);
+    /* Set the background color using a CSS variable */
     color: #fff;
+    /* Set the text color to white */
     height: 100vh;
+    /* Set the height to 100% of the viewport height */
     width: 100%;
+    /* Set the width to 100% of the viewport width */
     position: relative;
+    /* Set the position property to relative for absolute positioning of children */
 }
 
+/* Styling for a pseudo-element to create a background image */
 .hero:before {
     content: '';
+    /* Generate content for the pseudo-element */
     background: url('./images/hero.jpg') no-repeat center center/cover;
+    /* Set the background image */
     height: 100%;
+    /* Set the height to 100% of the hero container */
     width: 100%;
+    /* Set the width to 100% of the hero container */
     position: absolute;
+    /* Position the pseudo-element absolutely within the hero container */
     top: 0;
+    /* Align the top of the pseudo-element with the top of the hero container */
     left: 0;
+    /* Align the left of the pseudo-element with the left of the hero container */
     z-index: -1;
+    /* Place the pseudo-element behind other content in the hero container */
 }
 
+/* Styling for the content within the hero container */
 .hero .content {
     height: 100%;
+    /* Set the height of the content to 100% of the hero container */
     display: flex;
+    /* Use flexbox for layout */
     flex-direction: column;
+    /* Arrange child elements in a column */
     justify-content: center;
+    /* Align child elements vertically at the center */
+    align-items: flex-start;
+    /* Align child elements to the start of the container horizontally */
     max-width: 1100px;
-    margin: auto;
+    /* Set the maximum width of the content */
     padding: 1rem;
+    /* Add padding to the content for spacing */
+    padding-left: 352px;
+    /* Add additional left padding for specific styling */
 }
 
+/* Styling for the first paragraph within the hero content */
 .hero p:first-child {
     font-style: italic;
+    /* Set the font style to italic */
     font-size: 1rem;
+    /* Set the font size to 1rem */
 }
 
+/* Styling for the main heading within the hero content */
 .hero h1 {
     font-size: 3rem;
+    /* Set the font size to 3rem */
     font-weight: 700;
+    /* Set the font weight to 700 for boldness */
     margin: 1rem 0;
+    /* Set the top and bottom margins of the heading */
 }
 
+/* Styling for the third paragraph within the hero content */
 .hero p:nth-child(3) {
     font-size: 2rem;
+    /* Set the font size to 2rem */
+    padding-bottom: 10px;
+    /* Add padding to the bottom for spacing */
 }
 
+/* Styling for the fourth paragraph within the hero content */
 .hero p:nth-child(4) {
     font-size: 1.2rem;
+    /* Set the font size to 1.2rem */
     font-style: italic;
+    /* Set the font style to italic */
 }
 
+/* Styling for the button within the hero content */
 .hero .button {
     margin: 1.5rem 0;
+    /* Set the top and bottom margins of the button */
     width: 200px;
+    /* Set the width of the button */
     background-color: var(--secondary-color);
+    /* Set the background color using a CSS variable */
     border: 1px solid var(--secondary-color);
+    /* Set the border color using a CSS variable */
     color: #ffffff;
+    /* Set the text color to white */
 }
 
+/* Styling for the button hover state within the hero content */
 .hero .button:hover {
     background-color: var(--secondary-dark);
+    /* Set the background color on hover using a CSS variable */
     border: 1px solid var(--secondary-dark);
+    /* Set the border color on hover using a CSS variable */
 }
 
+
+/* Media query for responsive styling on screens with a maximum width of 940px */
 @media screen and (max-width: 940px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p:nth-child(3) {
-        font-size: 1.5rem;
-    }
-
-    .hero p:nth-child(4) {
-        font-size: 1rem;
+    .hero .content {
+        padding-left: 1rem;
+        /* Add some padding to the left for better spacing on smaller screens */
+        align-items: flex-start;
+        /* Align items to the start of the container horizontally */
     }
 
     .hero .button {
-        width: 100%; /* Adjust button width for smaller screens */
-        margin-top: 2rem; /* Add some space between the text and the button */
+        width: 100%;
+        /* Set the width of the button to 100% for smaller screens */
+        margin-top: 2rem;
+        /* Add space between the text and the button for smaller screens */
+        margin-right: 0;
+        /* Remove right margin for left alignment on smaller screens */
+        padding-left: 0;
+        /* Remove left padding for left alignment on smaller screens */
     }
+
+    /* Add this CSS to remove horizontal scrolling on mobile */
+    body {
+        overflow-x: hidden;
+    }
+
 }

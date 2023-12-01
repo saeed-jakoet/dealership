@@ -41,13 +41,6 @@ const About = () => {
 
   return (
     <Element name='about'>
-      {/* Divider at the top of the About page */}
-      <motion.div
-        className='divider'
-        initial={{ opacity: 0, scaleY: 0 }}
-        animate={{ opacity: 1, scaleY: 1 }}
-        transition={{ ease: 'easeInOut', duration: 1.5 }}
-      />
 
       <motion.div
         className={`about ${isAboutVisible ? 'show' : ''}`}

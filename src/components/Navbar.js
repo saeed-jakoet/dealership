@@ -1,19 +1,39 @@
 // Navbar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from './images/logo.png';
+import logo from './images/logo2.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
 
+  useEffect(() => {
+    let timeoutId;
+
+    const handleScroll = () => {
+      setScrolling(true);
+
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setScrolling(false);
+      }, 1); // Adjust the timeout duration as needed
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='header'>
+    <div className={`header ${scrolling ? 'scrolling' : ''} ${click ? 'nav-open' : ''}`}>
       <nav className='navbar'>
         <RouterLink to='/' className='logo'>
           <img src={logo} alt='logo' />

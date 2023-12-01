@@ -1,4 +1,5 @@
 /* About.css */
+
 .about {
   position: relative;
   background-color: var(--overlay);
@@ -11,13 +12,6 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.5s ease, background-image 0.5s ease; /* Add transition for opacity and background-image */
-}
-
-.divider {
-  width: 40%;
-  height: 2px;
-  background: linear-gradient(to right, transparent 0%, #fff 25%, #fff 75%, transparent 100%);
-  margin-top: 1px;
 }
 
 .about.show {
@@ -97,30 +91,40 @@
 .about .arrow.right {
   font-size: 3rem;
   color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .about .arrow.left {
   left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .about .arrow.right {
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .about .arrow:hover {
   color: rgba(85, 80, 80, 0.7);
 }
 
+/* For mobile devices, move arrows below the text */
 @media screen and (max-width: 940px) {
-  .about h2 {
-    font-size: 2.5rem;
+  .about .arrow.left,
+  .about .arrow.right {
+    position: relative;
+    top: auto;
+    transform: none;
+    margin-top: 10px; /* Add margin to separate from text */
   }
 
-  .about p {
-    font-size: 1rem;
+  .about .arrow.left {
+    left: auto;
+    text-align: center;
+  }
+
+  .about .arrow.right {
+    right: auto;
+    text-align: center;
   }
 }

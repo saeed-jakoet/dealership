@@ -2,8 +2,9 @@
 import React from 'react';
 import Hero from './Hero';
 import About from './About';
-import Listings from './Listings';
+import Featured from './Featured';
 import Contact from './Contact';
+import Listings from './Listings'
 
 const Page = ({ content }) => {
   switch (content) {
@@ -11,10 +12,12 @@ const Page = ({ content }) => {
       return <Hero />;
     case 'about':
       return <About />;
-    case 'listings':
-      return <Listings />;
+    case 'featured':
+      return <Featured />;
     case 'contact':
       return <Contact />;
+    case 'listings':
+      return <Listings />
     default:
       return null;
   }
