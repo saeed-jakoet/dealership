@@ -20,7 +20,7 @@
 
 .about:before {
   content: '';
-  background: url('./images/hero.jpg') no-repeat center center/cover;
+  background: url('../images/hero.jpg') no-repeat center center/cover;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -31,19 +31,19 @@
 }
 
 .about[data-current-image='1']:before {
-  background: url('./images/hero4.jpg') no-repeat center center/cover;
+  background: url('../images/hero4.jpg') no-repeat center center/cover;
 }
 
 .about[data-current-image='2']:before {
-  background: url('./images/hero2.jpg') no-repeat center center/cover;
+  background: url('../images/hero2.jpg') no-repeat center center/cover;
 }
 
 .about[data-current-image='3']:before {
-  background: url('./images/audi.jpg') no-repeat center center/cover;
+  background: url('../images/audi.jpg') no-repeat center center/cover;
 }
 
 .about[data-current-image='4']:before {
-  background: url('./images/audi.jpg') no-repeat center center/cover;
+  background: url('../images/audi.jpg') no-repeat center center/cover;
 }
 
 .about .content {

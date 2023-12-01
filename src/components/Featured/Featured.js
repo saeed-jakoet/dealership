@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, animateScroll as scroll, Element } from 'react-scroll';
 import './Featured.css';
-import car1Image from './images/27333502.jpeg';
-import car2Image from './images/27333502.jpeg';
-import car3Image from './images/27333502.jpeg';
+import car1Image from '../images/27333502.jpeg';
+import car2Image from '../images/27333502.jpeg';
+import car3Image from '../images/27333502.jpeg';
 
 const Featured = ({ activeContent }) => {
   const [cars, setCars] = useState([]);

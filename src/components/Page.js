@@ -1,10 +1,10 @@
 // Page.js
 import React from 'react';
-import Hero from './Hero';
-import About from './About';
-import Featured from './Featured';
-import Contact from './Contact';
-import Listings from './Listings'
+import Hero from './Hero/Hero';
+import About from './About/About';
+import Featured from './Featured/Featured';
+import Contact from './Contact/Contact';
+import Listings from './Listings/Listings'
 
 const Page = ({ content }) => {
   switch (content) {

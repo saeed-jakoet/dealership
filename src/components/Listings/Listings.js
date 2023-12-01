@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Element, Link } from 'react-scroll'; // Import Link from react-scroll
 import './Listings.css';
-import { carsData } from './carsData'; 
-import ImageCarousel from './ImageCarousel';
+import { carsData } from '../carsData'; 
+import ImageCarousel from '../ImageCarousel';
 
 const Listings = () => {
     const [selectedCar, setSelectedCar] = useState(null);

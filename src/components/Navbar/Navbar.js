@@ -1,7 +1,7 @@
 // Navbar.js
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from './images/logo2.png';
+import logo from '../images/logo2.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import './Navbar.css';

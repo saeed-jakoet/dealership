@@ -18,7 +18,7 @@
 .hero:before {
     content: '';
     /* Generate content for the pseudo-element */
-    background: url('./images/hero.jpg') no-repeat center center/cover;
+    background: url('../images/hero.jpg') no-repeat center center/cover;
     /* Set the background image */
     height: 100%;
     /* Set the height to 100% of the hero container */
