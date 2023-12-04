@@ -1,7 +1,7 @@
 /* Footer.css */
 
 .footer {
-  background-color: #222;
+  background-color: #a02424;
   /* Change the background color as per your design */
   color: #fff;
   padding: 40px 0;
@@ -42,11 +42,13 @@
   border-right: 1px solid #fff;
   /* Pipe style */
   padding-right: 10px;
+
 }
 
 h3 {
   font-size: 18px;
   margin-bottom: 10px;
+
 }
 
 .logo {

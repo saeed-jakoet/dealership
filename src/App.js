@@ -12,7 +12,7 @@ function App() {
       <Page content="about" />
       {/* <Page content="featured" /> */}
       <Page content="listings" />
-      {/* <Page content="contact" /> */}
+      <Page content="contact" />
       <Footer />
     </Router>
   );

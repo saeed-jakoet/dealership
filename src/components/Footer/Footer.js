@@ -31,17 +31,17 @@ const Footer = () => {
           {/* Column 2: Opening and Closing Times */}
           <div className='column'>
             <h3>Opening Hours</h3>
-            <p>Monday - Friday: 9 AM - 6 PM</p>
-            <p>Saturday: 10 AM - 4 PM</p>
-            <p>Sunday: Closed</p>
+            <p>Monday - Friday: 08:30 - 17:00</p>
+            <p>Saturday: 09:00  - 13:00 </p>
+            <p>Sunday & public holidays: Closed</p>
           </div>
 
           {/* Column 3: Contact Information */}
           <div className='column'>
             <h3>Contact Information</h3>
             <p>Email: info@farauto.com</p>
-            <p>Phone: +1 (123) 456-7890</p>
-            <p>Address: 123 Main St, Cityville, State, 12345</p>
+            <p>Phone: +27 83 578 9437</p>
+            <p>Address: Cnr Muir Street and Selkirk StreetDistrict 6 Zonnebloem Cape TownSouth Africa</p>
           </div>
         </div>
 
