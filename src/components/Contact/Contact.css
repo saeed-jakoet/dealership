@@ -1,6 +1,6 @@
 
 .contact {
-    background: url('../images/contact.jpg') no-repeat center center/cover;
+    background: url('../images/contact5.jpg') no-repeat center center/cover;
     /* Set the background image */
     color: #fff;
     height: 100vh;
@@ -116,4 +116,31 @@ button:hover {
     background: radial-gradient(ellipse at bottom, #ff0000 0%, #000 70%);
     border-radius: 8px; /* Adjust the border-radius to match the main container */
     z-index: -1;
+}
+
+
+@media (max-width: 768px) {
+    .contact {
+        align-items: center; /* Center items vertically */
+        text-align: center; /* Center text */
+        padding: 20px;
+        padding-left: 20px; /* Adjust the left padding for better alignment */
+    }
+
+    .contact h1 {
+        text-align: center; /* Center text */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .contact p {
+        padding-left: 0; /* Remove left padding */
+    }
+
+    form {
+        max-width: 100%; /* Full width for mobile view */
+        padding: 15px; /* Adjust padding */
+        z-index: 0;
+    }
+
+    /* Add more styles as needed for better mobile responsiveness */
 }

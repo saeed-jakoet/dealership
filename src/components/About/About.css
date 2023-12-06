@@ -112,19 +112,22 @@
 @media screen and (max-width: 940px) {
   .about .arrow.left,
   .about .arrow.right {
-    position: relative;
-    top: auto;
-    transform: none;
-    margin-top: 10px; /* Add margin to separate from text */
+      position: absolute;
+      top: 700px; /* Adjust this value to move the buttons higher or lower */
+      font-size: 24px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transform: translateY(-50%);
   }
 
   .about .arrow.left {
-    left: auto;
-    text-align: center;
+    left: 10px;;
   }
 
   .about .arrow.right {
-    right: auto;
-    text-align: center;
+    right: 10px;
   }
+  
 }

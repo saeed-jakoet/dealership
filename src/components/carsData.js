@@ -1,12 +1,12 @@
 export const carsData = [
     {
-        name: ' 2019 Honda HR-V 1.8 Executive Auto',
+        name: '2019 Honda HR-V 1.8 Executive Auto',
         used: true,
-        mileage: 50000,
+        mileage: '52 500',
         transmissionType: 'Automatic',
-        price: 250000,
-        fuelType:  'Petrol',
-        dealershipAddress: '123 Main St, Cityville',
+        price: ' 329 900',
+        fuelType: 'Petrol',
+        year: '2019',
         imageUrl: require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
         imageUrls: [
             require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
@@ -27,16 +27,33 @@ export const carsData = [
             require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Rear Main.jpg'),
             require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Rear.jpg'),
             require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Rear2.jpg'),
-        ]
+        ],
+        extras: [],
+        sellerComments: `
+            Just in! In excellent condition with only 52000km. Honda's popular HR-V is the perfect family SAV. 
+            Stylish & Practical Including BALANCE OF PLAN. Extras include: Rear park sensors, Heated Seats, 
+            Reverse Camera, Bluetooth, Towbar, Touch Screen display, Keyless start, Keyless Entry, Leather seats, 
+            Climate Control and more. We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... 
+            Trade Ins Welcome... We Deliver Countrywide.
+        `,
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 2,
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'Grey',
+            bodyType: 'SUV',
+            warranty: 'Has Warranty',
+        },
     },
+
     {
         name: '2014 VW Golf Gti 2.0 DSG',
-        used: false,
-        mileage: 20000,
+        used: true,
+        mileage: '108 800',
         transmissionType: 'Manual',
-        price: 300000,
-        fuelType:  'Petrol',
-        dealershipAddress: '456 Oak St, Townsville',
+        price: ' 309 900',
+        fuelType: 'Petrol',
+        year: '2014',
         imageUrl: require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
         imageUrls: [
             require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
@@ -68,16 +85,31 @@ export const carsData = [
             require('./images/2014 VW Golf Gti 2.0 DSG/Rim.jpg'),
             require('./images/2014 VW Golf Gti 2.0 DSG/Rim2.jpg'),
         ],
+        extras: ['Panoramic roof', 'Xenon headlights'],
+        sellerComments: `
+            What an incredible sporty hatch. Just in & ready for its new home. 
+            Don't lose out on this beauty. Includes: Paddle Shift, Heated Seats, 
+            Heated Side Mirrors, Leather Seats, Climate Control. Contact us now! 
+            We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available. 
+            Trade-Ins Welcome. We Deliver Countrywide!
+        `,
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 2,
+            serviceHistory: 'Full Service History',
+            colour: 'Dark Grey',
+            bodyType: 'Hatchback',
+        },
     },
 
     {
         name: '2014 Jaguar F-Type 5.0 V8 S',
         used: false,
-        mileage: 20000,
+        mileage: '42 000',
         transmissionType: 'Automatic',
-        price: 400000,
-        fuelType:  'Petrol',
-        dealershipAddress: '789 Oak St, Citytown',
+        price: ' 639 900',
+        fuelType: 'Petrol',
+        year: '2014',
         imageUrl: require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
         imageUrls: [
             require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
@@ -100,15 +132,31 @@ export const carsData = [
             require('./images/2014 Jaguar F-Type 5.0 V8 S/Rim2.jpg'),
             require('./images/2014 Jaguar F-Type 5.0 V8 S/Tail end.jpg'),
         ],
-    },
+        sellerComments: `
+            JUST IN! Powerful, Sexy & so much fun. This beautiful powerhouse 5.0L V8 convertible is ready for her new home. 
+            We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome... We Deliver Countrywide...
+        `,
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 2,
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'Black',
+            bodyType: 'Cabriolet',
+        },
+        extras: [
+            'Camera for park distance control',
+            'Heated seats - front',
+        ],
+    }
+    ,
     {
         name: '2023 BMW X7 xDrive40d M Sport',
         used: true,
-        mileage: 15000,
+        mileage: '11 000',
         transmissionType: 'Automatic',
-        price: 1999900,
-        fuelType:  'Diesel',
-        dealershipAddress: '456 Pine St, Citytown',
+        price: ' 1 999 900',
+        fuelType: 'Diesel',
+        year: '2023',
         imageUrl: require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
         imageUrls: [
             require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
@@ -130,15 +178,30 @@ export const carsData = [
             require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333512.jpeg'),
             require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333515.jpeg'),
         ],
-    },
+        extras: [
+            'Heated seats - rear',
+            'Massaging seats - front',
+            'Panoramic roof',
+            'Sunroof',
+        ],
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 1,
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'White',
+            bodyType: 'SUV',
+            warranty: '50 Months',
+        },
+    }
+    ,
     {
         name: '2011 Mini Cooper Convertible',
         used: true,
-        mileage: 30000,
-        transmissionType: 'Automatic',
-        price: 150000,
-        fuelType:  'Petrol',
-        dealershipAddress: '789 Oak St, Cityville',
+        mileage: '151 200',
+        transmissionType: 'Manual',
+        price: ' 149 900',
+        fuelType: 'Petrol',
+        year: '2011',
         imageUrl: require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
         imageUrls: [
             require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
@@ -158,17 +221,38 @@ export const carsData = [
             require('./images/2011 Mini Cooper Convertible/Rear Main.jpg'),
             require('./images/2011 Mini Cooper Convertible/Rim.jpg'),
         ],
+        extras: [
+            'Climate control / automatic air conditioning',
+            'Leather upholstery',
+            'Xenon headlights',
+        ],
+        sellerComments: `
+            JUST IN & JUST IN TIME FOR SUMMER! A beautiful, fun & trendy drop top, 
+            in a stunning blue & tan leather combination. Features include: Leather Seats, 
+            Xenon headlights, Climate Control, Electric Windows & Mirrors, Rear Park Sensors. 
+            We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... 
+            Trade Ins Welcome... We Deliver Countrywide...
+        `,
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 2,
+            serviceHistory: 'Full Service History',
+            colour: 'Horizon Blue',
+            bodyType: 'Cabriolet',
+        },
     },
+    
     {
         name: '2018 Mercedes Benz A200 Amg Auto',
         used: true,
-        mileage: 117000,
+        mileage: '117 000',
         transmissionType: 'Auto',
-        price: 359900,
+        price: ' 359 900',
         fuelType: 'Petrol',
-        dealershipAddress: '1 Sugar Avenue',
-        imageUrl: require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9255.jpg'),
+        year: '2018',
+        imageUrl: require('./images/2018 Mercedes Benz A200 Amg Auto/27055242.jpg'),
         imageUrls: [
+            require('./images/2018 Mercedes Benz A200 Amg Auto/27055242.jpg'),
             require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9255.jpg'),
             require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9210.jpg'),
             require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9214.jpg'),
@@ -188,36 +272,40 @@ export const carsData = [
             require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9201.jpg'),
             require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9263.jpg'),
             require('./images/2018 Mercedes Benz A200 Amg Auto/IMG_9266.jpg'),
+            require('./images/2018 Mercedes Benz A200 Amg Auto/27055243.jpg'),
         ],
         extras: [
-            'Panoramic Sunroof',
-            'Xenon Headlights',
-            'Reverse Camera',
-            'Full Service History',
-            'Spare Keys',
+            'Autodim exterior mirrors',
+            'Camera for park distance control',
+            'Climate control / automatic air conditioning',
+            'High-beam assist',
+            'Keyless access+start / hands-free key',
+            'Light sensor / automatic light control (auto on-off lights)',
+            'Panoramic roof',
+            'Park distance control (PDC) - front',
+            'Park distance control (PDC) - rear',
+            'Rain sensor (auto wipers)',
+            'Sunroof',
+            'Xenon headlights',
         ],
+        sellerComments: `
+            This fuel-efficient AMG is sure to sell fast. Including features such as: Mountain Grey,
+            Active Park Assist, AMG bodystyling, AMG Sport, Dark-tinted glass, Diamond grille, KEYLESS-GO,
+            Comfort Access, LED static headlamps, Light & Sight package, Mirror package, Night package,
+            Panoramic sunroof, Preinstallation GarminMAP, Reversing camera. This vehicle is a must-see.
+            Don't miss the opportunity to own this incredible machine.
+            We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome...
+            We Deliver Countrywide... Contact Ismael for Excellent Service
+        `,
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 2,
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'Grey',
+            bodyType: 'Hatchback',
+        },
     },
 
-    {
-        name: '2014 Chevrolet Silverado 1500 LT Crew Cab For Sale',
-        used: false,
-        mileage: 45000,
-        transmissionType: 'Automatic',
-        price: 400000,
-        fuelType:  'Diesel',
-        dealershipAddress: '505 Walnut St, Riverside',
-        imageUrl: '',
-    },
 
-    {
-        name: '2017 Volkswagen Golf GTI For Sale',
-        used: true,
-        mileage: 35000,
-        transmissionType: 'Automatic',
-        price: 350000,
-        fuelType:  'Petrol',
-        dealershipAddress: '404 Birch St, Uptown',
-        imageUrl: '',
-    },
 
 ];

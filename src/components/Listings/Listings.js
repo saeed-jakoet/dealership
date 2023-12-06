@@ -1,8 +1,9 @@
+// Listings.js
 import React, { useState, useEffect } from 'react';
 import { Element } from 'react-scroll';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import './Listings.css';
+import './Listings.css'; 
 import { carsData } from '../carsData';
 import ImageCarousel from '../ImageCarousel';
 import EnquiryForm from './EnquiryForm';
@@ -11,24 +12,50 @@ import noCarPhoto from '../images/nophotocar.jpg';
 import mileageIcon from '../images/icons/mileage.jpg';
 import fuelIcon from '../images/icons/fuel.jpg';
 import transmissionIcon from '../images/icons/transmission.jpg';
+import calendar from '../images/icons/calendar.jpg'
 
 const Listings = () => {
     const [selectedCar, setSelectedCar] = useState(null);
     const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+    const [disableScroll, setDisableScroll] = useState(false);
 
     const handleListingClick = (car) => {
         setSelectedCar(car);
         setShowEnquiryForm(false);
+        setDisableScroll(true);
     };
 
     const handleCloseModal = () => {
         setSelectedCar(null);
         setShowEnquiryForm(false);
+        setDisableScroll(false);
     };
+
+    useEffect(() => {
+        const handleBodyScroll = () => {
+            if (disableScroll) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        };
+    
+        // Add event listener for scroll
+        window.addEventListener('scroll', handleBodyScroll);
+    
+        // Remove the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleBodyScroll);
+            // Reset overflow property when component unmounts
+            document.body.style.overflow = 'auto';
+        };
+    }, [disableScroll]);
+    
 
     const handleFormButtonClick = (e) => {
         e.stopPropagation();
         setShowEnquiryForm(true);
+        setDisableScroll(true);
     };
 
     const handleModalClick = (e) => {
@@ -54,9 +81,7 @@ const Listings = () => {
                 {selectedCar && selectedCar.imageUrls && (
                     <div className="modal-overlay" onClick={handleCloseModal}>
                         <div className="modal-content" onClick={handleModalClick}>
-                            <div className="image-carousel-container">
-                                <ImageCarousel images={selectedCar.imageUrls} onClose={handleCloseModal} />
-                            </div>
+                            <ImageCarousel carDetails={selectedCar} onClose={handleCloseModal} />
                             <div className="enquiry-form-container">
                                 {showEnquiryForm && selectedCar && (
                                     <motion.div
@@ -74,8 +99,6 @@ const Listings = () => {
                                 {!showEnquiryForm && (
                                     <motion.button
                                         className="enquire-button"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
                                         onClick={handleFormButtonClick}
                                     >
                                         Enquire
@@ -85,6 +108,7 @@ const Listings = () => {
                         </div>
                     </div>
                 )}
+                <Banner page={1} totalPages={5} onPageChange={(direction) => console.log(direction)} />
             </div>
         </Element>
     );
@@ -92,7 +116,7 @@ const Listings = () => {
 
 const noCarPhotoImage = <img src={noCarPhoto} alt="No Car Photo Available" className="icon" />;
 
-const ListingItem = ({ vehicle, onClick, onClose }) => {
+const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
         triggerOnce: true,
@@ -143,10 +167,27 @@ const ListingItem = ({ vehicle, onClick, onClose }) => {
                         <img src={fuelIcon} alt="Fuel Icon" className="icon" />
                         {vehicle.fuelType}
                     </p>
-                    <p className='dealership-address'>{vehicle.dealershipAddress}</p>
+                    <p className='calendar'>
+                        <img src={calendar} alt="Calendar Icon" className="icon" />
+                        {vehicle.year} 
+                    </p>
                 </div>
             </div>
         </motion.div>
+    );
+};
+
+const Banner = ({ page, totalPages, onPageChange }) => {
+    return (
+        <div className="banner-container">
+            <button className="arrow-button" onClick={() => onPageChange('prev')}>
+                {'<'}
+            </button>
+            <p className="page-indicator">{`Page ${page} of ${totalPages}`}</p>
+            <button className="arrow-button" onClick={() => onPageChange('next')}>
+                {'>'}
+            </button>
+        </div>
     );
 };
 

@@ -113,6 +113,7 @@
 
 /* Media query for responsive styling on screens with a maximum width of 940px */
 @media screen and (max-width: 940px) {
+
     .hero .content {
         padding-left: 1rem;
         /* Add some padding to the left for better spacing on smaller screens */
