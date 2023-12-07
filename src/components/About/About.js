@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { Element, Link } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'; // Import the icons
+import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import './About.css';
 
 const About = () => {
   const [currentImage, setCurrentImage] = useState(1);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
-  const totalImages = 4; 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const totalImages = 4;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -20,6 +21,7 @@ const About = () => {
       if (aboutSection) {
         const rect = aboutSection.getBoundingClientRect();
         setIsAboutVisible(rect.top < window.innerHeight && rect.bottom >= 0);
+        setScrollPosition(window.scrollY);
       }
     };
 
@@ -51,6 +53,9 @@ const About = () => {
         transition={{ ease: 'easeInOut', duration: 1 }}
       >
         <div id='about' className='content'>
+          <div className='parallax-bg-about' style={{
+            transform: `translateY(${Math.max(0, (scrollPosition - window.innerHeight) * 0.6)}px)`,
+          }}></div>
           <motion.h2 initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ ease: 'easeInOut', duration: 0.5 }}>
             Your Automotive Journey Begins Here
           </motion.h2>

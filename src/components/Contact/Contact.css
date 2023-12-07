@@ -1,16 +1,14 @@
-
 .contact {
     background: url('../images/contact5.jpg') no-repeat center center/cover;
-    /* Set the background image */
     color: #fff;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* Align text to the left */
     justify-content: center;
     position: relative;
     padding: 20px;
-    padding-left: 100px;
 }
 
 .contact::before {
@@ -21,64 +19,88 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    /* Adjust the last value (0.5) to control the opacity of the overlay */
     z-index: -1;
 }
 
-.contact h1 {
-    text-align: right;
-    padding-left: 100px;
+.text-container {
+    text-align: center;
+    margin-left: 210px;
+    /* Align text to the left */
 }
 
-.contact p {
-    padding-left: 55px;
+.text-container h1 {
+    margin-bottom: 10px;
+}
+
+.contact-text {
+    padding-left: 0;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container {
+    width: 60%;
+    padding: 0 20px;
+    margin-left: 0;
 }
 
 form {
     max-width: 400px;
     width: 100%;
     box-sizing: border-box;
-    background-color: #f8f8f8; /* Light gray background */
+    background-color: #f8f8f8;
     padding: 20px;
-    border-radius: 12px; /* Slightly rounded corners */
+    border-radius: 12px;
     margin-top: 20px;
     position: relative;
     z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+    width: 24%;
+    height: 400px;
+    border-radius: 12px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-bottom: 100pxs;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    color: #333; /* Dark gray text color */
+    color: #333;
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 12px; /* Increased padding for better readability */
+    padding: 12px;
     margin-bottom: 16px;
     box-sizing: border-box;
-    border: 1px solid #ddd; /* Light gray border */
-    border-radius: 6px; /* Slightly rounded input fields */
+    border: 1px solid #ddd;
+    border-radius: 6px;
 }
 
 button {
-    background-color: #ff4d4d; /* Red button color */
+    background-color: #ff4d4d;
     color: #fff;
     padding: 12px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: #cc0000;
 }
 
-
-/* Social Icons */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -114,31 +136,45 @@ button:hover {
     width: 100%;
     height: 100%;
     background: radial-gradient(ellipse at bottom, #ff0000 0%, #000 70%);
-    border-radius: 8px; /* Adjust the border-radius to match the main container */
+    border-radius: 8px;
+    /* Adjust the border-radius to match the main container */
     z-index: -1;
 }
 
 
 @media (max-width: 768px) {
     .contact {
-        align-items: center; /* Center items vertically */
-        text-align: center; /* Center text */
+        align-items: center;
+        /* Center items vertically */
+        text-align: center;
+        /* Center text */
         padding: 20px;
-        padding-left: 20px; /* Adjust the left padding for better alignment */
+        padding-left: 20px;
+        /* Adjust the left padding for better alignment */
     }
 
     .contact h1 {
-        text-align: center; /* Center text */
-        padding-left: 0; /* Remove left padding */
+        text-align: center;
+        /* Center text */
+        padding-left: 0;
+        /* Remove left padding */
     }
 
     .contact p {
-        padding-left: 0; /* Remove left padding */
+        padding-left: 0;
+        /* Remove left padding */
+    }
+
+    .text-container h1,
+    .contact-text {
+        padding-left: 0;
     }
 
     form {
-        max-width: 100%; /* Full width for mobile view */
-        padding: 15px; /* Adjust padding */
+        max-width: 100%;
+        /* Full width for mobile view */
+        padding: 15px;
+        /* Adjust padding */
         z-index: 0;
     }
 

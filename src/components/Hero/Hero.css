@@ -1,5 +1,3 @@
-/* Hero.css */
-
 /* Styling for the hero section */
 .hero {
     background-color: var(--overlay);
@@ -12,26 +10,21 @@
     /* Set the width to 100% of the viewport width */
     position: relative;
     /* Set the position property to relative for absolute positioning of children */
+    overflow: hidden; /* Add overflow property to hide potential horizontal scrolling */
 }
 
-/* Styling for a pseudo-element to create a background image */
-.hero:before {
-    content: '';
-    /* Generate content for the pseudo-element */
-    background: url('../images/hero.jpg') no-repeat center center/cover;
-    /* Set the background image */
-    height: 100%;
-    /* Set the height to 100% of the hero container */
-    width: 100%;
-    /* Set the width to 100% of the hero container */
+/* Styling for the parallax background */
+.parallax-bg {
     position: absolute;
-    /* Position the pseudo-element absolutely within the hero container */
     top: 0;
-    /* Align the top of the pseudo-element with the top of the hero container */
     left: 0;
-    /* Align the left of the pseudo-element with the left of the hero container */
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/hero.jpg'); /* Adjust the path accordingly */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     z-index: -1;
-    /* Place the pseudo-element behind other content in the hero container */
 }
 
 /* Styling for the content within the hero container */
@@ -110,10 +103,8 @@
     /* Set the border color on hover using a CSS variable */
 }
 
-
 /* Media query for responsive styling on screens with a maximum width of 940px */
 @media screen and (max-width: 940px) {
-
     .hero .content {
         padding-left: 1rem;
         /* Add some padding to the left for better spacing on smaller screens */
@@ -136,5 +127,4 @@
     body {
         overflow-x: hidden;
     }
-
 }

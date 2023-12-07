@@ -4,7 +4,8 @@ import Hero from './Hero/Hero';
 import About from './About/About';
 import Featured from './Featured/Featured';
 import Contact from './Contact/Contact';
-import Listings from './Listings/Listings'
+import Listings from './Listings/Listings';
+import Divider from './Divider/Divider'; // Make sure to import Divider
 
 const Page = ({ content }) => {
   switch (content) {
@@ -17,7 +18,9 @@ const Page = ({ content }) => {
     case 'contact':
       return <Contact />;
     case 'listings':
-      return <Listings />
+      return <Listings />;
+    case 'divider':
+      return <Divider />;
     default:
       return null;
   }
