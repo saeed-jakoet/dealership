@@ -33,15 +33,15 @@
 }
 
 .about[data-current-image='1'] .parallax-bg-about {
-  background-image: url('../images/hero4.jpg');
+  background-image: url('../images/about.jpg');
 }
 
 .about[data-current-image='2'] .parallax-bg-about {
-  background-image: url('../images/hero2.jpg');
+  background-image: url('../images/about1.jpg');
 }
 
 .about[data-current-image='3'] .parallax-bg-about {
-  background-image: url('../images/audi.jpg');
+  background-image: url('../images/about2.jpg');
 }
 
 .about[data-current-image='4'] .parallax-bg-about {

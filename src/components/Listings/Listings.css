@@ -48,10 +48,6 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.vehicle-listing:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px #9F6C01;
-}
 
 .image-container {
     max-width: 50%;
@@ -90,16 +86,18 @@
 .price {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #9F6C01;
+    color: #fb1c1c;
 }
 
 body {
     font-family: sans-serif;
-    overflow-y: auto; /* Allow vertical scrolling by default */
+    overflow-y: auto;
+    /* Allow vertical scrolling by default */
 }
 
 .modal-open {
-    overflow: hidden; /* Disable vertical scrolling when modal is open */
+    overflow: hidden;
+    /* Disable vertical scrolling when modal is open */
 }
 
 .name {
@@ -177,10 +175,12 @@ body {
 
 .carousel-button.prev {
     left: 10px;
+    margin-top: 100px;
 }
 
 .carousel-button.next {
     right: 10px;
+    margin-top: 100px;
 }
 
 .close-button {
@@ -307,9 +307,12 @@ body {
 }
 
 .enquire-button {
-    width: 100%; /* Fill the available width */
-    height: 70px; /* Set the desired height */
-    padding: 20px; /* Adjust the padding to increase height */
+    width: 100%;
+    /* Fill the available width */
+    height: 70px;
+    /* Set the desired height */
+    padding: 20px;
+    /* Adjust the padding to increase height */
     background-color: #b32f2f;
     color: #fff;
     border: none;
@@ -339,7 +342,7 @@ body {
     position: relative;
     background-color: #b32f2f;
     /* A shade of red */
-    height: 90px;
+    height: 60px;
     width: 80%;
     display: flex;
     align-items: center;
@@ -347,6 +350,38 @@ body {
     /* Add a subtle shadow */
     margin-bottom: 52px;
     margin-top: 30px;
+}
+
+.enquiry-form label {
+    margin-bottom: 8px;
+    color: #030303;
+    position: relative;
+}
+
+.required-field {
+    font-size: 0.8rem;
+    color: #ff0000;
+    /* Red color */
+    margin-left: 3px;
+}
+
+.enquiry-form button.submit-button {
+    background-color: #b32f2f;
+    /* Change the color to your desired color */
+    color: #fff;
+    /* Set text color to white or a contrasting color */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Add a hover effect if desired */
+.enquiry-form button.submit-button:hover {
+    background-color: #802323;
+    /* Change the hover color to your desired color */
 }
 
 .banner {
@@ -471,7 +506,8 @@ body {
     .enquiry-form-container {
         width: 100%;
         padding: 10px;
-        display: flex; /* Ensure it's set to display: flex; initially */
+        display: flex;
+        /* Ensure it's set to display: flex; initially */
         position: absolute;
         top: 50%;
         left: 50%;
@@ -485,9 +521,11 @@ body {
     .show-enquiry-form .enquiry-form-container {
         display: flex;
     }
+
     .carousel-button {
         position: absolute;
-        top: 130px; /* Adjust this value to move the buttons higher or lower */
+        top: 130px;
+        /* Adjust this value to move the buttons higher or lower */
         font-size: 24px;
         color: #fff;
         background: none;
@@ -495,12 +533,15 @@ body {
         cursor: pointer;
         transform: translateY(-50%);
     }
+
     .carousel-button.prev {
-        left: 1px; /* Adjust this value to move the "prev" button to the left */
+        left: 1px;
+        /* Adjust this value to move the "prev" button to the left */
     }
-    
+
     .carousel-button.next {
-        right: 1px; /* Adjust this value to move the "next" button to the right */
+        right: 1px;
+        /* Adjust this value to move the "next" button to the right */
     }
 
 }

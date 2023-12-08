@@ -1,9 +1,8 @@
 /* Footer.css */
 
 .footer {
-  background-color: #a02424;
-  /* Change the background color as per your design */
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   padding: 40px 0;
   cursor: pointer;
 }
@@ -23,39 +22,32 @@
 
 .column {
   flex: 1;
-  text-align: left;
-  /* Align text to the left */
+  text-align: center;
   padding: 0 15px;
-  /* Adjust the padding as needed */
 }
 
 /* Add space and pipe between columns */
 .column:not(:last-child) {
   margin-right: 10px;
-  border-right: 1px solid #fff;
-  /* Pipe style */
+  border-right: 1px solid #000000;
   padding-right: 10px;
 }
 
 /* Add an additional pipe between logo and navigation */
 .column:first-child {
-  border-right: 1px solid #fff;
-  /* Pipe style */
+  border-right: 1px solid #000000;
   padding-right: 10px;
-
+  padding-left: 10px;
 }
 
 h3 {
   font-size: 18px;
   margin-bottom: 10px;
-
 }
 
 .logo {
   max-width: 150px;
-  /* Adjust the max-width as needed */
 }
-
 
 ul {
   list-style: none;
@@ -66,19 +58,21 @@ ul {
   margin-bottom: 20px;
 }
 
-.nav-item {
-  font-size: 18px;
+.column ul li {
+  font-size: 18px; /* Adjust font size as needed */
+  display: inline-block; /* Display items in a line */
 }
 
-.nav-item a {
+.column ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #000000;
   transition: color 0.3s ease;
+  white-space: nowrap; /* Prevent line break between words */
 }
 
-.nav-item a:hover {
+.column ul li a:hover {
   padding: 5px;
-  color: rgb(255, 255, 255);
+  color: #b32f2f;
   border-bottom: 3px solid var(--secondary-color);
 }
 
@@ -89,14 +83,13 @@ ul {
 }
 
 .social-icons a {
-  color: #fff;
+  color: #ff0000;
   font-size: 24px;
   transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #00f;
-  /* Change the color on hover as per your design */
+  color: #b32f2f;
 }
 
 .bottom {
@@ -119,39 +112,40 @@ p {
 
 @media only screen and (max-width: 768px) {
   .columns {
-    flex-direction: column; /* Change to column layout for mobile view */
-    align-items: center; /* Center-align items horizontally in the column for mobile view */
+    flex-direction: column;
+    align-items: center;
   }
 
   .column {
-    text-align: center; /* Center-align text in the column for mobile view */
-    padding: 0; /* Remove padding for mobile view */
+    text-align: center;
+    padding: 0;
   }
 
   .column:not(:last-child) {
     margin-right: 0;
-    border-right: none; /* Remove border for mobile view */
+    border-right: none;
     padding-right: 0;
   }
 
   .column:first-child {
-    border-right: none; /* Remove border for mobile view */
+    border-right: none;
     padding-right: 0;
+    padding-left: 0;
   }
 
   .logo {
-    max-width: 120px; /* Adjust the max-width as needed for mobile view */
+    max-width: 120px;
   }
 
   ul {
-    gap: 10px; /* Adjust gap between navigation items for better spacing in mobile view */
+    gap: 10px;
   }
 
-  .nav-item {
-    font-size: 16px; /* Adjust font size for better visibility in mobile view */
+  .column ul li {
+    font-size: 16px;
   }
 
-  .column:not(:last-child) {
+  .column ul li:not(:last-child) {
     border-bottom: 1px solid #fff;
     padding-bottom: 10px;
   }

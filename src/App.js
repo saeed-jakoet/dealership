@@ -15,6 +15,7 @@ function App() {
       {/* <Page content="featured" /> */}
       <Page content="listings" />
       <Page content="contact" />
+      <Page content="divider" />
       <Footer />
     </Router>
   );

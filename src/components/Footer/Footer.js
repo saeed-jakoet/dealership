@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-scroll';
-import { FaInstagram, FaFacebook } from 'react-icons/fa';
-import { RiTwitterXLine } from "react-icons/ri";
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import Logo from '../images/logo.png'
 import './Footer.css';
 
@@ -41,7 +40,7 @@ const Footer = () => {
             <h3>Contact Information</h3>
             <p>Email: info@farauto.com</p>
             <p>Phone: +27 83 578 9437</p>
-            <p>Address: Cnr Muir Street and Selkirk StreetDistrict 6 Zonnebloem Cape TownSouth Africa</p>
+            <p>Address: 3 Muir Street and Selkirk StreetDistrict 6 Zonnebloem Cape TownSouth Africa</p>
           </div>
         </div>
 
@@ -49,7 +48,7 @@ const Footer = () => {
         <div className='social-icons'>
           <a href='https://instagram.com' target='_blank' rel='noopener noreferrer'><FaInstagram /></a>
           <a href='https://facebook.com' target='_blank' rel='noopener noreferrer'><FaFacebook /></a>
-          <a href='https://x.com' target='_blank' rel='noopener noreferrer'><RiTwitterXLine /></a>
+          <a href='https://wa.me/0796957936' target='_blank' rel='noopener noreferrer'><FaWhatsapp /></a> 
         </div>
 
         {/* Bottom Line */}

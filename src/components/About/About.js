@@ -80,10 +80,10 @@ const About = () => {
           </Link>
         </div>
         <div className='arrow left' onClick={() => handleImageChange('prev')}>
-          <SlArrowLeft /> {/* Use the left arrow icon */}
+          <SlArrowLeft /> 
         </div>
         <div className='arrow right' onClick={() => handleImageChange('next')}>
-          <SlArrowRight /> {/* Use the right arrow icon */}
+          <SlArrowRight />
         </div>
       </motion.div>
     </Element>
