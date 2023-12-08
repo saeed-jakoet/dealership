@@ -8,7 +8,8 @@
 
 .listings-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 .listings-header h1 {
@@ -16,11 +17,60 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .listings-header p {
     font-size: 1rem;
     color: #888;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Underline animation */
+.listings-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.listings-header:hover::before {
+    width: 200%;
+    left: -50%;
+}
+
+/* Columns for additional content */
+.listings-columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.listings-column {
+    flex: 1;
+    text-align: center;
+}
+
+.listings-column h2 {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.listings-column p {
+    font-size: 1.2rem;
+    color: #95a5a6;
+}
+
+/* Subtle scale-up animation on hover for columns */
+.listings-column:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 .listings-container {
@@ -86,7 +136,7 @@
 .price {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fb1c1c;
+    color: var(--secondary-color);
 }
 
 body {
@@ -340,13 +390,13 @@ body {
 
 .banner-container {
     position: relative;
-    background-color: #b32f2f;
+    background-color: var(--secondary-color);
     /* A shade of red */
     height: 60px;
     width: 80%;
     display: flex;
     align-items: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
     /* Add a subtle shadow */
     margin-bottom: 52px;
     margin-top: 30px;
@@ -484,6 +534,7 @@ body {
         align-items: center;
         overflow: auto;
         position: relative;
+        z-index: 1001;
     }
 
     .image-carousel-container {
@@ -497,21 +548,21 @@ body {
         object-fit: contain;
     }
 
-    .enquire-button {
-        width: 100%;
-        margin-top: auto;
-        display: block;
-    }
-
     .enquiry-form-container {
         width: 100%;
         padding: 10px;
         display: flex;
-        /* Ensure it's set to display: flex; initially */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        flex-direction: column; /* Stack items vertically */
+        justify-content: flex-end; /* Align items to the bottom */
+        align-items: center;
+    }
+
+    .enquire-button {
+        width: 100%;
+        height: 40px; /* Set your desired height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .enquiry-form {
@@ -536,11 +587,13 @@ body {
 
     .carousel-button.prev {
         left: 1px;
+        margin-top: 11%;
         /* Adjust this value to move the "prev" button to the left */
     }
 
     .carousel-button.next {
         right: 1px;
+        margin-top: 11%;
         /* Adjust this value to move the "next" button to the right */
     }
 

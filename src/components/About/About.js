@@ -54,7 +54,7 @@ const About = () => {
       >
         <div id='about' className='content'>
           <div className='parallax-bg-about' style={{
-            transform: `translateY(${Math.max(0, (scrollPosition - window.innerHeight) * 0.6)}px)`,
+            transform: `translateY(${Math.max(0, (scrollPosition - window.innerHeight -100) * 0.6)}px)`,
           }}></div>
           <motion.h2 initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ ease: 'easeInOut', duration: 0.5 }}>
             Your Automotive Journey Begins Here

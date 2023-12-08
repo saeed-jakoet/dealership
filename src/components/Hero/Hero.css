@@ -121,6 +121,7 @@
         /* Remove right margin for left alignment on smaller screens */
         padding-left: 0;
         /* Remove left padding for left alignment on smaller screens */
+        text-align: center;
     }
 
     /* Add this CSS to remove horizontal scrolling on mobile */

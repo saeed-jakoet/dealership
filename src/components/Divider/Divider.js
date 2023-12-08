@@ -9,8 +9,7 @@ const Divider = () => {
             <div className="divider">
                 <div className="parallax-content">
                     {/* Add your creative content here */}
-                    <h2>Parallax Page</h2>
-                    <p>This is a simple parallax page for your scroll app.</p>
+                    <h2>divider</h2>
                 </div>
             </div>
         </Element>

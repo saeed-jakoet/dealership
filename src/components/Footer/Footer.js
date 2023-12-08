@@ -44,13 +44,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Icons */}
-        <div className='social-icons'>
-          <a href='https://instagram.com' target='_blank' rel='noopener noreferrer'><FaInstagram /></a>
-          <a href='https://facebook.com' target='_blank' rel='noopener noreferrer'><FaFacebook /></a>
-          <a href='https://wa.me/0796957936' target='_blank' rel='noopener noreferrer'><FaWhatsapp /></a> 
-        </div>
-
         {/* Bottom Line */}
         <div className='bottom'>
           <span className='line'></span>
