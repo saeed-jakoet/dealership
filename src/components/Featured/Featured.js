@@ -1,146 +1,93 @@
-
-
+// Featured.js
 import React, { useState, useEffect } from 'react';
-import { Link, animateScroll as scroll, Element } from 'react-scroll';
+import { Element } from 'react-scroll';
+import { motion } from 'framer-motion';
+import { Parallax } from 'react-parallax';
 import './Featured.css';
-import car1Image from '../images/audi.jpg';
-import car2Image from '../images/audi.jpg';
-import car3Image from '../images/audi.jpg';
 
-const Featured = ({ activeContent }) => {
-  const [cars, setCars] = useState([]);
-  const [filteredCars, setFilteredCars] = useState([]);
-  const [filter, setFilter] = useState({
-    type: 'all',
-    make: '',
-    model: '',
-    price: 0,
-  });
+import featuredImage from '../images/old.jpg';
+import jaguar from '../images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'
+import bmw from '../images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333503.jpeg'
+import gti from '../images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'
+
+const CarCard = ({ name, make, model, price, imageUrl }) => (
+  <div className='car-card' key={name}>
+    <img src={imageUrl} alt={`Car ${name}`} />
+    <div className='car-details'>
+      <p>{name}</p>
+      {/* Additional details or buttons can be added here */}
+    </div>
+  </div>
+);
+
+
+const Featured = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const mockCars = [
-      { id: 1, name: 'Toyota Camry', make: 'Toyota', model: 'Camry', price: 15000, imageUrl: car1Image },
-      { id: 2, name: 'Honda Accord', make: 'Honda', model: 'Accord', price: 18000, imageUrl: car2Image },
-      { id: 3, name: 'Ford Fusion', make: 'Ford', model: 'Fusion', price: 20000, imageUrl: car3Image },
-      { id: 4, name: 'Bmw 118i', make: 'Bmw', model: '118i', price: 524425, imageUrl: car3Image }, // Fixed model name
-      // Add more cars as needed
-    ];
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
 
-    setCars(mockCars);
-    setFilteredCars(mockCars);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  const handleFilterChange = (event) => {
-    setFilter({
-      ...filter,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handlePriceChange = (value) => {
-    setFilter({
-      ...filter,
-      price: parseInt(value, 10),
-    });
-  };
-
-  const handleSearch = () => {
-    // Filter the cars based on the current filter settings
-    const filtered = cars.filter((car) => {
-      return (
-        (filter.type === 'all' || (filter.type === 'new' && !car.used) || (filter.type === 'used' && car.used)) &&
-        (!filter.make || car.make === filter.make) &&
-        (!filter.model || car.model === filter.model) &&
-        car.price <= filter.price
-      );
-    });
-
-    // Update the state only when the user clicks the search button
-    setFilteredCars(filtered);
-  };
-
   return (
-    <div className={`featured ${activeContent === 'featured' ? 'active' : ''}`}>
-      <Element name='featured'>
-        <div className='featured' id='featured'>
-          <div className='container'>
-            {/* Display cars based on filters */}
-            <div className='car-list-container'>
-              <div className='car-list'>
-                {filteredCars.map((car) => (
-                  <div className='car-card' key={car.id}>
-                    <img src={car.imageUrl} alt={`Car ${car.id}`} />
-                    <div className='car-details'>
-                      <p>{car.name}</p>
-                      <Link to='demo' smooth={true} duration={500}>
-                        <button className='showroom-button'>View In Showroom</button>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <form className='filter-form'>
-                {/* Form for filtering */}
-                <div className='filter-option'>
-                  <label>Type:</label>
-                  <select name='type' value={filter.type} onChange={handleFilterChange}>
-                    <option value='all'>All Cars</option>
-                    <option value='new'>New Cars</option>
-                    <option value='used'>Used Cars</option>
-                  </select>
-                </div>
+    <Element name='featured'>
+      <Parallax
+        blur={0}
+        bgImage={featuredImage}
+        bgImageAlt='featured'
+        strength={scrollPosition * 0.3}
+        style={{
+          width: '99vw',
+          height: '100vh',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+        renderLayer={() => (
+          <div className='overlay-featured'></div>
+        )}
+      >
+        <div className='container-featured'>
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ ease: 'easeInOut', duration: 1 }}
+          >
+            <p>Welcome to the world of luxury cars at XYZ Motors. Explore our carefully curated selection of high-performance vehicles that redefine elegance and power.</p>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              transition={{ ease: 'easeInOut', duration: 1.5 }}
+            >
+            </motion.div>
+          </motion.div>
 
-                <div className='filter-option'>
-                  <label>Make:</label>
-                  <select name='make' value={filter.make} onChange={handleFilterChange}>
-                    <option value=''>Select Make</option>
-                    {[...new Set(cars.map((car) => car.make))].map((make) => (
-                      <option key={make} value={make}>
-                        {make}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className='filter-option'>
-                  <label>Model:</label>
-                  <select name='model' value={filter.model} onChange={handleFilterChange}>
-                    <option value=''>Select Model</option>
-                    {filter.make &&
-                      [...new Set(cars.filter((car) => car.make === filter.make).map((car) => car.model))].map(
-                        (model) => (
-                          <option key={model} value={model}>
-                            {model}
-                          </option>
-                        )
-                      )}
-                  </select>
-                </div>
-
-                <div className='filter-option'>
-                  <label>Price:</label>
-                  <input
-                    type='range'
-                    name='price'
-                    min='0'
-                    max='2000000'
-                    step='10000'
-                    value={filter.price}
-                    onChange={(e) => handlePriceChange(e.target.value)}
-                    className='price-slider filter-option'
-                  />
-                  <span>R{filter.price.toLocaleString()}</span>
-                </div>
-
-                <button type='button' onClick={handleSearch} className='search-button'>
-                  Search
-                </button>
-              </form>
-            </div>
+          {/* Additional Car Cards */}
+          <div className='car-list'>
+            <CarCard
+              name='Jaguar'
+              imageUrl={jaguar}
+            />
+            <CarCard
+              name='BMW'
+              imageUrl={bmw}
+            />
+            <CarCard
+              name='Golf 7 GTI'
+              imageUrl={gti}
+            />
           </div>
         </div>
-      </Element>
-    </div>
+      </Parallax>
+    </Element>
   );
 };
 

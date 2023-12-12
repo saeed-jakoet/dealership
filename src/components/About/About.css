@@ -33,7 +33,7 @@
 }
 
 .about[data-current-image='1'] .parallax-bg-about {
-  background-image: url('../images/about.jpg');
+  background-image: url('../images/desert.jpg');
 }
 
 .about[data-current-image='2'] .parallax-bg-about {

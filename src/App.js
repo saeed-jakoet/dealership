@@ -9,13 +9,10 @@ function App() {
     <Router>
       <Navbar />
       <Page content="hero" />
-      <Page content="divider" />
       <Page content="about" />
-      <Page content="divider" />
-      {/* <Page content="featured" /> */}
+      <Page content="featured" />
       <Page content="listings" />
       <Page content="contact" />
-      <Page content="divider" />
       <Footer />
     </Router>
   );

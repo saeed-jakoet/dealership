@@ -14,7 +14,7 @@
 }
 
 /* Styling for the parallax background */
-.parallax-bg {
+.parallax-bg-hero{
     position: absolute;
     top: 0;
     left: 0;

@@ -20,7 +20,7 @@ const Hero = () => {
 
   return (
     <div id='hero' className='hero'>
-      <div className='parallax-bg' style={{ backgroundPositionY: `${scrollPosition * 0.5}px` }}></div>
+      <div className='parallax-bg-hero' style={{ backgroundPositionY: `${scrollPosition * 0.5}px` }}></div>
       <div className='content'>
         <motion.div
           initial={{ opacity: 0, y: -50 }}

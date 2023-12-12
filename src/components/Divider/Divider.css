@@ -2,7 +2,7 @@
 .parallax-page {
     height: 200px;
     /* Adjust the height as needed */
-    background-color: rgb(0, 0, 0.6);
+    background-color: var(--primary-dark);
     overflow: hidden;
     perspective: 1px;
 }
@@ -11,7 +11,7 @@
     transform-origin: top;
     height: 100%;
     overflow: hidden;
-    background-color: rgb(0, 0, 0.6);
+    background-color: var(--primary-dark);
     color: black;
     display: flex;
     flex-direction: column;
@@ -20,11 +20,11 @@
 }
 
 .divider h2 {
-    color: rgb(0, 0, 0.1);
+    color: var(--primary-dark);
 }
 
 .divider p {
-    color: rgb(0, 0, 0.1);
+    color: var(--primary-dark);
 }
 
 /* Add any additional styling for your creative content */
