@@ -87,7 +87,7 @@
     /* Set the top and bottom margins of the button */
     width: 200px;
     /* Set the width of the button */
-    background-color: var(--secondary-color);
+    background: linear-gradient(to right, #ff4500, #ff0000);
     /* Set the background color using a CSS variable */
     border: 1px solid var(--secondary-color);
     /* Set the border color using a CSS variable */

@@ -30,12 +30,20 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
+    console.log('Before form validation');
+  
     e.preventDefault();
-
+  
     if (!isFormValid()) {
+      console.log('Form validation failed');
       alert('Please fill in all fields correctly.');
       return;
     }
+  
+    console.log('Form validation passed');
+  
+    console.log('Form submitted:', formData);
+  
 
     emailjs
       .sendForm('service_dbcag1q', 'template_nmezp0m', form.current, 'w8cyA_fEWwsNf6qBs')

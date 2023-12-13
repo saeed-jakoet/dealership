@@ -5,7 +5,7 @@ import About from './About/About';
 import Featured from './Featured/Featured';
 import Contact from './Contact/Contact';
 import Listings from './Listings/Listings';
-import Divider from './Divider/Divider'; // Make sure to import Divider
+import Divider from './Divider/Divider'; 
 
 const Page = ({ content }) => {
   switch (content) {

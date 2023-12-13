@@ -7,6 +7,7 @@ export const carsData = [
         price: ' 329 900',
         fuelType: 'Petrol',
         year: '2019',
+        brand:'Honda',
         imageUrl: require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
         imageUrls: [
             require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
@@ -54,6 +55,7 @@ export const carsData = [
         price: ' 309 900',
         fuelType: 'Petrol',
         year: '2014',
+        brand:'Volkswagen',
         imageUrl: require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
         imageUrls: [
             require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
@@ -110,6 +112,7 @@ export const carsData = [
         price: ' 639 900',
         fuelType: 'Petrol',
         year: '2014',
+        brand:'Jaguar',
         imageUrl: require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
         imageUrls: [
             require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
@@ -157,6 +160,7 @@ export const carsData = [
         price: ' 1 999 900',
         fuelType: 'Diesel',
         year: '2023',
+        brand:'Bmw',
         imageUrl: require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
         imageUrls: [
             require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
@@ -202,6 +206,7 @@ export const carsData = [
         price: ' 149 900',
         fuelType: 'Petrol',
         year: '2011',
+        brand:'Mini',
         imageUrl: require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
         imageUrls: [
             require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
@@ -250,6 +255,7 @@ export const carsData = [
         price: ' 359 900',
         fuelType: 'Petrol',
         year: '2018',
+        brand:'Mercedes',
         imageUrl: require('./images/2018 Mercedes Benz A200 Amg Auto/27055242.jpg'),
         imageUrls: [
             require('./images/2018 Mercedes Benz A200 Amg Auto/27055242.jpg'),
