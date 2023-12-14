@@ -5,7 +5,6 @@ import About from './About/About';
 import Featured from './Featured/Featured';
 import Contact from './Contact/Contact';
 import Listings from './Listings/Listings';
-import Divider from './Divider/Divider'; 
 
 const Page = ({ content }) => {
   switch (content) {
@@ -19,8 +18,6 @@ const Page = ({ content }) => {
       return <Contact />;
     case 'listings':
       return <Listings />;
-    case 'divider':
-      return <Divider />;
     default:
       return null;
   }

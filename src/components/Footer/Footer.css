@@ -80,10 +80,17 @@ ul {
   color: #b32f2f;
 }
 
+/* Bottom */
 .bottom {
   text-align: center;
-  margin-top: 20px;
+  position: relative;
+  margin-top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
 }
+
 
 .line {
   width: 80px;
@@ -91,6 +98,7 @@ ul {
   background-color: #b32f2f;
   margin: 10px auto;
 }
+
 
 .column p {
   font-size: 14px;
@@ -136,4 +144,6 @@ ul {
     font-size: 14px;
     margin-bottom: 8px;
   }
+
+  
 }

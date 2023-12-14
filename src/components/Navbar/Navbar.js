@@ -1,7 +1,7 @@
 // Navbar.js
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../images/logo2.png';
+import logo from '../images/logo3.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import './Navbar.css';
@@ -22,7 +22,7 @@ const Navbar = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         setScrolling(false);
-      }, 1); // Adjust the timeout duration as needed
+      }, 3000); // Adjust the timeout duration as needed
     };
 
     window.addEventListener('scroll', handleScroll);

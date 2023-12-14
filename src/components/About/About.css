@@ -4,7 +4,7 @@
   position: relative;
   background-color: var(--overlay);
   color: #fff;
-  height: 100vh;
+  height: 115vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -116,24 +116,6 @@
 .about .arrow:hover {
   color: #cc9966; /* Light brown color */
 }
-
-.about .showroom-button {
-  margin-top: 2rem;
-  padding: 12px 24px;
-  background: linear-gradient(to right, #ff4500, #ff0000);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.about .showroom-button:hover {
-  background: linear-gradient(to right, #ff0000, #cc0000);
-}
-
-
 
 /* For mobile devices, move arrows below the text */
 @media screen and (max-width: 940px) {

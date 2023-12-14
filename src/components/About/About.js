@@ -79,16 +79,6 @@ const About = () => {
             <motion.p initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ ease: 'easeInOut', duration: 1.1 }}>
               Explore the passion for quality and satisfaction with FarAuto, your trusted automotive partner.
             </motion.p>
-            <Link to='listings' smooth={true} duration={500}>
-              <motion.button
-                className='showroom-button'
-                initial={{ x: 50 }}
-                animate={{ x: 0 }}
-                transition={{ ease: 'easeInOut', duration: 1.3 }}
-              >
-                View Showroom
-              </motion.button>
-            </Link>
           </div>
           <div className='arrow left' onClick={() => handleImageChange('prev')}>
             <SlArrowLeft />
