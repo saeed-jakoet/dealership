@@ -37,7 +37,7 @@
 }
 
 .about[data-current-image='2'] .parallax-bg-about {
-  background-image: url('../images/about1.jpg');
+  background-image: url('../images/old.jpg');
 }
 
 .about[data-current-image='3'] .parallax-bg-about {
@@ -61,8 +61,7 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: linear-gradient(to right, var(--secondary-color), var(--secondary-dark) ); /* Orange color */
-  
+  color: linear-gradient(to right, var(--secondary-color), var(--secondary-dark));
 }
 
 .about p {
@@ -96,6 +95,9 @@
   font-size: 2rem;
   color: #fff;
   transition: color 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
 }
 
 .about .arrow.left,
@@ -125,18 +127,21 @@
     top: 700px; /* Adjust this value to move the buttons higher or lower */
     font-size: 18px; /* Decreased font size for mobile */
     color: #fff;
-    background: none;
-    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 8px;
     cursor: pointer;
     transform: translateY(-50%);
   }
 
   .about .arrow.left {
     left: 10px;
+    margin-top: 200px;
   }
 
   .about .arrow.right {
     right: 10px;
+    margin-top: 200px;
   }
 
   .about h2 {

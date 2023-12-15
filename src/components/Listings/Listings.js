@@ -1,5 +1,5 @@
 // Listings.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Element } from 'react-scroll';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -12,12 +12,17 @@ import noCarPhoto from '../images/nophotocar.jpg';
 import mileageIcon from '../images/icons/mileage.jpg';
 import fuelIcon from '../images/icons/fuel.jpg';
 import transmissionIcon from '../images/icons/transmission.jpg';
-import calendar from '../images/icons/calendar.jpg'
+import calendar from '../images/icons/calendar.jpg';
 
 const Listings = () => {
     const [selectedCar, setSelectedCar] = useState(null);
     const [showEnquiryForm, setShowEnquiryForm] = useState(false);
     const [disableScroll, setDisableScroll] = useState(false);
+
+    const sortedCarsData = useMemo(() => {
+        // Sort the carsData array alphabetically by brand
+        return [...carsData].sort((a, b) => a.brand.localeCompare(b.brand));
+    }, []);
 
     const handleListingClick = (car) => {
         setSelectedCar(car);
@@ -50,7 +55,6 @@ const Listings = () => {
             document.body.style.overflow = 'auto';
         };
     }, [disableScroll]);
-    
 
     const handleFormButtonClick = (e) => {
         e.stopPropagation();
@@ -69,7 +73,7 @@ const Listings = () => {
                     <h1>Car Listings</h1>
                     <p>Explore our latest car inventory</p>
                 </div>
-                {carsData.map((vehicle, index) => (
+                {sortedCarsData.map((vehicle, index) => (
                     <ListingItem
                         key={index}
                         vehicle={vehicle}

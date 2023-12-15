@@ -1,5 +1,6 @@
 .featured {
   position: relative;
+  background-color: var(--overlay);
   color: #fff;
   height: 110vh;
   width: 100%;
@@ -16,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../images/darkf.jpg');
+  background-image: url('../images/rb.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -27,8 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
-  margin-top: 400px; /* Adjust the margin as needed */
+  margin-bottom: 10px; /* Adjusted margin */
   position: relative;
 }
 
@@ -59,36 +59,68 @@
   z-index: 0; /* Set a lower z-index for other images */
 }
 
-@keyframes slide-in-bottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.featured-text {
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Position the text absolutely */
+  top: 0; /* Position it at the center vertically */
+  transform: translateY(-50%); /* Adjust to center it perfectly */
 }
 
-@keyframes slide-in-left {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.featured-text h1 {
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
 }
 
-@keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
+.featured-text p {
+  font-size: 18px;
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  /* Featured Section */
+  .featured {
+    height: auto;
+    padding: 80px 10px; /* Increased padding */
   }
-  to {
-    transform: translateX(0);
+
+  .carousel-container-featured {
+    flex-direction: column; /* Stack images vertically on mobile */
+    align-items: center;
+  }
+
+  .carousel-container-featured img {
+    width: 100%;
+    max-width: 300px; /* Adjusted max-width for mobile */
+    height: auto; /* Allow height to adjust according to aspect ratio */
+    margin: 0 0 20px 0; /* Increased margin for more spacing between images */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0.8;
+  }
+
+  .carousel-container-featured img.middle-image {
     opacity: 1;
+    transform: scale(1);
+  }
+
+  .featured-text {
+    margin-top: 60px; /* Increased margin-top for more spacing */
+  }
+
+  .featured-text h1 {
+    font-size: 24px; /* Adjusted font size for better readability */
+  }
+
+  .featured-text p {
+    font-size: 16px; /* Adjusted font size for better readability */
+    margin-bottom: 20px; /* Increased margin-bottom for more spacing */
+  }
+
+  /* Page Length Adjustment */
+  body {
+    min-height: 150vh; /* Adjusted min-height for longer page */
   }
 }
-

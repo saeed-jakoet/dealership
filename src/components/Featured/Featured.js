@@ -27,21 +27,8 @@ const Featured = () => {
     return index === middleImageIndex || isHovered ? 1 : 0.3;
   };
 
-
   const getTransform = (index) => {
-    if (index === middleImageIndex && isHovered) {
-      // Middle image is hovered, unzoom
-      return 'scale(1)';
-    } else if (index === middleImageIndex && !isHovered) {
-      // Middle image, default zoom
-      return 'scale(1.5)';
-    } else if (index !== middleImageIndex && isHovered) {
-      // Other image is hovered, unzoom
-      return 'scale(1)';
-    } else {
-      // Other images, default zoom
-      return 'scale(1)';
-    }
+    return index === middleImageIndex ? 'scale(1.5)' : 'scale(1)';
   };
 
   const handleImageClick = (index) => {
@@ -56,7 +43,9 @@ const Featured = () => {
     }
   };
 
-  const handleImageHover = () => {
+  const handleImageHover = (index) => {
+    // Enlarge the hovered image
+    setMiddleImageIndex(index);
     setIsHovered(true);
   };
 
@@ -68,6 +57,17 @@ const Featured = () => {
     <Link to='featured' smooth={true} duration={500}>
       <Element name='featured'>
         <div id='featured' className='featured'>
+          
+          {/* New text section above the carousel */}
+          <div className='featured-text'>
+            <h1>Explore Our Exclusive Inventory</h1>
+            <p>
+              Discover the finest collection of vintage cars at our dealership.
+              Our curated selection showcases the epitome of automotive craftsmanship.
+              Find the perfect blend of style, performance, and luxury in our inventory.
+            </p>
+          </div>
+
           <div
             id='parallax-bg'
             className='parallax-bg-featured'
@@ -75,6 +75,7 @@ const Featured = () => {
               transform: `translateY(${Math.max(0, (scrollPosition - window.innerHeight - 1150) * 0.5)}px)`,
             }}
           ></div>
+          
           <div className='carousel-container-featured'>
             {[vw, honda, jaguar].map((image, index) => (
               <img
@@ -83,7 +84,7 @@ const Featured = () => {
                 alt={`Vintage Car ${index + 1}`}
                 className={`side-image ${index === middleImageIndex ? 'middle-image' : ''}`}
                 onClick={() => handleImageClick(index)}
-                onMouseEnter={handleImageHover}
+                onMouseEnter={() => handleImageHover(index)}
                 onMouseLeave={handleImageLeave}
                 style={{
                   opacity: getOpacity(index),
