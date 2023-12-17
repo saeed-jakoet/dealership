@@ -12,7 +12,7 @@ import noCarPhoto from '../images/nophotocar.jpg';
 import mileageIcon from '../images/icons/mileage.jpg';
 import fuelIcon from '../images/icons/fuel.jpg';
 import transmissionIcon from '../images/icons/transmission.jpg';
-import calendar from '../images/icons/calendar.jpg';
+import calendar from '../images/icons/calendar.png';
 
 const Listings = () => {
     const [selectedCar, setSelectedCar] = useState(null);

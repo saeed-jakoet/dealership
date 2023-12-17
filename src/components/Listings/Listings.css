@@ -55,7 +55,7 @@
     align-items: center;
     background-color: #000000;
     padding-top: 100px;
-    background: linear-gradient(to bottom, #000000, #414141, #000000);
+    background: linear-gradient(to bottom, #181818 0%, #414141 50%, #181818 100%);
     margin-bottom: 20px;
 }
 
@@ -68,10 +68,11 @@
     max-width: 876px;
     max-height: 533px;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     opacity: 0;
     transform: translateY(30px);
     transition: transform 0.3s ease, opacity 0.3s ease;
+    /* background: rgba(0, 0, 0, 0.1); */
     margin-bottom: 10px; /* Add margin at the bottom to lower the divider line between vehicle listings */
     position: relative;
 }

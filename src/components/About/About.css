@@ -1,4 +1,5 @@
-/* About.css */
+
+
 
 .about {
   position: relative;
@@ -49,24 +50,39 @@
 }
 
 .about .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 800px;
-  padding: 2rem;
-  text-align: center;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  border-radius: 10px; /* Optional: for rounded corners */
+  padding: 20px;
+  margin: 10px; /* Add margin for better spacing */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds a subtle shadow */
+  margin-bottom: 450px;
+}
+
+.about h2, .about p {
+  color: #fff; /* White text color */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Text shadow for legibility */
+  font-size: calc(1.2vw + 1rem);
 }
 
 .about h2 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: linear-gradient(to right, var(--secondary-color), var(--secondary-dark));
+  font-size: calc(1.5vw + 0.8em); /* Responsive font size */
+  text-align: center;
 }
 
 .about p {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: calc(0.8vw + 0.3rem);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Optional: Animate text appearance */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.about h2, .about p {
+  animation: fadeIn 1s ease-out;
 }
 
 .about .button {
@@ -119,7 +135,7 @@
   color: #cc9966; /* Light brown color */
 }
 
-/* For mobile devices, move arrows below the text */
+/* Portrait View */
 @media screen and (max-width: 940px) {
   .about .arrow.left,
   .about .arrow.right {
@@ -136,26 +152,68 @@
 
   .about .arrow.left {
     left: 10px;
-    margin-top: 200px;
   }
 
   .about .arrow.right {
     right: 10px;
-    margin-top: 200px;
   }
 
   .about h2 {
-    font-size: 2.5rem; /* Decreased font size for mobile */
-    margin-bottom: 0.5rem; /* Adjusted margin for better spacing */
+    font-size: 1.4rem; /* Smaller font size for mobile */
+    margin-top: 20px; /* Adjust as needed to prevent cut-off */
+    line-height: 1.2; /* Adjust line height for better readability */
+    margin-bottom: 20px;
   }
 
   .about p {
-    font-size: 1.2rem; /* Decreased font size for mobile */
-    margin-bottom: 1rem;
+    font-size: 1rem; /* Smaller font size for mobile */
+    line-height: 1.4; /* Adjust line height for better readability */
   }
 
-  .about .button,
-  .about .showroom-button {
-    font-size: 1rem; /* Decreased font size for mobile */
+  .about .content {
+    margin-top: 450px; /* Increase this value to lower the text on the screen */
+    padding: 20px; /* Adjust padding as needed for spacing */
+    /* Add any additional styling for the container here */
+  }
+
+}
+
+/* Landscape View */
+@media screen and (max-height: 600px) {
+
+  .about {
+    width: 100vw; /* Ensure full viewport width */
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default paddings */
+    overflow: hidden; /* Prevent scrollbars */
+  }
+  .about .arrow.left,
+  .about .arrow.right {
+    top: 60%; /* Adjust top position for landscape view */
+    margin-top: 0; /* Reset margin-top for landscape */
+  }
+
+  .about h2 {
+    font-size: 1.2rem; /* Slightly smaller font size for landscape */
+  }
+
+  .about p {
+    font-size: 0.9rem; /* Slightly smaller font size for landscape */
+  }
+
+  .about .content {
+    margin-top: 400px; /* Adjust the top margin for landscape */
+    padding: 15px; /* Adjust padding for landscape */
+  }
+
+  .about .arrow.left {
+    left: 10px;
+    margin-top: 100px;
+  }
+
+  .about .arrow.right {
+    right: 10px;
+    margin-top: 100px;
   }
 }

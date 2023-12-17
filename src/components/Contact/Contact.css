@@ -10,6 +10,7 @@
     position: relative;
     padding: 20px;
     overflow: hidden;
+    margin-top: -20px;
 }
 
 .contact::before {

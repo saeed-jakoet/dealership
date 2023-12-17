@@ -77,7 +77,7 @@ const About = () => {
               animate={{ x: 0 }}
               transition={{ ease: 'easeInOut', duration: 0.5 }}
             >
-              Your Automotive Journey Begins Here
+              About Us
             </motion.h2>
             <motion.p
               initial={{ x: -1000 }}

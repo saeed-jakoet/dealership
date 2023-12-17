@@ -1,0 +1,96 @@
+.reviews-section {
+    background-color: #f8f8f8; /* A light, sophisticated background */
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.reviews-section h2 {
+    color: #222831; /* Deep, elegant color */
+    font-size: 32px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Evenly space items */
+    gap: 30px;
+}
+
+.review {
+    background-color: #ffffff;
+    width: calc(33% - 20px); /* Three items per row */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.review:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.review-header h4 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+.review-rating {
+    background-color: #ffc107; /* Golden color */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.review-rating span {
+    margin-left: 5px;
+}
+
+.review p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 15px;
+    text-align: left;
+}
+
+.toggle-reviews-btn {
+    margin-top: 30px;
+    padding: 10px 25px;
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #333; /* Adds a border for a sophisticated button */
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.toggle-reviews-btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .review {
+        width: 100%
+    }
+}
+

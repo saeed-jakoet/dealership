@@ -10,9 +10,10 @@ function App() {
       <Navbar />
       <Page content="hero" />
       <Page content="about" />
-      <Page content="featured" />
+      {/* <Page content="featured" /> */}
       <Page content="listings" />
       <Page content="contact" />
+      <Page content="reviews" />
       <Footer />
     </Router>
   );
