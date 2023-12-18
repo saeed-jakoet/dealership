@@ -13,40 +13,58 @@
 .listings-header h1 {
     font-size: 3rem;
     font-weight: bold;
-    /* Use a linear gradient for the text color */
-    background: #fff;
-    /* Set a fallback color in case gradients are not supported */
-    -webkit-background-clip: text; /* Clip text to the background gradient */
+    background: #ffffff;
+    -webkit-background-clip: text; /* For WebKit browsers */
+    background-clip: text; /* Standard syntax */
     color: transparent;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 8px;
 }
 
+
 .listings-header p {
     font-size: 1.2rem;
-    color: #ffffff;
+    color: #e7e7e7;
     font-family: 'Poppins', sans-serif;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
 }
 
-
-/* Underline animation */
-.listings-header::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
+.sort-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    font-size: 16px; /* Suitable font size */
+    color: #ffffff; /* Dark text color for contrast */
+    cursor: pointer; /* Change cursor on hover */
+    outline: none; /* Remove default focus outline */
+    margin-top: 10px; /* Spacing from the top */
+    margin-bottom: 20px; /* Spacing from the bottom */
+    width: 200px; /* Set a fixed width */
     background-color: var(--secondary-color);
-    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
-.listings-header:hover::before {
-    width: 200%;
-    left: -50%;
+.sort-dropdown:hover {
+    border-color: #b32f2f; /* Change border color on hover */
+}
+
+.sort-dropdown:focus {
+    border-color: #b32f2f; /* Change border color on focus */
+    box-shadow: 0 0 3px #b32f2f; /* Add a subtle shadow on focus */
+}
+
+/* Style for options */
+.sort-dropdown option {
+    padding: 8px; /* Padding for options */
+    background-color: #fff; /* White background for options */
+    color: #333; /* Text color for options */
+}
+
+/* Disable style for the placeholder option */
+.sort-dropdown option:disabled {
+    color: #aaa; /* Lighter text color for disabled option */
 }
 
 .listings-container {
@@ -54,8 +72,8 @@
     flex-direction: column;
     align-items: center;
     background-color: #000000;
-    padding-top: 100px;
-    background: linear-gradient(to bottom, #181818 0%, #414141 50%, #181818 100%);
+    padding-top: 150px;
+    background: linear-gradient(to right, #4d4d4d,#000000,#4d4d4d);
     margin-bottom: 20px;
 }
 
@@ -72,7 +90,7 @@
     opacity: 0;
     transform: translateY(30px);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    /* background: rgba(0, 0, 0, 0.1); */
+    background: #ffff;
     margin-bottom: 10px; /* Add margin at the bottom to lower the divider line between vehicle listings */
     position: relative;
 }
@@ -106,7 +124,7 @@
 .details-container {
     flex: 1;
     padding: 0 20px;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #000000;
 }
 
 .top-details,
@@ -121,6 +139,7 @@
 .calendar {
     font-size: 1rem;
     margin-bottom: 8px;
+    color: #0000;
 }
 
 .price {
@@ -143,11 +162,11 @@ body {
 .name {
     font-size: 1.6rem;
     font-weight: 600;
-    color: #ddd;
+    color: #000000;
 }
 
 .used-status {
-    color: #afafaf;
+    color: #7c7c7c;
     font-size: 1rem;
     margin-bottom: 8px;
 }
@@ -158,7 +177,7 @@ body {
 .vehicle-listing .calendar {
     font-size: 1rem;
     margin-bottom: 8px;
-    color: #ddd; 
+    color: #000000; 
 
 }
 
@@ -498,6 +517,8 @@ body {
 
 
 @media (max-width: 768px) {
+
+    
     .image-container {
         max-width: 100%;
         max-height: 60vh;
@@ -598,4 +619,92 @@ body {
         /* Adjust this value to move the "next" button to the right */
     }
 
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Styles for landscape orientation on screens with a max-width of 768px */
+
+    .image-container {
+        max-width: 80%; /* Adjusted for landscape */
+        max-height: 100vh; /* Adjusted for landscape */
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Changed to 'cover' for a better fit in landscape */
+    }
+
+    .vehicle-listing {
+        flex-direction: row; /* Retain row layout for landscape */
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .details-container {
+        padding: 10px;
+        border-left: 1px solid #000000; /* Keep the border for better separation */
+        text-align: left;
+        max-width: 60%; /* Adjusted width for landscape */
+    }
+
+    .modal-content {
+        max-width: 100%; /* Increased width for landscape */
+        max-height: 100%; /* Adjusted height for landscape */
+        flex-direction: row; /* Row layout for better use of space */
+        align-items: center;
+        overflow: auto;
+    }
+
+    .image-carousel-container {
+        max-height: 30vh; /* Adjusted height for landscape */
+        overflow: hidden;
+    }
+
+    .image-carousel img {
+        max-width: 100%;
+        max-height: 30vh; /* Adjusted for landscape */
+        object-fit: cover; /* Changed to 'cover' for a better fit */
+    }
+
+    .enquiry-form-container {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: row; /* Row layout for landscape */
+        justify-content: space-around; /* Even spacing */
+        align-items: center;
+    }
+
+    .enquire-button {
+        width: 80%; /* Adjusted width */
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .enquiry-form {
+        max-width: 70%; /* Adjusted width for landscape */
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%; /* Center vertically */
+        font-size: 24px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transform: translateY(-50%);
+    }
+
+    .carousel-button.prev {
+        left: 10px; /* Positioned for landscape */
+    }
+
+    .carousel-button.next {
+        right: 10px; /* Positioned for landscape */
+    }
 }

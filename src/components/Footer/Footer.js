@@ -44,7 +44,18 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Line */}
+        <div className='social-icons-footer'>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <FaFacebook />
+          </a>
+          <a href="https://www.instagram.com/far.auto_/" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
+          </a>
+          <a href="https://wa.me/+27796957936" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp />
+          </a>
+        </div>
+
         <div className='bottom'>
           <span className='line'></span>
           <p>2023 FarAuto. All rights reserved</p>

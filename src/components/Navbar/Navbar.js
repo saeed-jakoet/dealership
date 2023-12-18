@@ -66,6 +66,11 @@ const Navbar = () => {
               Contact us
             </ScrollLink>
           </li>
+          <li className='nav-item'>
+            <ScrollLink to='reviews' smooth={true} duration={500} onClick={closeMenu}>
+              Reviews
+            </ScrollLink>
+          </li>
         </ul>
       </nav>
     </div>

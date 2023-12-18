@@ -3,26 +3,48 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Element } from 'react-scroll';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import './Listings.css'; 
+import './Listings.css';
 import { carsData } from '../carsData';
 import ImageCarousel from '../ImageCarousel';
 import EnquiryForm from './EnquiryForm';
+import { MdEvent, MdLocalGasStation, MdOutlineDriveEta, MdSpeed } from 'react-icons/md';
 
 import noCarPhoto from '../images/nophotocar.jpg';
-import mileageIcon from '../images/icons/mileage.jpg';
-import fuelIcon from '../images/icons/fuel.jpg';
-import transmissionIcon from '../images/icons/transmission.jpg';
-import calendar from '../images/icons/calendar.png';
 
 const Listings = () => {
     const [selectedCar, setSelectedCar] = useState(null);
     const [showEnquiryForm, setShowEnquiryForm] = useState(false);
     const [disableScroll, setDisableScroll] = useState(false);
+    const [sortOption, setSortOption] = useState('');
 
     const sortedCarsData = useMemo(() => {
-        // Sort the carsData array alphabetically by brand
-        return [...carsData].sort((a, b) => a.brand.localeCompare(b.brand));
-    }, []);
+        let sortedData = [...carsData];
+        switch (sortOption) {
+            case 'brandAsc':
+                sortedData.sort((a, b) => a.brand.localeCompare(b.brand));
+                break;
+            case 'brandDesc':
+                sortedData.sort((a, b) => b.brand.localeCompare(a.brand));
+                break;
+            case 'priceHighLow':
+                sortedData = [...carsData].sort((a, b) => {
+                    return parseFloat(b.price.replace(/[^0-9.]/g, '')) - parseFloat(a.price.replace(/[^0-9.]/g, ''));
+                });
+                break;
+            case 'priceLowHigh':
+                sortedData = [...carsData].sort((a, b) => {
+                    return parseFloat(a.price.replace(/[^0-9.]/g, '')) - parseFloat(b.price.replace(/[^0-9.]/g, ''));
+                });
+                break;
+            case 'mileageHighLow':
+                sortedData.sort((a, b) => parseInt(b.mileage, 10) - parseInt(a.mileage, 10));
+                break;
+            default:
+                sortedData.sort((a, b) => a.brand.localeCompare(b.brand));
+        }
+        return sortedData;
+    }, [sortOption]);
+
 
     const handleListingClick = (car) => {
         setSelectedCar(car);
@@ -44,10 +66,10 @@ const Listings = () => {
                 document.body.style.overflow = 'auto';
             }
         };
-    
+
         // Add event listener for scroll
         window.addEventListener('scroll', handleBodyScroll);
-    
+
         // Remove the event listener when the component unmounts
         return () => {
             window.removeEventListener('scroll', handleBodyScroll);
@@ -72,6 +94,15 @@ const Listings = () => {
                 <div className="listings-header">
                     <h1>Car Listings</h1>
                     <p>Explore our latest car inventory</p>
+                    <select value={sortOption} onChange={(e) => setSortOption(e.target.value)} className="sort-dropdown">
+                        <option value="" disabled>Sort by</option>
+                        <option value="brandAsc">Brand A-Z</option>
+                        <option value="brandDesc">Brand Z-A</option>
+                        <option value="priceHighLow">Price High-Low</option>
+                        <option value="priceLowHigh">Price Low-High</option>
+                        <option value="mileageLowHigh">Mileage Low-High</option>
+                        <option value="mileageHighLow">Mileage High-Low</option>
+                    </select>
                 </div>
                 {sortedCarsData.map((vehicle, index) => (
                     <ListingItem
@@ -160,20 +191,20 @@ const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
                     <p className='name'>{vehicle.name}</p>
                     <p className='used-status'>{vehicle.used ? 'Used Car' : 'New Car'}</p>
                     <p className='mileage'>
-                        <img src={mileageIcon} alt="Mileage Icon" className="icon" />
+                        <MdSpeed className="icon" /> {/* React icon for mileage */}
                         {vehicle.mileage} km
                     </p>
                     <p className='transmission-type'>
-                        <img src={transmissionIcon} alt="Transmission Icon" className="icon" />
+                        <MdOutlineDriveEta className="icon" /> {/* React icon for transmission */}
                         {vehicle.transmissionType}
                     </p>
                     <p className='fuel-type'>
-                        <img src={fuelIcon} alt="Fuel Icon" className="icon" />
+                        <MdLocalGasStation className="icon" /> {/* React icon for fuel */}
                         {vehicle.fuelType}
                     </p>
                     <p className='calendar'>
-                        <img src={calendar} alt="Calendar Icon" className="icon" />
-                        {vehicle.year} 
+                        <MdEvent className="icon" /> {/* React icon for calendar */}
+                        {vehicle.year}
                     </p>
                 </div>
             </div>
