@@ -10,7 +10,11 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
-  const handleClick = () => setClick(!click);
+  const handleClick = () => {
+    setClick(!click);
+    document.body.classList.toggle('no-scroll', click);
+  };
+  
   const closeMenu = () => setClick(false);
 
   useEffect(() => {

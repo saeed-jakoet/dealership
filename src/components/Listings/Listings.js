@@ -7,7 +7,8 @@ import './Listings.css';
 import { carsData } from '../carsData';
 import ImageCarousel from '../ImageCarousel';
 import EnquiryForm from './EnquiryForm';
-import { MdEvent, MdLocalGasStation, MdOutlineDriveEta, MdSpeed } from 'react-icons/md';
+import { MdEvent, MdLocalGasStation, MdSpeed } from 'react-icons/md';
+import { TbManualGearbox } from "react-icons/tb";
 
 import noCarPhoto from '../images/nophotocar.jpg';
 
@@ -32,24 +33,25 @@ const Listings = () => {
         setDisableScroll(false);
     };
 
-    const handlePageChange = (direction) => {
-        const listingsOffsetTop = listingsRef.current.offsetTop;
-    
-        if (direction === 'prev' && page > 1) {
-            window.scrollTo({ top: listingsOffsetTop, behavior: 'smooth' });
-            setTimeout(() => {
-                setPage(page - 1);
-            }, 500); // Delay setting the page by 500 milliseconds
-        } else if (direction === 'next' && page < Math.ceil(carsData.length / carsPerPage)) {
-            window.scrollTo({ top: listingsOffsetTop, behavior: 'smooth' });
-            setTimeout(() => {
-                setPage(page + 1);
-            }, 500); // Delay setting the page by 500 milliseconds
-        }
-    };
-     
+const handlePageChange = (direction) => {
+    const listingsOffsetTop = listingsRef.current.offsetTop;
+
+    if (direction === 'prev' && page > 1) {
+        window.scrollTo({ top: listingsOffsetTop, behavior: 'smooth' });
+        setTimeout(() => {
+            setPage(page - 1);
+        }, 500); // Delay setting the page by 500 milliseconds
+    } else if (direction === 'next' && page < Math.ceil(carsData.length / carsPerPage)) {
+        window.scrollTo({ top: listingsOffsetTop, behavior: 'smooth' });
+        setTimeout(() => {
+            setPage(page + 1);
+        }, 500); // Delay setting the page by 500 milliseconds
+    }
+};
+ 
     
     useEffect(() => {
+        
         const handleBodyScroll = () => {
             if (disableScroll) {
                 document.body.style.overflow = 'hidden';
@@ -187,7 +189,7 @@ const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
                         {vehicle.mileage} km
                     </p>
                     <p className='transmission-type'>
-                        <MdOutlineDriveEta className="icon" /> {/* React icon for transmission */}
+                    <TbManualGearbox className="icon" /> {/* React icon for transmission */}
                         {vehicle.transmissionType}
                     </p>
                     <p className='fuel-type'>

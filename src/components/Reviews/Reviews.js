@@ -106,8 +106,25 @@ const Reviews = () => {
                 {reviews.map(review => <Review key={review.id} review={review} />)}
             </div>
             <button onClick={handleToggleReviews} className="toggle-reviews-btn">
-                {expanded ? <><FiArrowUp /> Hide</> : <><FiArrowDown /> See More</>}
-            </button>
+    {expanded ? (
+        <motion.span
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <FiArrowUp /> Hide
+        </motion.span>
+    ) : (
+        <motion.span
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <FiArrowDown /> See More
+        </motion.span>
+    )}
+</button>
+
         </Element>
     );
 };
