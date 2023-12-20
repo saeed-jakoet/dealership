@@ -312,6 +312,64 @@ export const carsData = [
         },
     },
 
+    {
+        name: '2016 BMW 340i M Sport',
+        used: true,
+        mileage: '50,000',
+        transmissionType: 'Auto',
+        price: '359,900',
+        fuelType: 'Petrol',
+        year: '2016',
+        brand: 'BMW',
+        imageUrl: '/home/saeed/Downloads/IMG_8632-HDR.jpg',
+        imageUrls: [
+            require('./images/2016 BMW 340i Msport Auto/IMG_8632-HDR.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8713.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8712.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8710.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8708.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8705.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8704.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8703.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8698.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8696.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8694.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8692.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8683.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8672.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8660-HDR.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8659-HDR.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8652-HDR.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8643.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8637-HDR.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8633-HDR.jpg'),
+            require('./images/2016 BMW 340i Msport Auto/IMG_8714.jpg')
+        ],
+        extras: [
+            'Autodim exterior mirrors',
+            'Camera for park distance control',
+            'Climate control / automatic air conditioning',
+            'High-beam assist',
+            'Keyless access+start / hands-free key',
+            'Light sensor / automatic light control (auto on-off lights)',
+            'Sunroof',
+            'Xenon headlights',
+        ],
+        sellerComments: `
+            This is a stunning BMW 340i M Sport. It's in excellent condition and has been well-maintained.
+            The car is loaded with features including xenon headlights, sunroof, and more. Don't miss out
+            on this opportunity to own a fantastic BMW. Contact us for more details.
+        `,
+        vehicleDetails: {
+            lastUpdated: '01 December 2023',
+            previousOwners: 1,
+            serviceHistory: 'Full Service History',
+            colour: 'Black',
+            bodyType: 'Sedan',
+        },
+    }
+    
+
 
 
 ];

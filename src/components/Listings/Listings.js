@@ -1,5 +1,5 @@
-// Listings.js
-import React, { useState, useEffect, useMemo } from 'react';
+// Listings.js (updated)
+import React, { useState, useEffect, useRef } from 'react';
 import { Element } from 'react-scroll';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -12,39 +12,13 @@ import { MdEvent, MdLocalGasStation, MdOutlineDriveEta, MdSpeed } from 'react-ic
 import noCarPhoto from '../images/nophotocar.jpg';
 
 const Listings = () => {
+    const carsPerPage = 4;
     const [selectedCar, setSelectedCar] = useState(null);
     const [showEnquiryForm, setShowEnquiryForm] = useState(false);
     const [disableScroll, setDisableScroll] = useState(false);
-    const [sortOption, setSortOption] = useState('');
+    const [page, setPage] = useState(1);
 
-    const sortedCarsData = useMemo(() => {
-        let sortedData = [...carsData];
-        switch (sortOption) {
-            case 'brandAsc':
-                sortedData.sort((a, b) => a.brand.localeCompare(b.brand));
-                break;
-            case 'brandDesc':
-                sortedData.sort((a, b) => b.brand.localeCompare(a.brand));
-                break;
-            case 'priceHighLow':
-                sortedData = [...carsData].sort((a, b) => {
-                    return parseFloat(b.price.replace(/[^0-9.]/g, '')) - parseFloat(a.price.replace(/[^0-9.]/g, ''));
-                });
-                break;
-            case 'priceLowHigh':
-                sortedData = [...carsData].sort((a, b) => {
-                    return parseFloat(a.price.replace(/[^0-9.]/g, '')) - parseFloat(b.price.replace(/[^0-9.]/g, ''));
-                });
-                break;
-            case 'mileageHighLow':
-                sortedData.sort((a, b) => parseInt(b.mileage, 10) - parseInt(a.mileage, 10));
-                break;
-            default:
-                sortedData.sort((a, b) => a.brand.localeCompare(b.brand));
-        }
-        return sortedData;
-    }, [sortOption]);
-
+    const listingsRef = useRef(null);
 
     const handleListingClick = (car) => {
         setSelectedCar(car);
@@ -58,6 +32,23 @@ const Listings = () => {
         setDisableScroll(false);
     };
 
+    const handlePageChange = (direction) => {
+        const listingsOffsetTop = listingsRef.current.offsetTop;
+    
+        if (direction === 'prev' && page > 1) {
+            window.scrollTo({ top: listingsOffsetTop, behavior: 'smooth' });
+            setTimeout(() => {
+                setPage(page - 1);
+            }, 500); // Delay setting the page by 500 milliseconds
+        } else if (direction === 'next' && page < Math.ceil(carsData.length / carsPerPage)) {
+            window.scrollTo({ top: listingsOffsetTop, behavior: 'smooth' });
+            setTimeout(() => {
+                setPage(page + 1);
+            }, 500); // Delay setting the page by 500 milliseconds
+        }
+    };
+     
+    
     useEffect(() => {
         const handleBodyScroll = () => {
             if (disableScroll) {
@@ -78,6 +69,12 @@ const Listings = () => {
         };
     }, [disableScroll]);
 
+    useEffect(() => {
+        if (listingsRef.current && page > 1) {
+            listingsRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [page]);
+
     const handleFormButtonClick = (e) => {
         e.stopPropagation();
         setShowEnquiryForm(true);
@@ -88,23 +85,18 @@ const Listings = () => {
         e.stopPropagation();
     };
 
+    const filteredCars = carsData
+        .sort((a, b) => a.brand.localeCompare(b.brand)) // Sort alphabetically by brand
+        .slice((page - 1) * carsPerPage, page * carsPerPage); // Paginate cars
+
     return (
         <Element name='listings'>
-            <div className="listings-container">
+            <div className="listings-container" ref={listingsRef}>
                 <div className="listings-header">
                     <h1>Car Listings</h1>
                     <p>Explore our latest car inventory</p>
-                    <select value={sortOption} onChange={(e) => setSortOption(e.target.value)} className="sort-dropdown">
-                        <option value="" disabled>Sort by</option>
-                        <option value="brandAsc">Brand A-Z</option>
-                        <option value="brandDesc">Brand Z-A</option>
-                        <option value="priceHighLow">Price High-Low</option>
-                        <option value="priceLowHigh">Price Low-High</option>
-                        <option value="mileageLowHigh">Mileage Low-High</option>
-                        <option value="mileageHighLow">Mileage High-Low</option>
-                    </select>
                 </div>
-                {sortedCarsData.map((vehicle, index) => (
+                {filteredCars.map((vehicle, index) => (
                     <ListingItem
                         key={index}
                         vehicle={vehicle}
@@ -143,7 +135,7 @@ const Listings = () => {
                         </div>
                     </div>
                 )}
-                <Banner page={1} totalPages={5} onPageChange={(direction) => console.log(direction)} />
+                <Banner page={page} totalPages={Math.ceil(carsData.length / carsPerPage)} onPageChange={handlePageChange} />
             </div>
         </Element>
     );
@@ -215,11 +207,11 @@ const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
 const Banner = ({ page, totalPages, onPageChange }) => {
     return (
         <div className="banner-container">
-            <button className="arrow-button" onClick={() => onPageChange('prev')}>
+            <button className="arrow-button" onClick={() => onPageChange('prev')} disabled={page === 1}>
                 {'<'}
             </button>
             <p className="page-indicator">{`Page ${page} of ${totalPages}`}</p>
-            <button className="arrow-button" onClick={() => onPageChange('next')}>
+            <button className="arrow-button" onClick={() => onPageChange('next')} disabled={page === totalPages}>
                 {'>'}
             </button>
         </div>

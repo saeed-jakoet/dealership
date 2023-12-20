@@ -1,8 +1,8 @@
 /* Footer.css */
 
 .footer {
-  background: linear-gradient(to bottom, #4d4d4d,#c9c9c9,#4d4d4d);
-  color: #2a2a2a;
+  background-color: black !important;
+  color: #bbbbbb;
   padding: 40px 0;
   cursor: pointer;
 }
@@ -22,12 +22,12 @@
 
 .column {
   flex: 1;
-  text-align: center;
+  text-align: left;
   padding: 0 15px;
 }
 
 .column:not(:last-child) {
-  border-right: 1px solid #4d4d4d;
+  border-right: 1px solid #ffffff;
   padding-right: 15px;
 }
 
@@ -45,7 +45,7 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .column ul li {
@@ -55,7 +55,7 @@ ul {
 
 .column ul li a {
   text-decoration: none;
-  color: #2a2a2a;
+  color: #dadada;
   transition: color 0.3s ease;
 }
 
@@ -74,7 +74,7 @@ ul {
 }
 
 .social-icons-footer a {
-  color: #2a2a2a; /* Change color as needed */
+  color: #bbbbbb; /* Change color as needed */
   font-size: 24px;
   transition: color 0.3s ease;
 }
@@ -105,13 +105,13 @@ ul {
 .column p {
   font-size: 14px;
   margin: 0;
-  color: var(--primary-dark);
+  color: #bbbbbb;
 }
 
 .bottom p {
   font-size: 14px;
   margin: 0;
-  color: var(--primary-dark);
+  color: #bbbbbb;
 }
 
 @media only screen and (max-width: 768px) {
@@ -145,6 +145,7 @@ ul {
   .column ul li {
     font-size: 14px;
     margin-bottom: 8px;
+    text-align: center;
   }
 
   

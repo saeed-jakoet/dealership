@@ -1,11 +1,13 @@
 .reviews-section {
-    background-color: #f8f8f8; /* A light, sophisticated background */
+    background-image: linear-gradient(var(--overlay), var(--overlay)), url('../images/reviews1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 60px 30px;
     text-align: center;
 }
 
 .reviews-section h2 {
-    color: #222831; /* Deep, elegant color */
+    color: #ffffff; /* Deep, elegant color */
     font-size: 32px;
     margin-bottom: 50px;
     font-weight: 700;
@@ -74,8 +76,8 @@
     margin-top: 30px;
     padding: 10px 25px;
     background-color: transparent;
-    color: #333;
-    border: 2px solid #333; /* Adds a border for a sophisticated button */
+    color: #ffffff;
+    border: 2px solid #ffffff; /* Adds a border for a sophisticated button */
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;

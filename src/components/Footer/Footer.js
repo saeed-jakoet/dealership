@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
-import Logo from '../images/logo.png'
+import Logo from '../images/logo4.png'
 import './Footer.css';
 
 const Footer = () => {
@@ -32,7 +32,7 @@ const Footer = () => {
             <h3>Opening Hours</h3>
             <p>Monday - Friday: 08:30 - 17:00</p>
             <p>Saturday: 09:00  - 13:00 </p>
-            <p>Sunday & public holidays: Closed</p>
+            <p>Sunday & public holidays: On Appointment</p>
           </div>
 
           {/* Column 3: Contact Information */}
@@ -40,7 +40,7 @@ const Footer = () => {
             <h3>Contact Information</h3>
             <p>Email: info@farauto.com</p>
             <p>Phone: +27 83 578 9437</p>
-            <p>Address: 3 Muir Street and Selkirk StreetDistrict 6 Zonnebloem Cape TownSouth Africa</p>
+            <p>Address: 3 Muir Street and Selkirk Street District 6 Zonnebloem Cape Town South Africa</p>
           </div>
         </div>
 
@@ -51,14 +51,15 @@ const Footer = () => {
           <a href="https://www.instagram.com/far.auto_/" target="_blank" rel="noopener noreferrer">
             <FaInstagram />
           </a>
-          <a href="https://wa.me/+27796957936" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/+27718740886" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp />
           </a>
         </div>
 
         <div className='bottom'>
           <span className='line'></span>
-          <p>2023 FarAuto. All rights reserved</p>
+          <p>2021 FARAUTO. ALL RIGHTS RESERVED</p>
+          <p>Powered by: RAMAF (PTY) LTD</p>
         </div>
       </div>
     </div>
