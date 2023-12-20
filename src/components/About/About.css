@@ -18,7 +18,6 @@
 
 .parallax-bg-about {
   position: absolute;
-  min-height: 100vh;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,26 +26,28 @@
   background-size: cover;
   background-position: center;
   z-index: -1;
+  opacity: 0;
+  transition: opacity 1s ease-out, background-image 1s ease-out;
 }
 
-.about.show {
+.about[data-current-image='1'] .parallax-bg-about { 
+  background-image: url('../images/about5.jpg');
   opacity: 1;
 }
 
-.about[data-current-image='1'] .parallax-bg-about {
-  background-image: url('../images/about5.jpg');
-}
-
 .about[data-current-image='2'] .parallax-bg-about {
-  background-image: url('../images/old.jpg');
+  background-image: url('../images/about4.jpg');
+  opacity: 1;
 }
 
 .about[data-current-image='3'] .parallax-bg-about {
   background-image: url('../images/about2.jpg');
+  opacity: 1;
 }
 
 .about[data-current-image='4'] .parallax-bg-about {
   background-image: url('../images/about6.jpg');
+  opacity: 1;
 }
 
 .about .content {
@@ -86,56 +87,6 @@
   animation: fadeIn 1s ease-out;
 }
 
-.about .button {
-  margin-top: 2rem;
-  width: 200px;
-  background: linear-gradient(to right, #ff4500, #ff0000);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 12px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background 0.3s ease;
-}
-
-.about .button:hover {
-  background: linear-gradient(to right, #ff0000, #cc0000);
-}
-
-.about .arrow {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 2rem;
-  color: #fff;
-  transition: color 0.3s ease;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  padding: 10px;
-}
-
-.about .arrow.left,
-.about .arrow.right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.about .arrow.left {
-  left: 10px;
-}
-
-.about .arrow.right {
-  right: 10px;
-}
-
-.about .arrow:hover {
-  color: #cc9966; /* Light brown color */
-}
-
 /* Portrait View */
 @media screen and (max-width: 940px) {
   .about .arrow.left,
@@ -149,14 +100,6 @@
     padding: 8px;
     cursor: pointer;
     transform: translateY(-50%);
-  }
-
-  .about .arrow.left {
-    left: 10px;
-  }
-
-  .about .arrow.right {
-    right: 10px;
   }
 
   .about h2 {

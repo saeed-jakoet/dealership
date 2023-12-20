@@ -1,9 +1,6 @@
-// About.js
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Element, Link } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import './About.css';
 
 const About = () => {
@@ -45,16 +42,6 @@ const About = () => {
     };
   }, []);
 
-  const handleImageChange = (direction) => {
-    setCurrentImage((prevImage) => {
-      if (direction === 'prev') {
-        return prevImage > 1 ? prevImage - 1 : totalImages;
-      } else {
-        return prevImage < totalImages ? prevImage + 1 : 1;
-      }
-    });
-  };
-
   return (
     <Link to='about' smooth={true} duration={500}>
       <Element name='about' ref={aboutRef}>
@@ -86,12 +73,6 @@ const About = () => {
             >
               We are a Family-Owned business spawning from two generations of knowledge and experience in the Motor industry. Working together with mega household brands, such as BMW, AUDI, MERCEDES, TOYOTA, SUZUKI, MAZDA and VW, we have collectively formulated the best buying strategies and processes that assure you as our client the best possible prices and more-so, unmatched service quality. We at FARAUTO endeavor to make your experience one to remember, as we pride ourselves on building lasting relationships. We offer knowledgeable advice on the right vehicle for your needs and service offerings, including individualized vehicle finance with all major financial institutions, excellent warranty options and countrywide delivery for your logistical co
             </motion.p>
-          </div>
-          <div className='arrow left' onClick={() => handleImageChange('prev')}>
-            <SlArrowLeft />
-          </div>
-          <div className='arrow right' onClick={() => handleImageChange('next')}>
-            <SlArrowRight />
           </div>
         </motion.div>
       </Element>
