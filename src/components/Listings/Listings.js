@@ -1,4 +1,3 @@
-// Listings.js (updated)
 import React, { useState, useEffect, useRef } from 'react';
 import { Element } from 'react-scroll';
 import { motion, useAnimation } from 'framer-motion';
@@ -143,7 +142,7 @@ const handlePageChange = (direction) => {
     );
 };
 
-const noCarPhotoImage = <img src={noCarPhoto} alt="No Car Photo Available" className="icon" />;
+const noCarPhotoImage = <img src={noCarPhoto} alt="No Car Available" className="icon" />;
 
 const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
     const controls = useAnimation();

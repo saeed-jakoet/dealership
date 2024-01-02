@@ -44,7 +44,6 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                         <>
                             <h2 className="section-title">Vehicle Details</h2>
                             <div className="details-info">
-                                <p>{`Last Updated: ${carDetails.vehicleDetails.lastUpdated}`}</p>
                                 <p>{`Previous Owners: ${carDetails.vehicleDetails.previousOwners}`}</p>
                                 <p>{`Service History: ${carDetails.vehicleDetails.serviceHistory}`}</p>
                                 <p>{`Colour: ${carDetails.vehicleDetails.colour}`}</p>

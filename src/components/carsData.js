@@ -7,7 +7,7 @@ export const carsData = [
         price: ' 329 900',
         fuelType: 'Petrol',
         year: '2019',
-        brand:'Honda',
+        brand: 'Honda',
         imageUrl: require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
         imageUrls: [
             require('./images/ 2019 Honda HR-V 1.8 Executive Auto/Main.jpg'),
@@ -38,7 +38,6 @@ export const carsData = [
             Trade Ins Welcome... We Deliver Countrywide.
         `,
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 2,
             serviceHistory: 'Full Franchise Service History',
             colour: 'Grey',
@@ -55,7 +54,7 @@ export const carsData = [
         price: ' 309 900',
         fuelType: 'Petrol',
         year: '2014',
-        brand:'Volkswagen',
+        brand: 'Volkswagen',
         imageUrl: require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
         imageUrls: [
             require('./images/2014 VW Golf Gti 2.0 DSG/Main (1).jpg'),
@@ -96,7 +95,6 @@ export const carsData = [
             Trade-Ins Welcome. We Deliver Countrywide!
         `,
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 2,
             serviceHistory: 'Full Service History',
             colour: 'Dark Grey',
@@ -112,7 +110,7 @@ export const carsData = [
         price: ' 639 900',
         fuelType: 'Petrol',
         year: '2014',
-        brand:'Jaguar',
+        brand: 'Jaguar',
         imageUrl: require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
         imageUrls: [
             require('./images/2014 Jaguar F-Type 5.0 V8 S/Main.jpg'),
@@ -140,7 +138,6 @@ export const carsData = [
             We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome... We Deliver Countrywide...
         `,
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 2,
             serviceHistory: 'Full Franchise Service History',
             colour: 'Black',
@@ -160,7 +157,7 @@ export const carsData = [
         price: ' 1 999 900',
         fuelType: 'Diesel',
         year: '2023',
-        brand:'Bmw',
+        brand: 'Bmw',
         imageUrl: require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
         imageUrls: [
             require('./images/R 1 999 900 | 2023 BMW X7 xDrive40d M Sport For Sale/27333500.jpeg'),
@@ -189,7 +186,6 @@ export const carsData = [
             'Sunroof',
         ],
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 1,
             serviceHistory: 'Full Franchise Service History',
             colour: 'White',
@@ -206,7 +202,7 @@ export const carsData = [
         price: ' 149 900',
         fuelType: 'Petrol',
         year: '2011',
-        brand:'Mini',
+        brand: 'Mini',
         imageUrl: require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
         imageUrls: [
             require('./images/2011 Mini Cooper Convertible/Main2.jpg'),
@@ -239,14 +235,13 @@ export const carsData = [
             Trade Ins Welcome... We Deliver Countrywide...
         `,
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 2,
             serviceHistory: 'Full Service History',
             colour: 'Horizon Blue',
             bodyType: 'Cabriolet',
         },
     },
-    
+
     {
         name: '2018 Mercedes Benz A200 Amg Auto',
         used: true,
@@ -255,7 +250,7 @@ export const carsData = [
         price: ' 359 900',
         fuelType: 'Petrol',
         year: '2018',
-        brand:'Mercedes',
+        brand: 'Mercedes',
         imageUrl: require('./images/2018 Mercedes Benz A200 Amg Auto/27055242.jpg'),
         imageUrls: [
             require('./images/2018 Mercedes Benz A200 Amg Auto/27055242.jpg'),
@@ -304,7 +299,6 @@ export const carsData = [
             We Deliver Countrywide... Contact Ismael for Excellent Service
         `,
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 2,
             serviceHistory: 'Full Franchise Service History',
             colour: 'Grey',
@@ -361,15 +355,210 @@ export const carsData = [
             on this opportunity to own a fantastic BMW. Contact us for more details.
         `,
         vehicleDetails: {
-            lastUpdated: '01 December 2023',
             previousOwners: 1,
             serviceHistory: 'Full Service History',
             colour: 'Black',
             bodyType: 'Sedan',
         },
+    },
+
+    {
+        name: '2018 Audi A1 1.0TFSi Stronic',
+        used: true,
+        mileage: '30,000',
+        transmissionType: 'Stronic',
+        price: '289,900',
+        fuelType: 'Petrol',
+        year: '2018',
+        brand: 'Audi',
+        imageUrl: require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_123248.jpg'),
+        imageUrls: [
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_123248.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_123231.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_123057.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122850.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122616.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122517.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122505.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122423.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122356.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122341.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122319.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122305.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122256.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122120.jpg'),
+            require('./images/2018 Audi A1 1.0TFSi Stronic/20231204_122100.jpg'),
+        ],
+        extras: [
+            'On-board computer / multi-information display',
+            'Panoramic roof',
+            'Rain sensor (auto wipers)',
+            'Tyre pressure sensor/monitor / defflation detectionsystem'
+      
+        ],
+        sellerComments: `
+            This is a sleek 2018 Audi A1 1.0TFSi with Stronic transmission. It's in fantastic condition 
+            with a clean interior. Equipped with modern amenities and a smooth, efficient ride, this Audi A1 
+            offers both style and comfort. Get in touch to book a test drive or to get more information.
+        `,
+        vehicleDetails: {
+            previousOwners: 2,
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'Silver',
+            bodyType: 'Hatchback',
+        },
+    },
+    //UPDATE DATA
+
+    {
+        name: '2015 Audi S3 S3 3-door Quattro Auto',
+        used: true,
+        mileage: '121,100',
+        transmissionType: 'Automatic',
+        price: '349,900',
+        fuelType: 'Petrol',
+        year: '2015',
+        brand: 'Audi',
+        imageUrl: require('./images/2015 Audi S3 Quattro Stronic/Main.jpg'),
+        imageUrls: [
+            require('./images/2015 Audi S3 Quattro Stronic/Main.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05475.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05483.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05489.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05500.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05510.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05512.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05516.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05519.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05522.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05524.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/DSC05528.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/Front.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/AAAu.jpg'),
+            require('./images/2015 Audi S3 Quattro Stronic/Rear.jpg'),
+        ],
+        extras: [
+            'Active/adaptive cruise control',
+            'Adaptive headlights (varying light distribution)',
+            'High-beam assist',
+            'Hill-start assist / hill holder',
+            'Panoramic roof',
+            'Park distance control (PDC) - rear',
+            'Suede-cloth upholstery',
+        ],
+        sellerComments: `
+            What an incredible sporty hatch. The Audi S3 is one of the most sought-after performance, sport hatches currently. 
+            Very well kept, including balance of aftermarket warranty. Don't miss out on this beauty. Contact us now! 
+            We specialize in Quality Approved Pre-Owned Vehicles. Finance Available. Trade-Ins Welcome. We Deliver Countrywide!
+        `,
+        vehicleDetails: {
+            previousOwners: 2,
+            serviceHistory: 'Full Service History',
+            colour: 'White',
+            bodyType: 'Hatchback',
+        },
+    },
+
+    {
+        name: '2016 Audi RSQ3 Quattro',
+        used: true,
+        mileage: '123,500',
+        transmissionType: 'Automatic',
+        price: '449,900',
+        fuelType: 'Petrol',
+        year: '2016',
+        brand: 'Audi',
+        imageUrl: require('./images/2016 Audi RSQ3 2.3 Quattro/Main.jpg'),
+        imageUrls: [
+            require('./images/2016 Audi RSQ3 2.3 Quattro/Main.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/Main2.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/Front (1).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-16.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-17 (2).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-18.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-19.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-20.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-21.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-21 (2).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-21 (3).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-22 (2).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-23.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-23 (2).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-23 (3).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-24.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-24 (3).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-24 (4).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-24 (5).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-25.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-25 (2).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-25 (3).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-26.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/photo_2023-12-22_14-22-26 (2).jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/Rear.jpg'),
+            require('./images/2016 Audi RSQ3 2.3 Quattro/Rear Main2.jpg'),
+        ],
+        extras: [
+            'Hill-start assist / hill holder',
+            'Panoramic roof',
+        ],
+        sellerComments: `
+            JUST IN!!! Hot Rod Red never looked this good. This beautifully maintained RSQ3 is ready for its new home 
+            & for exhilarating new journeys. Contact us now and we'll get you behind the wheel of this beauty in no time. 
+            We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome... We Deliver Countrywide...
+        `,
+        vehicleDetails: {
+            previousOwners: 'Unknown',
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'Red',
+            bodyType: 'SUV',
+        },
+    },
+
+    {
+        name: '2007 Porsche Boxster S',
+        used: true,
+        mileage: 'Mileage not specified',
+        transmissionType: 'Automatic',
+        price: 'Price not specified',
+        fuelType: 'Petrol',
+        year: '2007',
+        brand: 'Porsche',
+        imageUrl: require('./images/2007 Porsche Boxter S /IMG_9045.jpg'),
+        imageUrls: [
+            require('./images/2007 Porsche Boxter S /IMG_9045.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9053.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9056.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9069.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9074.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9082.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9083.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9084.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9086.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9087.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9090.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9092.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9099.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9111.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9114.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9117.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9118.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9123.jpg'),
+            require('./images/2007 Porsche Boxter S /IMG_9125.jpg'),
+            require('./images/2007 Porsche Boxter S /Porsche.jpg'),
+        ],
+        extras: [
+            'List any extras here',
+        ],
+        sellerComments: `
+            Add your seller comments here.
+        `,
+        vehicleDetails: {
+            lastUpdated: 'Add last updated date here',
+            previousOwners: 'Add previous owners count here',
+            serviceHistory: 'Add service history details here',
+            colour: 'Add colour here',
+            bodyType: 'Add body type here',
+        },
     }
-    
-
-
-
+    //UPDATE DATA
 ];
