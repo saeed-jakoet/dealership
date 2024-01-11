@@ -12,7 +12,9 @@ const About = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage < totalImages ? prevImage + 1 : 1));
+      setCurrentImage((prevImage) =>
+        prevImage < totalImages ? prevImage + 1 : 1
+      );
     }, 6000);
 
     const handleScroll = () => {
@@ -43,8 +45,8 @@ const About = () => {
   }, []);
 
   return (
-    <Link to='about' smooth={true} duration={500}>
-      <Element name='about' ref={aboutRef}>
+    <Link to="about" smooth={true} duration={500}>
+      <Element name="about" ref={aboutRef}>
         <motion.div
           className={`about ${isAboutVisible ? 'show' : ''}`}
           data-current-image={currentImage}
@@ -53,10 +55,14 @@ const About = () => {
           exit={{ opacity: 0, x: -50 }}
           transition={{ ease: 'easeInOut', duration: 1 }}
         >
-          <div id='about' className='content'>
-            <div className='parallax-bg-about'
+          <div id="about" className="content">
+            <div
+              className="parallax-bg-about"
               style={{
-                transform: `translateY(${Math.max(0, (scrollPosition - window.innerHeight - 100) * 0.6)}px)`,
+                transform: `translateY(${Math.max(
+                  0,
+                  (scrollPosition - window.innerHeight - 100) * 0.6
+                )}px)`,
               }}
             ></div>
             <motion.h2
@@ -71,7 +77,20 @@ const About = () => {
               animate={{ x: 0 }}
               transition={{ ease: 'easeInOut', duration: 0.7 }}
             >
-              We are a Family-Owned business spawning from two generations of knowledge and experience in the Motor industry. Working together with mega household brands, such as BMW, AUDI, MERCEDES, TOYOTA, SUZUKI, MAZDA and VW, we have collectively formulated the best buying strategies and processes that assure you as our client the best possible prices and more-so, unmatched service quality. We at FARAUTO endeavor to make your experience one to remember, as we pride ourselves on building lasting relationships. We offer knowledgeable advice on the right vehicle for your needs and service offerings, including individualized vehicle finance with all major financial institutions, excellent warranty options and countrywide delivery for your logistical co
+              We are a family-owned business rooted in two generations of
+              experience in the automotive industry. Our collaborative efforts
+              with renowned brands such as BMW, Audi, Mercedes-Benz, Toyota,
+              Suzuki, Mazda, and Volkswagen have allowed us to develop optimal
+              buying strategies and processes. As our valued client, you can
+              expect not only competitive prices but also unparalleled service
+              quality. At FARAUTO, we are committed to creating memorable
+              experiences and fostering lasting relationships. We take pride in
+              offering expert guidance to help you choose the right vehicle to
+              meet your needs. Our comprehensive services include personalized
+              vehicle financing options through major financial institutions,
+              extensive warranty choices, and nationwide delivery for your
+              convenience. Experience the difference with FARAUTO, where your
+              automotive journey becomes our shared passion.
             </motion.p>
           </div>
         </motion.div>
