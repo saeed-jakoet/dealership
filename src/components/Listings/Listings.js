@@ -92,14 +92,14 @@ const Listings = () => {
     .slice((page - 1) * carsPerPage, page * carsPerPage); // Paginate cars
 
   return (
-    <Element name="listings">
-      <div className="listings-container" ref={listingsRef}>
+    <Element name='listings'>
+      <div className='listings-container' ref={listingsRef}>
         <Banner
           page={page}
           totalPages={Math.ceil(carsData.length / carsPerPage)}
           onPageChange={handlePageChange}
         />
-        <div className="listings-header">
+        <div className='listings-header'>
           <h1>Car Listings</h1>
           <p>Explore our latest car inventory</p>
         </div>
@@ -113,13 +113,13 @@ const Listings = () => {
           />
         ))}
         {selectedCar && selectedCar.imageUrls && (
-          <div className="modal-overlay" onClick={handleCloseModal}>
-            <div className="modal-content" onClick={handleModalClick}>
+          <div className='modal-overlay' onClick={handleCloseModal}>
+            <div className='modal-content' onClick={handleModalClick}>
               <ImageCarousel
                 carDetails={selectedCar}
                 onClose={handleCloseModal}
               />
-              <div className="enquiry-form-container">
+              <div className='enquiry-form-container'>
                 {showEnquiryForm && selectedCar && (
                   <motion.div
                     initial={{ opacity: 0, y: -30 }}
@@ -135,7 +135,7 @@ const Listings = () => {
                 )}
                 {!showEnquiryForm && (
                   <motion.button
-                    className="enquire-button"
+                    className='enquire-button'
                     onClick={handleFormButtonClick}
                   >
                     Enquire
@@ -156,7 +156,7 @@ const Listings = () => {
 };
 
 const noCarPhotoImage = (
-  <img src={noCarPhoto} alt="No Car Available" className="icon" />
+  <img src={noCarPhoto} alt='No Car Available' className='icon' />
 );
 
 const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
@@ -179,39 +179,43 @@ const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
   return (
     <motion.div
       ref={ref}
-      className="vehicle-listing"
+      className='vehicle-listing'
       onClick={onClick}
       initial={{ opacity: 0, y: 100 }}
       animate={controls}
     >
-      <div className="image-container">
+      <div className='image-container'>
         {vehicle.imageUrls && vehicle.imageUrls.length > 0 ? (
           <img src={vehicle.imageUrls[0]} alt={`${vehicle.name} Vehicle`} />
         ) : (
           noCarPhotoImage
         )}
       </div>
-      <div className="details-container">
-        <div className="top-details">
-          <p className="price">{`R${vehicle.price.toLocaleString()}`}</p>
+      <div className='details-container'>
+        <div className='top-details'>
+          <p className='price'>
+            {vehicle.price
+              ? `R${vehicle.price.toLocaleString()}`
+              : 'Price not available'}
+          </p>
         </div>
-        <div className="bottom-details">
-          <p className="name">{vehicle.name}</p>
-          <p className="used-status">{vehicle.used ? 'Used Car' : 'New Car'}</p>
-          <p className="mileage">
-            <MdSpeed className="icon" />
+        <div className='bottom-details'>
+          <p className='name'>{vehicle.name}</p>
+          <p className='used-status'>{vehicle.used ? 'Used Car' : 'New Car'}</p>
+          <p className='mileage'>
+            <MdSpeed className='icon' />
             {vehicle.mileage} km
           </p>
-          <p className="transmission-type">
-            <TbManualGearbox className="icon" />
+          <p className='transmission-type'>
+            <TbManualGearbox className='icon' />
             {vehicle.transmissionType}
           </p>
-          <p className="fuel-type">
-            <MdLocalGasStation className="icon" />
+          <p className='fuel-type'>
+            <MdLocalGasStation className='icon' />
             {vehicle.fuelType}
           </p>
-          <p className="calendar">
-            <MdEvent className="icon" />
+          <p className='calendar'>
+            <MdEvent className='icon' />
             {vehicle.year}
           </p>
         </div>
@@ -222,17 +226,17 @@ const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
 
 const Banner = ({ page, totalPages, onPageChange }) => {
   return (
-    <div className="banner-container">
+    <div className='banner-container'>
       <button
-        className="arrow-button"
+        className='arrow-button'
         onClick={() => onPageChange('prev')}
         disabled={page === 1}
       >
         {'<'}
       </button>
-      <p className="page-indicator">{`Page ${page} of ${totalPages}`}</p>
+      <p className='page-indicator'>{`Page ${page} of ${totalPages}`}</p>
       <button
-        className="arrow-button"
+        className='arrow-button'
         onClick={() => onPageChange('next')}
         disabled={page === totalPages}
       >

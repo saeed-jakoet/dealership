@@ -506,6 +506,42 @@ export const carsData = [
   },
 
   {
+    name: '2017 Ford Fiesta 5-door 1.4 Ambiente',
+    used: true,
+    mileage: '87,800',
+    transmissionType: 'Manual',
+    price: '169,900',
+    fuelType: 'Petrol',
+    year: '2017',
+    brand: 'Ford',
+    imageUrl: require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.41_ba5f2db1.jpg'),
+    imageUrls: [
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.41_ba5f2db1.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.34_21da8d79.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.36_3dbae56f.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.37_9657caa0.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.38_909c3181.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.39_89af2bc2.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.40_8eeebb12.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.30_0d124388.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.41_eca0d41c.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.42_63f80cf0.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.43_9bda4dc8.jpg'),
+      require('./images/2017 Ford Fiesta 5-door 1.4 Ambiente/WhatsApp Image 2024-02-22 at 19.30.43_099d4ee3.jpg'),
+    ],
+    sellerComments: `
+    JUST IN! Light on fuel and very reliable. This one's sure to sell fast. We specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome... We Deliver Countrywide.
+    `,
+    vehicleDetails: {
+      lastUpdated: '22 February 2024',
+      previousOwners: 3,
+      serviceHistory: 'Full Service History',
+      colour: 'Blue',
+      bodyType: 'Hatchback',
+    },
+  },
+
+  {
     name: '2007 Porsche Boxster S',
     used: true,
     mileage: '102,000',
@@ -547,5 +583,29 @@ export const carsData = [
       bodyType: 'Add body type here',
     },
   },
-  //UPDATE DATA
+  // {
+  //   name: '2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale',
+  //   used: true,
+  //   mileage: '87,600',
+  //   transmissionType: 'Automatic',
+  //   price: '189,900',
+  //   fuelType: 'Petrol',
+  //   year: '2016',
+  //   brand: 'Ford',
+  //   sellerComments: `
+  //     JUST IN! R3600 SERVICE JUST COMPLETED AT MOTUS FORD CAPE TOWN. This is a one owner car, with low mileage. Great on fuel consumption. Extras include Xenon headlights, Bluetooth, Tip-in Mirrors, Heated Seats, Leather Seats, Rear Park Distance Sensors, Keyless Entry, Push Start, Climate Control, USB, Cruise Control.  We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome... We Deliver Countrywide...
+  //     `,
+  //   vehicleDetails: {
+  //     lastUpdated: '03 February 2024',
+  //     previousOwners: 1,
+  //     serviceHistory: 'Full Franchise Service History',
+  //     colour: 'White',
+  //     bodyType: 'Hatchback',
+  //     extras: [
+  //       'Heated seats - front',
+  //       'Leather upholstery',
+  //       'Park distance control (PDC) - rear',
+  //     ],
+  //   },
+  // },
 ];
