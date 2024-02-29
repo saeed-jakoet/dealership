@@ -609,7 +609,6 @@ export const carsData = [
       require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.45_341af0dc.jpg'),
       require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.45_895fe076.jpg'),
       require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.47_0fbbe6bd.jpg'),
-      require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.29_fb47f5b4.jpg'),
       require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.51_3138ffac.jpg'),
       require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.52_6b8ac2e4.jpg'),
       require('./images/2016 Ford Fiesta 5-Door 1.0T Titanium Auto For Sale/WhatsApp Image 2024-01-24 at 17.57.54_f421a0f0.jpg'),
