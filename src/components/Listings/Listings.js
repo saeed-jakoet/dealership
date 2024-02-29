@@ -88,8 +88,10 @@ const Listings = () => {
   };
 
   const filteredCars = carsData
-    .sort((a, b) => a.brand.localeCompare(b.brand)) // Sort alphabetically by brand
-    .slice((page - 1) * carsPerPage, page * carsPerPage); // Paginate cars
+  .filter(car => car.brand)
+  .sort((a, b) => a.brand.localeCompare(b.brand)) 
+  .slice((page - 1) * carsPerPage, page * carsPerPage);
+
 
   return (
     <Element name='listings'>
