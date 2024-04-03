@@ -709,4 +709,44 @@ export const carsData = [
       bodyType: 'Cabriolet',
     },
   },
+
+  {
+    name: '2012 Ford Ranger 3.2TDCi Double Cab 4x4 XLT',
+    used: true,
+    mileage: '295 200',
+    transmissionType: 'Manual',
+    price: '219 900',
+    fuelType: 'Diesel',
+    year: 2012,
+    brand: 'Ford',
+    imageUrl:    require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120920.jpg'),
+    imageUrls: [
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120920.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_115755.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_115809.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120023 (1)-Recovered.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120223.heic'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120259.heic'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120323.heic'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120355.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120421.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120524.heic'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_120956.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_121147.jpg'),
+      require('./images/2012 Ford Ranger 3.2TDCI 4X4 XLT Doubel Cab/20240325_121207.jpg')
+    ],
+    extras: [],
+    sellerComments: `
+      This vehicle has a FULL SERVICE HISTORY WITH FORD. Side steps and bull bar, Towbar, Bluetooth, Tip in mirrors, Cruise control. 
+      We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available... Trade Ins Welcome... We Deliver Countrywide.
+    `,
+    vehicleDetails: {
+      previousOwners: 1,
+      serviceHistory: 'Full Franchise Service History',
+      colour: 'White',
+      bodyType: 'Double cab'
+    }
+  }
+  
+  
 ];
