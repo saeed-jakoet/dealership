@@ -61,6 +61,21 @@ const allReviews = [
         content: "Incredible that's all I can say from start to finish and after service these guys are great make you feel extra special with their approach and proffesionism I speak for myself but anyone if you want to buy a car buy it from these guys I promise you you will feel extra special.Continue on this journey guys and I will keep my promise that the next car I buy will definitely be from you guys 👌👍👏 ",
         url: "https://g.co/kgs/41qDec",
     },
+    {
+        id:9,
+        author: 'Yanda Ntsaluba',
+        rating: 5,
+        content: 'Dealing with Faraaz was so good. Courteous, service top-notch, and great selection of cars. Thanks Faraaz, as well as Angie, on making the whole process easier than buying groceries. Anyone looking for a new car, start here. You won\'t need to look anywhere else.',
+        url: 'https://g.co/kgs/RYZHj5N'
+    },
+    {
+        iid: 10,
+        author: 'Rachie du Preez',
+        rating: 5,
+        content: 'Best service ever',
+        url: 'https://g.co/kgs/QUNSaJM'
+    }
+
 ];
 
 const Review = ({ review }) => (
