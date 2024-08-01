@@ -888,4 +888,52 @@ export const carsData = [
       bodyType: 'SUV',
     },
   },
+  {
+    name: "2011 BMW 3 Series 320d Exclusive Auto",
+    used: true,
+    mileage: "235 500",
+    transmissionType: "Automatic",
+    price: "139 900",
+    fuelType: "Diesel",
+    year: "2011",
+    brand: "BMW",
+    imageUrl: require('./images/2011 BMW 320D Exclusive Auto/IMG_2463-HDR.jpg'),
+    imageUrls: [
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2463-HDR.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2468-HDR.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2474-HDR.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2480.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2481.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2486.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2488-HDR.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2498-HDR.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2503-HDR.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2512.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2513.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2514.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2517.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2518.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2520.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2521.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2522.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2523.jpg'),
+      require('./images/2011 BMW 320D Exclusive Auto/IMG_2524.jpg')
+    ],
+    extras: [
+      "Sunroof",
+      "Xenon headlights",
+      "Rear park sensors",
+      "Bluetooth for handsfree",
+      "Climate control",
+      "Tow bar"
+    ],
+    sellerComments: "Just in. This vehicle has been well looked after. Fuel efficient and still pretty powerful. We Specialize in Quality Approved Pre-Owned Vehicles. Finance Available. Trade Ins Welcome. We Deliver Countrywide.",
+    vehicleDetails: {
+      previousOwners: "Unknown",
+      serviceHistory: "Full Service History",
+      colour: "Grey",
+      bodyType: "Sedan"
+    }
+  }
+
 ];
