@@ -37,17 +37,17 @@ p {
 }
 
 /* Animations */
-@keyframes glitch {
-    0% {
-        text-shadow: 2px 2px #ff00bf;
-    }
-    50% {
-        text-shadow: -2px -2px #00eaff;
-    }
-    100% {
-        text-shadow: 2px 2px #ff00bf;
-    }
-}
+/*@keyframes glitch {*/
+/*    0% {*/
+/*        text-shadow: 2px 2px #ff00bf;*/
+/*    }*/
+/*    50% {*/
+/*        text-shadow: -2px -2px #00eaff;*/
+/*    }*/
+/*    100% {*/
+/*        text-shadow: 2px 2px #ff00bf;*/
+/*    }*/
+/*}*/
 
 @keyframes loading {
     0% {
