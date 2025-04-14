@@ -75,15 +75,15 @@
     position: relative;
 }
 
-/* 
+/*
 .vehicle-listing::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -10px; 
+    bottom: -10px;
     width: 100%;
-    height: 2px; 
-    background-color: #e0dbdb; 
+    height: 2px;
+    background-color: #e0dbdb;
     transition: all 0.3s ease;
     animation: breatheLine 1s infinite;
     animation-timing-function: ease-in-out;
@@ -95,8 +95,8 @@
         left: 50%;
     }
     50% {
-        width: 100%; 
-        left: 0; 
+        width: 100%;
+        left: 0;
     }
 } */
 

@@ -89,7 +89,7 @@ const Listings = () => {
 
   const filteredCars = carsData
   .filter(car => car.brand)
-  .sort((a, b) => a.brand.localeCompare(b.brand)) 
+  .sort((a, b) => a.brand.localeCompare(b.brand))
   .slice((page - 1) * carsPerPage, page * carsPerPage);
 
 
@@ -197,7 +197,7 @@ const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
         <div className='top-details'>
           <p className='price'>
             {vehicle.price
-              ? `R${vehicle.price.toLocaleString()}`
+              ? `${vehicle.price.toLocaleString()}`
               : 'Price not available'}
           </p>
         </div>

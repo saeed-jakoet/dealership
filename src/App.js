@@ -6,7 +6,7 @@ import Page from './components/Page';
 import Footer from './components/Footer/Footer';
 
 function App() {
-    const isUnderConstruction = true; // Set this flag to true to show the under construction page
+    const isUnderConstruction = false; // Set this flag to true to show the under construction page
 
     return (
         <Router>
