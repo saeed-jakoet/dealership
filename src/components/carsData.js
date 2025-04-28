@@ -298,7 +298,7 @@ export const carsData = [
     {
         name: '2013 Hyundai i10 1.1 Motion',
         used: true,
-        mileage: '71 800 km',
+        mileage: '71 800',
         transmissionType: 'Manual',
         price: 'R 107 900',
         fuelType: 'Petrol',
@@ -340,7 +340,7 @@ export const carsData = [
     {
         name: '2010 MINI Hatch Cooper',
         used: true,
-        mileage: '115 600 km',
+        mileage: '115 600',
         transmissionType: 'Manual',
         price: 'R 109 900',
         fuelType: 'Petrol',
@@ -384,7 +384,7 @@ export const carsData = [
     {
         name: '2019 Toyota C-HR 1.2T Plus Auto',
         used: true,
-        mileage: '58 600 km',
+        mileage: '58 600',
         transmissionType: 'Automatic',
         price: 'R 319 900',
         fuelType: 'Petrol',
@@ -430,7 +430,7 @@ export const carsData = [
     {
         name: '2018 Ford Fiesta 5-Door 1.0T Trend Auto',
         used: true,
-        mileage: '103 000 km',
+        mileage: '103 000',
         transmissionType: 'Automatic',
         price: 'R 189 900',
         fuelType: 'Petrol',
@@ -473,6 +473,116 @@ export const carsData = [
             bodyType: 'Hatchback',
             warranty: 'Has Warranty',
         },
+    },
+    {
+        name: '2023 Volkswagen Polo GTI',
+        used: true,
+        mileage: '16 900',
+        transmissionType: 'Automatic',
+        price: 'R 529 900',
+        fuelType: 'Petrol',
+        year: '2023',
+        brand: 'Volkswagen',
+        imageUrl: require('./images/2023 Volkswagen Polo GTI/69eb9c10-9c50-4033-ae16-a2785d5e8a87.jpg'),
+        imageUrls: [
+            require('./images/2023 Volkswagen Polo GTI/69eb9c10-9c50-4033-ae16-a2785d5e8a87.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/001b466a-2af6-4d7f-a053-c14d33c512d2.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/0092e5bb-a346-4f26-912b-96610d5d148e.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/02444e2c-d5d1-4767-8f86-7beee6fadd30.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/180991ae-8add-4cd3-9fa4-f1db88d0f7c3.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/20da5796-4530-4c3b-ae39-bf05f473b4d5.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/22b4b04c-acda-4083-8509-4152bfbd247e.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/23b9c90e-8e88-4260-bdfb-f7f1d45a0f14.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/2d3b63be-92e3-445a-aa34-839b9025a210.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/2e1df348-42ed-4d8f-82f4-58e062f9db85.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/304c8f40-4ab0-49af-ad94-12ad1a73250b.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/30f3ea76-1d82-4019-b461-60d0e57ab25a.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/6b130977-c24d-41d8-8a0c-431a791c8ec8.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/702b36ee-3ebb-458f-8a53-8f147a7507f9.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/764f465d-5dd8-43c7-a5f1-c280aa8037a2.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/78bf9351-9f47-4747-8a26-a3a179615b26.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/7ffbdb94-170d-4ff8-b56e-f8f5dde7501c.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/ad47f610-df92-4e59-a58a-e2f2951dfe34.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/b7458ca5-75d1-49db-b85d-6fcb5c0145d6.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/bb6531bd-c891-4500-a03f-77612fab0553.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/be42cde7-1ecc-4c11-840a-2beae50392d5.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/be65f3a6-83ae-476f-ad27-1855c97ffa26.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/d2836fc9-e156-4950-9c0f-b862648c40bd.jpg'),
+            require('./images/2023 Volkswagen Polo GTI/ee31377c-3959-4c5b-ae9a-5eb2afacae95.jpg'),
+        ],
+        extras: [
+            'Camera for park distance control',
+            'Keyless access+start / hands-free key',
+            'Leather upholstery',
+            'Panoramic roof',
+            'Park assist (self-parking)'
+        ],
+        sellerComments: `Low mileage and in excellent condition. Packed with extras: Panoramic Sunroof, IQ. Headlights, Beats Sound 6 Package, Black Diamond Turned 18" Rims, Comfort Park Package, Keyless Start, Comfort Access, Leather Seat Package & More... 
+Don't miss the opportunity to own this beauty. 
+This vehicle has undergone our stringent quality inspection- so you can buy with confidence. 
+Great warranty options available that include roadside assistance for your commuting peace of mind. 
+We offer tailored finance options with a 24-hour validated approval turnaround. 
+Price excludes license, registration, and on-the-road fees. E&OE - T&C's apply.`,
+        vehicleDetails: {
+            serviceHistory: 'Full Franchise Service History',
+            colour: 'White',
+            bodyType: 'Hatchback',
+            warranty: 'Has Warranty',
+        },
+    },
+    {
+        name: '2022 Volkswagen Golf GTI',
+        used: true,
+        mileage: '46 900',
+        transmissionType: 'Automatic',
+        price: 'R 689 900',
+        fuelType: 'Petrol',
+        year: '2022',
+        brand: 'Volkswagen',
+        color: 'White',
+        bodyType: 'Hatchback',
+        warranty: '3 Months Or 53 100 km',
+        previousOwners: 2,
+        serviceHistory: 'Full Franchise Service History',
+
+        imageUrl: require('./images/2022 Volkswagen Golf GTI/f09fface-29da-4752-ab45-a5eb9eec593d.jfif'),
+        imageUrls: [
+            require('./images/2022 Volkswagen Golf GTI/f09fface-29da-4752-ab45-a5eb9eec593d.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/07d217f3-f6e6-4173-ac17-c85bf6ded010 (1).jfif'),
+            require('./images/2022 Volkswagen Golf GTI/1447dbd3-8689-4012-8a2d-d28e6150b335.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/14d42ba7-ed70-4ea2-b6bb-9f03d7d40e8b.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/1dc572e7-2aeb-4053-99ad-8ef80ab1a193.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/22593c62-297c-47eb-a7c5-58fcc4f0c3c3.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/35ffa3f3-73b0-49fc-8db7-1c5b6cad929f.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/3b04c0a5-ab34-46cd-b16c-7fb372976ef3.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/3cbf2e8e-9d8d-464d-984c-59bdc214417c.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/443c72ee-6ebe-4b66-a087-b978eab44eca.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/4bbdadc3-e641-4a0d-9b56-bb5dae7196e7.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/5193c380-174b-4f91-9778-9d6bb9e0961a.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/5c1a398c-e953-4617-b630-c16f07b0cdae.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/6ff6c90f-ddb8-48bc-8290-debbf4efc8cf.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/7e2287d8-8648-4719-96b3-b652605237ad.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/851fd371-83c7-48b8-806e-19c06070e8e6.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/8fc734dc-588e-475b-8f92-0cd3a39e34e1.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/960a56d9-0d32-4a8a-b80d-0af71d0ce451.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/ac568c1b-a0fb-406e-a161-5afd30a2e2e0.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/c974d8a2-8067-4b7a-afee-b4d935b02db8.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/d8c12ee1-e2a1-48fb-b0b5-403b02fcd9f7.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/ed882b91-53a9-4249-a8ac-8311efc88137.jfif'),
+            require('./images/2022 Volkswagen Golf GTI/f46a78dc-a482-47c6-8aa0-0fa3605886ea.jfif')
+        ],
+        sellerComments: `Low mileage and in excellent condition. Don't miss the opportunity to own this beauty. 
+This vehicle has undergone our stringent quality inspection- so you can buy with confidence. 
+Great warranty options available that include roadside assistance for your commuting peace of mind. 
+We offer tailored finance options with a 24-hour validated approval turnaround. 
+Price excludes license, registration, and on-the-road fees. E&OE - T&C's apply.`,
+
+        extras: [
+            'Camera for park distance control',
+            'Panoramic roof',
+            'Park assist (self-parking)'
+        ]
     }
+
 
 ];
