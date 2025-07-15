@@ -7,7 +7,7 @@ import './Featured.css';
 
 
 import amg from '../images/2018 Mercedes Benz A200 Amg Auto/6f566f84-c6f8-4830-864f-6dc37d36a596.jpg';
-import honda from '../images/2007 Porsche Boxter S /IMG_9045.jpg';
+import honda from '../images/2007 Porsche Boxter S/IMG_9045.jpg';
 import toy from '../images/2019 Toyota C-HR 1.2T Plus Auto/20250328_154405.jpg';
 
 const Featured = () => {
