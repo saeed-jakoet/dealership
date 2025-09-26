@@ -51,25 +51,9 @@ const Contact = () => {
     let postSuccess = false;
     let errorMsg = '';
     try {
-      // Send to emailjs
-      try {
-        // Debug: log env variables
-        console.log('EMAILJS SERVICE:', process.env.REACT_APP_EMAILJS_SERVICE_ID);
-        console.log('EMAILJS TEMPLATE:', process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
-        console.log('EMAILJS USER:', process.env.REACT_APP_EMAILJS_USER_ID);
-        const result = await emailjs.sendForm(
-          process.env.REACT_APP_EMAILJS_SERVICE_ID,
-          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-          form.current,
-          process.env.REACT_APP_EMAILJS_USER_ID
-        );
-        console.log(result.text);
-        emailSuccess = true;
-      } catch (err) {
-        errorMsg = 'Email notification failed. ' + (err?.text || err?.message || '');
-        console.error('EmailJS error:', err);
-      }
-      // Send to backend
+      // 1. Send to backend first
+      let backendSuccess = false;
+      let backendError = '';
       try {
         const inboxData = {
           name: formData.to_name.trim(),
@@ -86,14 +70,45 @@ const Contact = () => {
           body: JSON.stringify(inboxData)
         });
         if (!res.ok) {
-          const err = await res.json();
-          throw new Error(err.message || 'Failed to send message');
+          try {
+            const err = await res.json();
+            backendError = err.message || 'Failed to send message';
+          } catch {
+            backendError = 'Oops! Too many requests. Please give it a moment and try again.';
+          }
+          throw new Error(backendError);
         }
-        postSuccess = true;
+        backendSuccess = true;
       } catch (err) {
-        errorMsg += ' Backend notification failed. ' + (err?.message || '');
+        errorMsg = err?.message || 'Backend notification failed.';
+        setSubmitStatus({
+          type: 'error',
+          message: errorMsg
+        });
+        setIsSubmitting(false);
+        return;
       }
-      if (emailSuccess && postSuccess) {
+      // 2. Only send email if backend succeeded
+      try {
+        const result = await emailjs.sendForm(
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          form.current,
+          process.env.REACT_APP_EMAILJS_USER_ID
+        );
+        console.log(result.text);
+        emailSuccess = true;
+      } catch (err) {
+        errorMsg = 'Email notification failed. ' + (err?.text || err?.message || '');
+        setSubmitStatus({
+          type: 'error',
+          message: errorMsg
+        });
+        setIsSubmitting(false);
+        return;
+      }
+      // 3. If both succeeded
+      if (backendSuccess && emailSuccess) {
         setSubmitStatus({
           type: 'success',
           message: "Thank you! Your message has been sent successfully. We'll get back to you soon."
@@ -104,11 +119,6 @@ const Contact = () => {
           email: '',
           phone: '',
           details: '',
-        });
-      } else {
-        setSubmitStatus({
-          type: 'error',
-          message: errorMsg || 'Oops! Something went wrong. Please try again later.'
         });
       }
     } finally {
