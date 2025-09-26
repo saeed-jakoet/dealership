@@ -41,42 +41,76 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!isFormValid()) {
       setSubmitStatus({ type: 'error', message: 'Please fill in all fields correctly.' });
       return;
     }
-
     setIsSubmitting(true);
     setSubmitStatus(null);
-
+    let emailSuccess = false;
+    let postSuccess = false;
+    let errorMsg = '';
     try {
-      const result = await emailjs.sendForm(
-        'service_dbcag1q', 
-        'template_nmezp0m', 
-        form.current, 
-        'w8cyA_fEWwsNf6qBs'
-      );
-      
-      console.log(result.text);
-      setSubmitStatus({ 
-        type: 'success', 
-        message: 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.' 
-      });
-      
-      setFormData({
-        to_name: '',
-        lastname: '',
-        email: '',
-        phone: '',
-        details: '',
-      });
-    } catch (error) {
-      console.log(error.text);
-      setSubmitStatus({ 
-        type: 'error', 
-        message: 'Oops! Something went wrong. Please try again later.' 
-      });
+      // Send to emailjs
+      try {
+        // Debug: log env variables
+        console.log('EMAILJS SERVICE:', process.env.REACT_APP_EMAILJS_SERVICE_ID);
+        console.log('EMAILJS TEMPLATE:', process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
+        console.log('EMAILJS USER:', process.env.REACT_APP_EMAILJS_USER_ID);
+        const result = await emailjs.sendForm(
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          form.current,
+          process.env.REACT_APP_EMAILJS_USER_ID
+        );
+        console.log(result.text);
+        emailSuccess = true;
+      } catch (err) {
+        errorMsg = 'Email notification failed. ' + (err?.text || err?.message || '');
+        console.error('EmailJS error:', err);
+      }
+      // Send to backend
+      try {
+        const inboxData = {
+          name: formData.to_name.trim(),
+          email: formData.email.trim().toLowerCase(),
+          lastName: formData.lastname.trim(),
+          message: formData.details.trim(),
+          phone: formData.phone ? formData.phone.trim() : '',
+          status: false
+        };
+        const apiBase = process.env.REACT_APP_API_BASE_URL || '';
+        const res = await fetch(`${apiBase}/inbox/new`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(inboxData)
+        });
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.message || 'Failed to send message');
+        }
+        postSuccess = true;
+      } catch (err) {
+        errorMsg += ' Backend notification failed. ' + (err?.message || '');
+      }
+      if (emailSuccess && postSuccess) {
+        setSubmitStatus({
+          type: 'success',
+          message: "Thank you! Your message has been sent successfully. We'll get back to you soon."
+        });
+        setFormData({
+          to_name: '',
+          lastname: '',
+          email: '',
+          phone: '',
+          details: '',
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: errorMsg || 'Oops! Something went wrong. Please try again later.'
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }

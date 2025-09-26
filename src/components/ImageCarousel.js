@@ -1,12 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaTimes, FaExpand, FaCompress, FaChevronLeft, FaChevronRight, 
-  FaPlay, FaPause, FaSearchPlus, FaSearchMinus, FaDownload,
-  FaShare, FaHeart, FaPhone, FaEnvelope, FaWhatsapp,
-  FaCar, FaCalendarAlt, FaTachometerAlt, FaGasPump, FaCog,
-  FaCheckCircle, FaInfoCircle, FaStar, FaMapMarkerAlt
-} from 'react-icons/fa';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaTimes,
+  FaExpand,
+  FaCompress,
+  FaChevronLeft,
+  FaChevronRight,
+  FaPlay,
+  FaPause,
+  FaSearchPlus,
+  FaSearchMinus,
+  FaDownload,
+  FaShare,
+  FaHeart,
+  FaPhone,
+  FaEnvelope,
+  FaWhatsapp,
+  FaCar,
+  FaCalendarAlt,
+  FaTachometerAlt,
+  FaGasPump,
+  FaCog,
+  FaCheckCircle,
+  FaInfoCircle,
+  FaStar,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const ImageCarousel = ({ carDetails, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,7 +34,7 @@ const ImageCarousel = ({ carDetails, onClose }) => {
   const [showThumbnails, setShowThumbnails] = useState(true);
   const [zoom, setZoom] = useState(1);
   const [showDetails, setShowDetails] = useState(true);
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState("overview");
   const imageRef = useRef(null);
   const intervalRef = useRef(null);
 
@@ -29,38 +48,39 @@ const ImageCarousel = ({ carDetails, onClose }) => {
       return getSuffix(a) - getSuffix(b);
     });
   };
-  const images = carDetails?.sortedImageUrls
-    || getSortedImageUrls(carDetails?.allImageUrls || carDetails?.imageUrls || []);
+  const images =
+    carDetails?.sortedImageUrls ||
+    getSortedImageUrls(carDetails?.allImageUrls || carDetails?.imageUrls || []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           if (isFullscreen) {
             exitFullscreen();
           } else {
             onClose();
           }
           break;
-        case 'ArrowLeft':
+        case "ArrowLeft":
           handlePrevClick();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           handleNextClick();
           break;
-        case ' ':
+        case " ":
           e.preventDefault();
           toggleSlideshow();
           break;
-        case 'f':
-        case 'F':
+        case "f":
+        case "F":
           toggleFullscreen();
           break;
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isFullscreen]);
 
   useEffect(() => {
@@ -95,7 +115,7 @@ const ImageCarousel = ({ carDetails, onClose }) => {
   };
 
   const exitFullscreen = () => {
-    if (document.exitFullscreen) {
+    if (document.fullscreenElement) {
       document.exitFullscreen();
     }
     setIsFullscreen(false);
@@ -106,20 +126,20 @@ const ImageCarousel = ({ carDetails, onClose }) => {
   };
 
   const handleZoom = (direction) => {
-    if (direction === 'in') {
-      setZoom(prev => Math.min(prev + 0.5, 3));
+    if (direction === "in") {
+      setZoom((prev) => Math.min(prev + 0.5, 3));
     } else {
-      setZoom(prev => Math.max(prev - 0.5, 0.5));
+      setZoom((prev) => Math.max(prev - 0.5, 0.5));
     }
   };
 
   const formatPrice = (price) => {
-    if (!price) return 'POA';
+    if (!price) return "POA";
     return `R${parseInt(price).toLocaleString()}`;
   };
 
   const formatMileage = (mileage) => {
-    if (!mileage) return 'N/A';
+    if (!mileage) return "N/A";
     return `${parseInt(mileage).toLocaleString()} km`;
   };
 
@@ -132,7 +152,11 @@ const ImageCarousel = ({ carDetails, onClose }) => {
   }
 
   return (
-    <div className={`fixed inset-0 z-50 bg-black ${isFullscreen ? 'bg-black' : 'bg-black/95'}`}>
+    <div
+      className={`fixed inset-0 z-50 bg-black ${
+        isFullscreen ? "bg-black" : "bg-black/95"
+      }`}
+    >
       <div className="h-full flex flex-col">
         {/* Top Controls */}
         <div className="flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
@@ -144,45 +168,45 @@ const ImageCarousel = ({ carDetails, onClose }) => {
               {formatPrice(carDetails.price)}
             </span>
           </div>
-          
+
           <div className="flex items-center gap-2">
             {/* Image Counter */}
             <span className="text-white/80 text-sm">
               {currentImageIndex + 1} / {images.length}
             </span>
-            
+
             {/* Controls */}
             <button
               onClick={toggleSlideshow}
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-              title={isPlaying ? 'Pause slideshow' : 'Start slideshow'}
+              title={isPlaying ? "Pause slideshow" : "Start slideshow"}
             >
               {isPlaying ? <FaPause /> : <FaPlay />}
             </button>
-            
+
             <button
-              onClick={() => handleZoom('out')}
+              onClick={() => handleZoom("out")}
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
               disabled={zoom <= 0.5}
             >
               <FaSearchMinus />
             </button>
-            
+
             <button
-              onClick={() => handleZoom('in')}
+              onClick={() => handleZoom("in")}
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
               disabled={zoom >= 3}
             >
               <FaSearchPlus />
             </button>
-            
+
             <button
               onClick={toggleFullscreen}
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
             >
               {isFullscreen ? <FaCompress /> : <FaExpand />}
             </button>
-            
+
             <button
               onClick={onClose}
               className="p-2 rounded-lg bg-red-500 hover:bg-red-600 text-white transition-colors"
@@ -195,16 +219,25 @@ const ImageCarousel = ({ carDetails, onClose }) => {
         {/* Main Image Area */}
         <div className="flex-1 relative flex">
           {/* Image Display */}
-          <div className={`${showDetails ? 'flex-1' : 'w-full'} relative overflow-hidden`}>
-            <div ref={imageRef} className="h-full w-full flex items-center justify-center">
+          <div
+            className={`${
+              showDetails ? "flex-1" : "w-full"
+            } relative overflow-hidden`}
+          >
+            <div
+              ref={imageRef}
+              className="h-full w-full flex items-center justify-center"
+            >
               <img
                 src={images[currentImageIndex]}
-                alt={`${carDetails.brand} ${carDetails.name} - Image ${currentImageIndex + 1}`}
+                alt={`${carDetails.brand} ${carDetails.name} - Image ${
+                  currentImageIndex + 1
+                }`}
                 className="max-h-full max-w-full object-contain transition-transform duration-300"
                 style={{ transform: `scale(${zoom})` }}
               />
             </div>
-            
+
             {/* Navigation Arrows */}
             {images.length > 1 && (
               <>
@@ -218,7 +251,9 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                 <button
                   onClick={handleNextClick}
                   className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-all"
-                  disabled={currentImageIndex === images.length - 1 && !isPlaying}
+                  disabled={
+                    currentImageIndex === images.length - 1 && !isPlaying
+                  }
                 >
                   <FaChevronRight size={20} />
                 </button>
@@ -246,7 +281,9 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                         <FaHeart />
                       </button>
                     </div>
-                    <h3 className="text-white font-bold text-xl">{carDetails.name}</h3>
+                    <h3 className="text-white font-bold text-xl">
+                      {carDetails.name}
+                    </h3>
                     <div className="flex items-center gap-4 text-sm text-gray-400">
                       <span>{carDetails.year}</span>
                       <span>•</span>
@@ -274,90 +311,117 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                   {/* Tabs */}
                   <div className="border-b border-gray-700">
                     <div className="flex space-x-4">
-                      {['overview', 'specs', 'features', 'description'].map((tab) => (
-                        <button
-                          key={tab}
-                          onClick={() => setActiveTab(tab)}
-                          className={`pb-2 px-1 text-sm font-medium border-b-2 transition-colors ${
-                            activeTab === tab
-                              ? 'text-brand-red border-brand-red'
-                              : 'text-gray-400 border-transparent hover:text-white'
-                          }`}
-                        >
-                          {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                        </button>
-                      ))}
+                      {["overview", "specs", "features", "description"].map(
+                        (tab) => (
+                          <button
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`pb-2 px-1 text-sm font-medium border-b-2 transition-colors ${
+                              activeTab === tab
+                                ? "text-brand-red border-brand-red"
+                                : "text-gray-400 border-transparent hover:text-white"
+                            }`}
+                          >
+                            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                          </button>
+                        )
+                      )}
                     </div>
                   </div>
 
                   {/* Tab Content */}
                   <div className="space-y-4">
-                    {activeTab === 'overview' && (
+                    {activeTab === "overview" && (
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-3">
                           <div className="flex items-center gap-2 text-sm">
                             <FaCalendarAlt className="text-brand-red" />
-                            <span className="text-gray-300">Year: {carDetails.year}</span>
+                            <span className="text-gray-300">
+                              Year: {carDetails.year}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             <FaTachometerAlt className="text-brand-red" />
-                            <span className="text-gray-300">Mileage: {formatMileage(carDetails.mileage)}</span>
+                            <span className="text-gray-300">
+                              Mileage: {formatMileage(carDetails.mileage)}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             <FaGasPump className="text-brand-red" />
-                            <span className="text-gray-300">Fuel: {carDetails.fuelType}</span>
+                            <span className="text-gray-300">
+                              Fuel: {carDetails.fuelType}
+                            </span>
                           </div>
                         </div>
                         <div className="space-y-3">
                           <div className="flex items-center gap-2 text-sm">
                             <FaCog className="text-brand-red" />
-                            <span className="text-gray-300">Transmission: {carDetails.transmissionType}</span>
+                            <span className="text-gray-300">
+                              Transmission: {carDetails.transmissionType}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             <FaCar className="text-brand-red" />
-                            <span className="text-gray-300">Type: {carDetails.vehicleDetails?.bodyType}</span>
+                            <span className="text-gray-300">
+                              Type: {carDetails.vehicleDetails?.bodyType}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             <FaCheckCircle className="text-green-500" />
-                            <span className="text-gray-300">{carDetails.vehicleDetails?.serviceHistory}</span>
+                            <span className="text-gray-300">
+                              {carDetails.vehicleDetails?.serviceHistory}
+                            </span>
                           </div>
                         </div>
                       </div>
                     )}
 
-                    {activeTab === 'specs' && carDetails.vehicleDetails && (
+                    {activeTab === "specs" && carDetails.vehicleDetails && (
                       <div className="space-y-3">
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Colour</span>
-                          <span className="text-white">{carDetails.vehicleDetails.colour}</span>
+                          <span className="text-white">
+                            {carDetails.vehicleDetails.colour}
+                          </span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Body Type</span>
-                          <span className="text-white">{carDetails.vehicleDetails.bodyType}</span>
+                          <span className="text-white">
+                            {carDetails.vehicleDetails.bodyType}
+                          </span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Previous Owners</span>
-                          <span className="text-white">{carDetails.vehicleDetails.previousOwners}</span>
+                          <span className="text-white">
+                            {carDetails.vehicleDetails.previousOwners}
+                          </span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Warranty</span>
-                          <span className="text-white">{carDetails.vehicleDetails.warranty}</span>
+                          <span className="text-white">
+                            {carDetails.vehicleDetails.warranty}
+                          </span>
                         </div>
                       </div>
                     )}
 
-                    {activeTab === 'features' && carDetails.extras && (
+                    {activeTab === "features" && carDetails.extras && (
                       <div className="space-y-2">
-                        {carDetails.extras.filter(extra => extra.trim()).map((extra, index) => (
-                          <div key={index} className="flex items-center gap-2 text-sm">
-                            <FaCheckCircle className="text-green-500 text-xs" />
-                            <span className="text-gray-300">{extra}</span>
-                          </div>
-                        ))}
+                        {carDetails.extras
+                          .filter((extra) => extra.trim())
+                          .map((extra, index) => (
+                            <div
+                              key={index}
+                              className="flex items-center gap-2 text-sm"
+                            >
+                              <FaCheckCircle className="text-green-500 text-xs" />
+                              <span className="text-gray-300">{extra}</span>
+                            </div>
+                          ))}
                       </div>
                     )}
 
-                    {activeTab === 'description' && (
+                    {activeTab === "description" && (
                       <div className="text-sm text-gray-300 leading-relaxed">
                         {carDetails.sellerComments}
                       </div>
@@ -387,8 +451,8 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                   onClick={() => setCurrentImageIndex(index)}
                   className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
                     index === currentImageIndex
-                      ? 'border-brand-red'
-                      : 'border-transparent hover:border-white/50'
+                      ? "border-brand-red"
+                      : "border-transparent hover:border-white/50"
                   }`}
                 >
                   <img

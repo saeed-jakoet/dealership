@@ -23,6 +23,20 @@ const Listings = () => {
   const [error, setError] = useState('');
   const [view, setView] = useState('grid'); // 'grid' or 'list'
 
+  // Restore view preference from localStorage
+  useEffect(() => {
+    const savedView = localStorage.getItem('vehicleView');
+    if (savedView === 'grid' || savedView === 'list') {
+      setView(savedView);
+    }
+  }, []);
+
+  // Handler to change view and persist preference
+  const handleViewChange = (newView) => {
+    setView(newView);
+    localStorage.setItem('vehicleView', newView);
+  };
+
   const listingsRef = useRef(null);
 
   const handleListingClick = (car) => {
@@ -82,35 +96,7 @@ const Listings = () => {
     }
   }, [page]);
 
-  useEffect(() => {
-    let isCancelled = false;
-    async function load() {
-      try {
-        setLoading(true);
-        setError('');
-        const data = await fetchVehicles({ page, pageSize: carsPerPage, query });
-        console.log(data)
-        if (isCancelled) return;
-        // Handle the new API response structure: {status, message, data: [...]}
-        const items = Array.isArray(data.data) ? data.data : 
-                      Array.isArray(data.items) ? data.items : 
-                      Array.isArray(data) ? data : [];
-        const count = typeof data.total === 'number' ? data.total : items.length;
-        
-        // Sort vehicles by brand name
-        const sortedItems = items.sort((a, b) => a.brand.localeCompare(b.brand));
-        
-        setVehicles(sortedItems);
-        setTotal(count);
-      } catch (e) {
-        if (!isCancelled) setError(e.message || 'Failed to load vehicles');
-      } finally {
-        if (!isCancelled) setLoading(false);
-      }
-    }
-    load();
-    return () => { isCancelled = true; };
-  }, [page, query]);
+  // ...existing code...
 
   const handleFormButtonClick = (e) => {
     e.stopPropagation();
@@ -151,6 +137,30 @@ const Listings = () => {
     );
   });
 
+  // Fetch vehicles on mount and when page/query changes
+  useEffect(() => {
+    let isCancelled = false;
+    async function load() {
+      try {
+        setLoading(true);
+        setError('');
+        const data = await fetchVehicles({ page, pageSize: carsPerPage, query });
+        const items = Array.isArray(data.data) ? data.data : 
+                      Array.isArray(data.items) ? data.items : 
+                      Array.isArray(data) ? data : [];
+        const count = typeof data.total === 'number' ? data.total : items.length;
+        const sortedItems = items.sort((a, b) => a.brand.localeCompare(b.brand));
+        setVehicles(sortedItems);
+        setTotal(count);
+      } catch (e) {
+        if (!isCancelled) setError(e.message || 'Failed to load vehicles');
+      } finally {
+        if (!isCancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => { isCancelled = true; };
+  }, [page, query]);
 
   return (
     <Element name='listings'>
@@ -216,14 +226,14 @@ const Listings = () => {
             <div className="flex items-center gap-2 p-1 rounded-lg bg-white/10 backdrop-blur-sm">
               <button
                 className={`p-2 rounded-md ${view === 'grid' ? 'bg-brand-red text-white' : 'text-gray-400 hover:text-white'}`}
-                onClick={() => setView('grid')}
+                onClick={() => handleViewChange('grid')}
                 aria-label="Grid view"
               >
                 <MdGridView />
               </button>
               <button
                 className={`p-2 rounded-md ${view === 'list' ? 'bg-brand-red text-white' : 'text-gray-400 hover:text-white'}`}
-                onClick={() => setView('list')}
+                onClick={() => handleViewChange('list')}
                 aria-label="List view"
               >
                 <MdViewList />
