@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import { Element } from 'react-scroll';
 import { motion, useInView } from 'framer-motion';
 import { FaAward, FaCar, FaUsers, FaShieldAlt, FaHandshake, FaTruck } from 'react-icons/fa';
-import aboutImage1 from '../images/about2.jpg';
-import aboutImage2 from '../images/about4.jpg';
-import aboutImage3 from '../images/about5.jpg';
+import aboutImage1 from './images/about2.jpg';
+import aboutImage2 from './images/about4.jpg';
+import aboutImage3 from './images/about5.jpg';
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

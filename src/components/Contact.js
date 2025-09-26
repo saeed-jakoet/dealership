@@ -3,7 +3,7 @@ import { Element } from 'react-scroll';
 import { motion, useInView } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
-import contactImage from '../images/contact.jpg';
+import contactImage from './images/contact.jpg';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

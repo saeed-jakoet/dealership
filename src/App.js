@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import UnderConstruction from './components/UnderConstruction/UnderConstruction';
-import Navbar from './components/Navbar/Navbar';
+import UnderConstruction from './components/UnderConstruction';
+import Navbar from './components/Navbar';
 import Page from './components/Page';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer';
 
 function App() {
     const isUnderConstruction = false; // Set this flag to true to show the under construction page

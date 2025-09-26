@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-scroll';
 import { motion, useInView } from 'framer-motion';
 import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaChevronUp, FaHeart } from 'react-icons/fa';
-import Logo from '../images/logo4.png';
+import Logo from './images/logo4.png';
 
 const Footer = () => {
   const footerRef = useRef(null);
