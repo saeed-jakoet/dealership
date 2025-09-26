@@ -1,127 +1,73 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Element, Link} from 'react-scroll';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import './Featured.css';
-
-
-import amg from '../images/2018 Mercedes Benz A200 Amg Auto/6f566f84-c6f8-4830-864f-6dc37d36a596.jpg';
-import honda from '../images/2007 Porsche Boxter S/IMG_9045.jpg';
-import toy from '../images/2019 Toyota C-HR 1.2T Plus Auto/20250328_154405.jpg';
+import { motion } from 'framer-motion';
+import { fetchVehicles } from '../../api/vehicles';
 
 const Featured = () => {
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [middleImageIndex, setMiddleImageIndex] = useState(1);
-    const [isHovered, setIsHovered] = useState(false);
+    const [vehicles, setVehicles] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const scrollerRef = useRef(null);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    const getOpacity = (index) => {
-        return index === middleImageIndex || isHovered ? 1 : 0.3;
-    };
-
-    const getTransform = (index) => {
-        return index === middleImageIndex ? 'scale(1.5)' : 'scale(1)';
-    };
-
-    const handleImageClick = (index) => {
-        if (index === middleImageIndex && !isHovered) {
-            // Default behavior: go to default (enlarge middle image)
-            setMiddleImageIndex(index);
-            setIsHovered(false);
-        } else {
-            // Click on hovered image: reset to default (enlarge middle image)
-            setMiddleImageIndex(index);
-            setIsHovered(false);
+        let cancelled = false;
+        async function load() {
+            try {
+                setLoading(true);
+                setError('');
+                const data = await fetchVehicles({ page: 1, pageSize: 12 });
+                if (cancelled) return;
+                const items = Array.isArray(data.items) ? data.items : Array.isArray(data) ? data : [];
+                setVehicles(items);
+            } catch (e) {
+                if (!cancelled) setError(e.message || 'Failed to load featured vehicles');
+            } finally {
+                if (!cancelled) setLoading(false);
+            }
         }
-    };
-
-    const handleImageHover = (index) => {
-        // Enlarge the hovered image
-        setMiddleImageIndex(index);
-        setIsHovered(true);
-    };
-
-    const handleImageLeave = () => {
-        setIsHovered(false);
-    };
-
-    const sliderSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        adaptiveHeight: true,
-        swipeToSlide: true,
-        afterChange: current => console.log('Current Slide:', current)
-    };
+        load();
+        return () => { cancelled = true; };
+    }, []);
 
 
     return (
         <Link to='featured' smooth={true} duration={500}>
             <Element name='featured'>
-                <div id='featured' className='featured'>
+                <section className="relative py-20 bg-gradient-to-b from-brand-gray-dark to-black">
+                    <div className="mx-auto max-w-7xl px-6">
+                        <header className="text-center">
+                            <h2 className="section-title">Featured vehicles</h2>
+                            <p className="mt-2 text-white/70">Handpicked selection updated daily</p>
+                        </header>
 
-                    {/* New text section above the carousel */}
-                    <div className='featured-text'>
-                        <h1>Explore Our Exclusive Inventory</h1>
-                        <p>
-                            Discover the finest collection of vintage cars at our dealership.
-                            Our curated selection showcases the epitome of automotive craftsmanship.
-                            Find the perfect blend of style, performance, and luxury in our inventory.
-                        </p>
-                    </div>
-
-                    <div
-                        id='parallax-bg'
-                        className='parallax-bg-featured'
-                        style={{
-                            transform: `translateY(${Math.max(0, (scrollPosition - window.innerHeight - 1150) * 0.5)}px)`,
-                        }}
-                    ></div>
-
-                    <div className='carousel-container-featured'>
-                        {[amg, honda, toy].map((image, index) => (
-                            <img
-                                key={index}
-                                src={image}
-                                alt={`Vintage Car ${index + 1}`}
-                                className={`side-image ${index === middleImageIndex ? 'middle-image' : ''}`}
-                                onClick={() => handleImageClick(index)}
-                                onMouseEnter={() => handleImageHover(index)}
-                                onMouseLeave={handleImageLeave}
-                                style={{
-                                    opacity: getOpacity(index),
-                                    transform: getTransform(index),
-                                    zIndex: index === middleImageIndex ? 2 : 1,
-                                }}
-                            />
-                        ))}
-
-                        <div className='mobile-slider'>
-                            <Slider {...sliderSettings}>
-                                {[amg, honda, toy].map((image, index) => (
-                                    <div key={index}>
-                                        <img src={image} alt={`Vintage Car ${index + 1}`} className='side-image'/>
-                                    </div>
+                        <div className="mt-8 relative">
+                            <div ref={scrollerRef} className="flex gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+                                {loading && Array.from({ length: 6 }).map((_, i) => (
+                                    <div key={i} className="min-w-[260px] h-64 rounded-lg bg-white/5 animate-pulse" />
                                 ))}
-                            </Slider>
-
+                                {!loading && !error && vehicles.map((v, i) => (
+                                    <motion.div key={i} className="min-w-[260px] snap-start rounded-xl overflow-hidden bg-white text-black shadow-card">
+                                        <div className="relative h-40 bg-black">
+                                            {v.imageUrls && v.imageUrls.length > 0 ? (
+                                                <img src={v.imageUrls[0]} alt={v.name || 'Vehicle'} className="h-full w-full object-cover opacity-90" />
+                                            ) : (
+                                                <div className="h-full w-full grid place-items-center text-white/60">No image</div>
+                                            )}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                        </div>
+                                        <div className="p-4">
+                                            <p className="font-bold">{v.name}</p>
+                                            <p className="text-brand-red font-semibold">{v.price ? `${v.price.toLocaleString()}` : 'Price on request'}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                                {error && (
+                                    <div className="text-red-400">{error}</div>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </Element>
         </Link>
     );

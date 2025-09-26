@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import UnderConstruction from './components/UnderConstruction/UnderConstruction';
 import Navbar from './components/Navbar/Navbar';
 import Page from './components/Page';
