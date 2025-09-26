@@ -369,7 +369,13 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                           <div className="flex items-center gap-2 text-sm">
                             <FaCheckCircle className="text-green-500" />
                             <span className="text-gray-300">
-                              {carDetails.vehicleDetails?.serviceHistory}
+                              {carDetails.vehicleDetails?.serviceHistory ===
+                              "Yes"
+                                ? "Full Service History"
+                                : carDetails.vehicleDetails?.serviceHistory ===
+                                  "No"
+                                ? "No Service History"
+                                : "Service History: Not specified"}
                             </span>
                           </div>
                         </div>
@@ -422,7 +428,7 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                     )}
 
                     {activeTab === "description" && (
-                      <div className="text-sm text-gray-300 leading-relaxed">
+                      <div className="text-sm text-gray-300 leading-relaxed text-center">
                         {carDetails.sellerComments}
                       </div>
                     )}
