@@ -1,26 +1,53 @@
-export const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000';
+import axios from "axios";
 
-async function handleResponse(response) {
-  if (!response.ok) {
-    const text = await response.text().catch(() => '');
-    throw new Error(`API ${response.status}: ${text || response.statusText}`);
+export const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+
+export async function apiPost(path, data = {}, options = {}) {
+  const url = `${API_BASE_URL}${path}`;
+  try {
+    const response = await axios.post(url, data, {
+      headers: {
+        "Content-Type": "application/json",
+        ...(options.headers || {}),
+      },
+      ...options,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      throw new Error(
+        `API ${error.response.status}: ${
+          error.response.data || error.response.statusText
+        }`
+      );
+    } else if (error.request) {
+      throw new Error("API request failed: No response received");
+    } else {
+      throw new Error(`API error: ${error.message}`);
+    }
   }
-  const contentType = response.headers.get('content-type') || '';
-  if (contentType.includes('application/json')) {
-    return response.json();
-  }
-  return response.text();
 }
 
 export async function apiGet(path, options = {}) {
   const url = `${API_BASE_URL}${path}`;
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: { 'Accept': 'application/json', ...(options.headers || {}) },
-    ...options,
-  });
-  return handleResponse(response);
+  try {
+    const response = await axios.get(url, {
+      headers: { Accept: "application/json", ...(options.headers || {}) },
+      ...options,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      throw new Error(
+        `API ${error.response.status}: ${
+          error.response.data || error.response.statusText
+        }`
+      );
+    } else if (error.request) {
+      throw new Error("API request failed: No response received");
+    } else {
+      throw new Error(`API error: ${error.message}`);
+    }
+  }
 }
-
-

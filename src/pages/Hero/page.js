@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
-import heroImage from './images/home1.jpg';
+import heroImage from '../../components/images/home1.jpg';
 
 
 const stats = [

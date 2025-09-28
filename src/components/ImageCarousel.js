@@ -10,11 +10,8 @@ import {
   FaPause,
   FaSearchPlus,
   FaSearchMinus,
-  FaDownload,
-  FaShare,
   FaHeart,
   FaPhone,
-  FaEnvelope,
   FaWhatsapp,
   FaCar,
   FaCalendarAlt,
@@ -23,8 +20,6 @@ import {
   FaCog,
   FaCheckCircle,
   FaInfoCircle,
-  FaStar,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const ImageCarousel = ({ carDetails, onClose }) => {

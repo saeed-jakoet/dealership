@@ -1,30 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import UnderConstruction from './components/UnderConstruction';
-import Navbar from './components/Navbar';
-import Page from './components/Page';
-import Footer from './components/Footer';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import UnderConstruction from "./components/UnderConstruction";
+import Navbar from "./components/Navbar";
+import Page from "./components/Page";
+import Footer from "./components/Footer";
 
 function App() {
-    const isUnderConstruction = false; // Set this flag to true to show the under construction page
+  const isUnderConstruction = false; // Set this flag to true to show the under construction page
 
-    return (
-        <Router>
-            {isUnderConstruction ? (
-                <UnderConstruction />
-            ) : (
-                <>
-                    <Navbar />
-                    <Page content="hero" />
-                    <Page content="about" />
-                    <Page content="listings" />
-                    <Page content="contact" />
-                    <Page content="reviews" />
-                    <Footer />
-                </>
-            )}
-        </Router>
-    );
+  return (
+    <Router>
+      {isUnderConstruction ? (
+        <UnderConstruction />
+      ) : (
+        <>
+          <Navbar />
+          <Page content="hero" />
+          <Page content="about" />
+          <Page content="listings" />
+          <Page content="contact" />
+          <Page content="reviews" />
+          <Footer />
+        </>
+      )}
+    </Router>
+  );
 }
 
 export default App;

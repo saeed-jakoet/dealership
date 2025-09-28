@@ -1,22 +1,22 @@
-import React from 'react';
-import Hero from './Hero';
-import About from './About';
-import Contact from './Contact';
-import Listings from './Listings/Listings';
-import Reviews from './Reviews';
+import React from "react";
+import Hero from "../pages/Hero/page";
+import About from "../pages/About/page";
+import Contact from "../pages/Contact/page";
+import Listings from "../pages/Listings/Listings";
+import Reviews from "../pages/Reviews/page";
 
 const Page = ({ content }) => {
   switch (content) {
-    case 'hero':
+    case "hero":
       return <Hero />;
-    case 'about':
+    case "about":
       return <About />;
-    case 'contact':
+    case "contact":
       return <Contact />;
-    case 'listings':
+    case "listings":
       return <Listings />;
-      case 'reviews':
-        return <Reviews />;
+    case "reviews":
+      return <Reviews />;
     default:
       return null;
   }
