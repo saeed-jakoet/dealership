@@ -17,7 +17,7 @@ import {
   FaCog,
 } from "react-icons/fa";
 
-import noCarPhoto from "../../components/images/nophotocar.jpg";
+import noCarPhoto from "../../assets/images/nophotocar.jpg";
 
 const Listings = () => {
   const carsPerPage = 8;

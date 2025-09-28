@@ -9,9 +9,9 @@ import {
   FaHandshake,
   FaTruck,
 } from "react-icons/fa";
-import aboutImage1 from "../../components/images/about2.jpg";
-import aboutImage2 from "../../components/images/about4.jpg";
-import aboutImage3 from "../../components/images/darkf.jpg";
+import aboutImage1 from "../../assets/images/about2.jpg";
+import aboutImage2 from "../../assets/images/about4.jpg";
+import aboutImage3 from "../../assets/images/darkf.jpg";
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

@@ -11,7 +11,7 @@ import {
   FaWhatsapp,
   FaPaperPlane,
 } from "react-icons/fa";
-import contactImage from "../../components/images/contact.jpg";
+import contactImage from "../../assets/images/contact.jpg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
