@@ -102,7 +102,7 @@ const Listings = () => {
     }
   }, [page]);
 
-  // ...existing code...
+
 
   const handleFormButtonClick = (e) => {
     e.stopPropagation();
@@ -114,7 +114,6 @@ const Listings = () => {
     e.stopPropagation();
   };
 
-  // Utility to sort image URLs by filename suffix (_00, _01, ...)
   const getSortedImageUrls = (urls = []) => {
     return [...urls].sort((a, b) => {
       const getSuffix = (url) => {
