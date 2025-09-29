@@ -14,6 +14,8 @@ import {
   FaCalendarAlt,
   FaGasPump,
   FaCog,
+  FaCheckCircle,
+  FaTimes,
 } from "react-icons/fa";
 
 import noCarPhoto from "../../assets/images/nophotocar.jpg";
@@ -97,7 +99,6 @@ const Listings = () => {
       listingsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [page]);
-
 
   const handleModalClick = (e) => {
     e.stopPropagation();
@@ -374,7 +375,20 @@ const Listings = () => {
                             {vehicle.transmissionType}
                           </span>
                           <span>{vehicle.vehicleDetails?.bodyType}</span>
-                          <span>{vehicle.vehicleDetails?.serviceHistory}</span>
+                          <span className="flex items-center gap-1">
+                            {vehicle.vehicleDetails?.serviceHistory ===
+                            "Yes" ? (
+                              <>
+                                <FaCheckCircle className="text-green-500" />
+                                <span>Service History</span>
+                              </>
+                            ) : (
+                              <>
+                                <FaTimes className="text-red-500" />
+                                <span>No Service History</span>
+                              </>
+                            )}
+                          </span>
                         </div>
                         {vehicle.extras && vehicle.extras.length > 0 && (
                           <div className="flex flex-wrap gap-2 mt-2">
@@ -583,9 +597,18 @@ const ListingItem = ({ vehicle, onClick }) => {
               <span>{vehicle.transmissionType}</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-300">
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
               <span className="text-xs">
-                {vehicle.vehicleDetails?.serviceHistory || "Service History"}
+                {vehicle.vehicleDetails?.serviceHistory === "Yes" ? (
+                  <>
+                    <FaCheckCircle className="text-green-500 inline" /> Service
+                    History
+                  </>
+                ) : (
+                  <>
+                    <FaTimes className="text-red-500 inline" /> No Service
+                    History
+                  </>
+                )}
               </span>
             </div>
           </div>
