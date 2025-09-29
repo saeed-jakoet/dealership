@@ -156,14 +156,13 @@ const Listings = () => {
           : Array.isArray(data)
           ? data
           : [];
-        // Use backend total count for pagination
-        const count = typeof data.data?.total === "number"
-          ? data.data.total
-          : typeof data.total === "number"
-          ? data.total
-          : items.length;
-        console.log("Vehicles from backend:", items.map(v => v.brand));
-        setVehicles(items); // Remove frontend sorting since backend sorts correctly
+        const count =
+          typeof data.data?.total === "number"
+            ? data.data.total
+            : typeof data.total === "number"
+            ? data.total
+            : items.length;
+        setVehicles(items);
         setTotal(count);
       } catch (e) {
         if (!isCancelled) setError(e.message || "Failed to load vehicles");
