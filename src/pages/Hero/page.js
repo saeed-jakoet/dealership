@@ -6,7 +6,7 @@ import heroImage from '../../assets/images/home1.jpg';
 
 
 const stats = [
-  { number: '500+', label: 'Premium Cars' },
+  { number: '500+', label: 'Cars Sold' },
   { number: '98%', label: 'Satisfaction' },
   { number: '100%', label: 'Quality Guarantee' },
 ];

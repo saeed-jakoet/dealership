@@ -10,8 +10,11 @@ import {
   FaPause,
   FaSearchPlus,
   FaSearchMinus,
+  FaDownload,
+  FaShare,
   FaHeart,
   FaPhone,
+  FaEnvelope,
   FaWhatsapp,
   FaCar,
   FaCalendarAlt,
@@ -20,6 +23,8 @@ import {
   FaCog,
   FaCheckCircle,
   FaInfoCircle,
+  FaStar,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const ImageCarousel = ({ carDetails, onClose }) => {
@@ -110,7 +115,7 @@ const ImageCarousel = ({ carDetails, onClose }) => {
   };
 
   const exitFullscreen = () => {
-    if (document.fullscreenElement) {
+    if (document.exitFullscreen) {
       document.exitFullscreen();
     }
     setIsFullscreen(false);
@@ -272,9 +277,6 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                       <span className="px-2 py-1 bg-brand-red/20 text-brand-red text-xs font-semibold rounded">
                         {carDetails.brand}
                       </span>
-                      <button className="p-2 text-gray-400 hover:text-red-400">
-                        <FaHeart />
-                      </button>
                     </div>
                     <h3 className="text-white font-bold text-xl">
                       {carDetails.name}
@@ -292,11 +294,19 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                       {formatPrice(carDetails.price)}
                     </div>
                     <div className="grid grid-cols-2 gap-2">
-                      <button className="flex items-center justify-center gap-2 px-4 py-2 bg-brand-red rounded-lg text-white font-semibold hover:bg-brand-red/80 transition-colors">
+                      <button
+                        className="flex items-center justify-center gap-2 px-4 py-2 bg-brand-red rounded-lg text-white font-semibold hover:bg-brand-red/80 transition-colors"
+                        onClick={() => window.open("tel:+27718740886", "_self")}
+                      >
                         <FaPhone size={14} />
                         Call
                       </button>
-                      <button className="flex items-center justify-center gap-2 px-4 py-2 bg-green-600 rounded-lg text-white font-semibold hover:bg-green-500 transition-colors">
+                      <button
+                        className="flex items-center justify-center gap-2 px-4 py-2 bg-green-600 rounded-lg text-white font-semibold hover:bg-green-500 transition-colors"
+                        onClick={() =>
+                          window.open("https://wa.me/+27718740886", "_blank")
+                        }
+                      >
                         <FaWhatsapp size={14} />
                         WhatsApp
                       </button>
@@ -362,16 +372,22 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                             </span>
                           </div>
                           <div className="flex items-center gap-2 text-sm">
-                            <FaCheckCircle className="text-green-500" />
-                            <span className="text-gray-300">
-                              {carDetails.vehicleDetails?.serviceHistory ===
-                              "Yes"
-                                ? "Full Service History"
-                                : carDetails.vehicleDetails?.serviceHistory ===
-                                  "No"
-                                ? "No Service History"
-                                : "Service History: Not specified"}
-                            </span>
+                            {carDetails.vehicleDetails?.serviceHistory ===
+                            "Yes" ? (
+                              <>
+                                <FaCheckCircle className="text-green-500" />
+                                <span className="text-gray-300">
+                                  Service History
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <FaTimes className="text-red-500" />
+                                <span className="text-gray-300">
+                                  No Service History
+                                </span>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -423,7 +439,7 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                     )}
 
                     {activeTab === "description" && (
-                      <div className="text-sm text-gray-300 leading-relaxed text-center">
+                      <div className="text-sm text-gray-300 leading-relaxed">
                         {carDetails.sellerComments}
                       </div>
                     )}
