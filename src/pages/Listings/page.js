@@ -21,7 +21,7 @@ import {
 import noCarPhoto from "../../assets/images/nophotocar.jpg";
 
 const Listings = () => {
-  const carsPerPage = 8;
+  const carsPerPage = 3;
   const [selectedCar, setSelectedCar] = useState(null);
   const [disableScroll, setDisableScroll] = useState(false);
   const [page, setPage] = useState(1);
@@ -65,12 +65,12 @@ const Listings = () => {
       window.scrollTo({ top: listingsOffsetTop, behavior: "smooth" });
       setTimeout(() => {
         setPage(page - 1);
-      }, 500); // Delay setting the page by 500 milliseconds
+      }, 500);
     } else if (direction === "next" && page < Math.ceil(total / carsPerPage)) {
       window.scrollTo({ top: listingsOffsetTop, behavior: "smooth" });
       setTimeout(() => {
         setPage(page + 1);
-      }, 500); // Delay setting the page by 500 milliseconds
+      }, 500);
     }
   };
 
@@ -140,25 +140,30 @@ const Listings = () => {
       try {
         setLoading(true);
         setError("");
+        // Pass page and pageSize as query params
         const searchParams = new URLSearchParams();
         if (query) searchParams.set("q", query);
-        if (page) searchParams.set("page", String(page));
-        if (carsPerPage) searchParams.set("pageSize", String(carsPerPage));
+        searchParams.set("page", String(page));
+        searchParams.set("pageSize", String(carsPerPage));
         const path = `/vehicles/all/visible?${searchParams.toString()}`;
         const data = await apiGet(path);
-        const items = Array.isArray(data.data)
+        const items = Array.isArray(data.data?.data)
+          ? data.data.data
+          : Array.isArray(data.data)
           ? data.data
           : Array.isArray(data.items)
           ? data.items
           : Array.isArray(data)
           ? data
           : [];
-        const count =
-          typeof data.total === "number" ? data.total : items.length;
-        const sortedItems = items.sort((a, b) =>
-          a.brand.localeCompare(b.brand)
-        );
-        setVehicles(sortedItems);
+        // Use backend total count for pagination
+        const count = typeof data.data?.total === "number"
+          ? data.data.total
+          : typeof data.total === "number"
+          ? data.total
+          : items.length;
+        console.log("Vehicles from backend:", items.map(v => v.brand));
+        setVehicles(items); // Remove frontend sorting since backend sorts correctly
         setTotal(count);
       } catch (e) {
         if (!isCancelled) setError(e.message || "Failed to load vehicles");
