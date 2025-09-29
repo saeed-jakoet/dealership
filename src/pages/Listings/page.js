@@ -4,7 +4,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { apiGet } from "../../api/client";
 import ImageCarousel from "../../components/ImageCarousel";
-import EnquiryForm from "../../components/EnquiryForm";
 import { MdFilterList, MdGridView, MdViewList, MdSearch } from "react-icons/md";
 import {
   FaHeart,
@@ -22,7 +21,6 @@ import noCarPhoto from "../../assets/images/nophotocar.jpg";
 const Listings = () => {
   const carsPerPage = 8;
   const [selectedCar, setSelectedCar] = useState(null);
-  const [showEnquiryForm, setShowEnquiryForm] = useState(false);
   const [disableScroll, setDisableScroll] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
@@ -50,13 +48,11 @@ const Listings = () => {
 
   const handleListingClick = (car) => {
     setSelectedCar(car);
-    setShowEnquiryForm(false);
     setDisableScroll(true);
   };
 
   const handleCloseModal = () => {
     setSelectedCar(null);
-    setShowEnquiryForm(false);
     setDisableScroll(false);
   };
 
@@ -102,13 +98,6 @@ const Listings = () => {
     }
   }, [page]);
 
-
-
-  const handleFormButtonClick = (e) => {
-    e.stopPropagation();
-    setShowEnquiryForm(true);
-    setDisableScroll(true);
-  };
 
   const handleModalClick = (e) => {
     e.stopPropagation();
@@ -312,8 +301,6 @@ const Listings = () => {
                     key={index}
                     vehicle={vehicle}
                     onClick={() => handleListingClick(vehicle)}
-                    onClose={handleCloseModal}
-                    onEnquireClick={handleFormButtonClick}
                   />
                 ))}
             </div>
@@ -438,31 +425,6 @@ const Listings = () => {
                   carDetails={selectedCar}
                   onClose={handleCloseModal}
                 />
-                <div className="p-6">
-                  {showEnquiryForm && selectedCar && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -30 }}
-                    >
-                      <EnquiryForm
-                        vehicle={selectedCar}
-                        onClose={() => setShowEnquiryForm(false)}
-                        isFormVisible={showEnquiryForm}
-                      />
-                    </motion.div>
-                  )}
-                  {!showEnquiryForm && (
-                    <motion.button
-                      className="w-full px-8 py-4 bg-gradient-to-r from-brand-red to-brand-red-dark rounded-xl font-semibold text-white shadow-lg hover:shadow-brand-red/25 transition-all duration-300 hover:scale-105"
-                      onClick={handleFormButtonClick}
-                      whileHover={{ y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Get In Touch
-                    </motion.button>
-                  )}
-                </div>
               </div>
             </div>
           )}
@@ -479,7 +441,7 @@ const Listings = () => {
   );
 };
 
-const ListingItem = ({ vehicle, onClick, onClose, onEnquireClick }) => {
+const ListingItem = ({ vehicle, onClick }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({

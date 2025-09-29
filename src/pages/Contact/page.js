@@ -132,34 +132,30 @@ const Contact = () => {
       icon: FaMapMarkerAlt,
       title: "Visit Our Showroom",
       details: [
-        "3 Muir Street",
-        "District Six, Cape Town",
-        "8001, South Africa",
+        "The Studios, 1 Wild Olive Road",
+        "Sontraal, Cape Town",
+        "7550, South Africa",
       ],
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: FaPhone,
       title: "Call Us",
-      details: ["+27 21 123 4567", "+27 82 123 4567", "Mon-Fri: 8AM-6PM"],
+      details: ["+27 83 578 9437"],
       color: "from-green-500 to-green-600",
     },
     {
       icon: FaEnvelope,
       title: "Email Us",
-      details: [
-        "info@farauto.co.za",
-        "sales@farauto.co.za",
-        "We reply within 24hrs",
-      ],
+      details: ["frvauto@gmail.com", "We reply within 24hrs"],
       color: "from-purple-500 to-purple-600",
     },
     {
       icon: FaClock,
       title: "Business Hours",
       details: [
-        "Mon-Fri: 8:00AM - 6:00PM",
-        "Saturday: 9:00AM - 4:00PM",
+        "Mon-Thurs: 9:00AM - 4:00PM",
+        "Saturday: 9:00AM - 1:00PM",
         "Sunday: Closed",
       ],
       color: "from-orange-500 to-orange-600",
@@ -467,7 +463,7 @@ const Contact = () => {
                 <div className="aspect-video">
                   <iframe
                     title="FARAUTO Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.527168642012!2d18.42951037654271!3d-33.92756697320422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5d866003933d%3A0x50bdb01a91767a7e!2s3%20Muir%20St%2C%20District%20Six%2C%20Cape%20Town%2C%208001!5e0!3m2!1sen!2sza!4v1702062123125!5m2!1sen!2sza"
+                    src="https://www.google.com/maps?q=The+Studios,+1+Wild+Olive+Road,+Sontraal,+Cape+Town,+7550,+South+Africa&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -485,7 +481,7 @@ const Contact = () => {
               {/* Quick Actions */}
               <motion.div variants={itemVariants} className="flex gap-4">
                 <motion.a
-                  href="https://wa.me/27821234567"
+                  href="https://wa.me/27718740886"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-green-600 to-green-700 rounded-xl text-white font-medium shadow-lg hover:shadow-green-500/25 transition-all duration-300"
@@ -497,7 +493,7 @@ const Contact = () => {
                 </motion.a>
 
                 <motion.a
-                  href="tel:+27211234567"
+                  href="tel:+27835789437"
                   className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl text-white font-medium shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}

@@ -8,7 +8,7 @@ import heroImage from '../../assets/images/home1.jpg';
 const stats = [
   { number: '500+', label: 'Premium Cars' },
   { number: '98%', label: 'Satisfaction' },
-  { number: '24/7', label: 'Support' },
+  { number: '100%', label: 'Quality Guarantee' },
 ];
 
 const Hero = () => {

@@ -1,8 +1,17 @@
-import React, { useRef } from 'react';
-import { Link } from 'react-scroll';
-import { motion, useInView } from 'framer-motion';
-import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaChevronUp, FaHeart } from 'react-icons/fa';
-import Logo from '../assets/images/logo4.png';
+import React, { useRef } from "react";
+import { Link } from "react-scroll";
+import { motion, useInView } from "framer-motion";
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock,
+  FaChevronUp,
+  FaHeart,
+} from "react-icons/fa";
+import Logo from "../assets/images/logo4.png";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -14,9 +23,9 @@ const Footer = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const itemVariants = {
@@ -24,8 +33,8 @@ const Footer = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const socialLinks = [
@@ -34,22 +43,22 @@ const Footer = () => {
       icon: FaInstagram,
       href: "https://www.instagram.com/far.auto_/",
       color: "hover:text-pink-400",
-      bgGradient: "from-pink-500 to-orange-500"
+      bgGradient: "from-pink-500 to-orange-500",
     },
     {
-      name: "WhatsApp", 
+      name: "WhatsApp",
       icon: FaWhatsapp,
       href: "https://wa.me/+27718740886",
       color: "hover:text-green-400",
-      bgGradient: "from-green-500 to-green-600"
+      bgGradient: "from-green-500 to-green-600",
     },
     {
       name: "Phone",
       icon: FaPhone,
       href: "tel:+27835789437",
       color: "hover:text-blue-400",
-      bgGradient: "from-blue-500 to-blue-600"
-    }
+      bgGradient: "from-blue-500 to-blue-600",
+    },
   ];
 
   const quickLinks = [
@@ -57,32 +66,32 @@ const Footer = () => {
     { name: "About", target: "about" },
     { name: "Showroom", target: "listings" },
     { name: "Contact", target: "contact" },
-    { name: "Reviews", target: "reviews" }
+    { name: "Reviews", target: "reviews" },
   ];
 
   const contactInfo = [
     {
       icon: FaEnvelope,
-      text: "info@farauto.com"
+      text: "fvrauto@gmail.com",
     },
     {
-      icon: FaPhone, 
-      text: "+27 83 578 9437"
+      icon: FaPhone,
+      text: "+27 83 578 9437",
     },
     {
       icon: FaMapMarkerAlt,
-      text: "3 Muir Street, Zonnebloem, 8001"
-    }
+      text: "The Studios, 1 Wild Olive Road, Sontraal, Cape Town,7550",
+    },
   ];
 
   const businessHours = [
     "Monday - Thursday: 09:00 - 16:00",
     "Friday: 09:00 - 12:00 | 14:00 - 16:00",
-    "Saturday & Holidays: By Appointment"
+    "Saturday: 09:00 - 13:00",
   ];
 
   return (
-    <footer 
+    <footer
       ref={footerRef}
       className="relative bg-gradient-to-b from-black via-brand-gray-dark to-black border-t border-white/10 overflow-hidden"
     >
@@ -107,12 +116,16 @@ const Footer = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white">FARAUTO</h3>
-                  <p className="text-sm text-brand-red font-medium">Premium Dealership</p>
+                  <p className="text-sm text-brand-red font-medium">
+                    Premium Dealership
+                  </p>
                 </div>
               </div>
-              
+
               <p className="text-gray-300 leading-relaxed mb-6">
-                Your trusted partner for premium vehicles. We deliver excellence in automotive retail with personalized service and unmatched quality.
+                Your trusted partner for premium vehicles. We deliver excellence
+                in automotive retail with personalized service and unmatched
+                quality.
               </p>
 
               {/* Social Links */}
@@ -128,7 +141,9 @@ const Footer = () => {
                     whileTap={{ scale: 0.9 }}
                   >
                     <social.icon className="text-xl text-gray-300 group-hover:text-white transition-colors duration-300" />
-                    <div className={`absolute inset-0 bg-gradient-to-r ${social.bgGradient} opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-300`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-r ${social.bgGradient} opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-300`}
+                    />
                   </motion.a>
                 ))}
               </div>
@@ -150,7 +165,9 @@ const Footer = () => {
                       className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 cursor-pointer"
                     >
                       <div className="w-1 h-1 bg-brand-red rounded-full group-hover:w-2 group-hover:h-2 transition-all duration-300" />
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        {link.name}
+                      </span>
                     </Link>
                   </li>
                 ))}
@@ -165,7 +182,10 @@ const Footer = () => {
               </h4>
               <ul className="space-y-4">
                 {contactInfo.map((info, index) => (
-                  <li key={index} className="flex items-start gap-3 text-gray-300">
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-gray-300"
+                  >
                     <info.icon className="text-brand-red mt-1 flex-shrink-0" />
                     <span className="text-sm leading-relaxed">{info.text}</span>
                   </li>
@@ -181,7 +201,10 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 {businessHours.map((hour, index) => (
-                  <li key={index} className="text-sm text-gray-300 leading-relaxed">
+                  <li
+                    key={index}
+                    className="text-sm text-gray-300 leading-relaxed"
+                  >
                     {hour}
                   </li>
                 ))}
@@ -189,11 +212,7 @@ const Footer = () => {
 
               {/* CTA Button */}
               <motion.div className="mt-6">
-                <Link
-                  to="contact"
-                  smooth={true}
-                  duration={800}
-                >
+                <Link to="contact" smooth={true} duration={800}>
                   <motion.button
                     className="w-full px-6 py-3 bg-gradient-to-r from-brand-red to-brand-red-dark rounded-xl text-white font-medium shadow-lg hover:shadow-brand-red/25 transition-all duration-300"
                     whileHover={{ scale: 1.02, y: -2 }}
@@ -207,13 +226,15 @@ const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="pt-8 border-t border-white/10"
           >
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <span>© {new Date().getFullYear()} FARAUTO. All rights reserved.</span>
+                <span>
+                  © {new Date().getFullYear()} FARAUTO. All rights reserved.
+                </span>
               </div>
 
               <div className="flex items-center gap-1 text-sm text-gray-400">

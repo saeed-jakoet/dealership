@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Element } from "react-scroll";
 import { motion, useInView } from "framer-motion";
 import {
@@ -9,16 +9,32 @@ import {
   FaHandshake,
   FaTruck,
 } from "react-icons/fa";
-import aboutImage1 from "../../assets/images/about2.jpg";
-import aboutImage2 from "../../assets/images/about4.jpg";
-import aboutImage3 from "../../assets/images/darkf.jpg";
+import aboutImage1 from "../../assets/images/about1.jpg";
+import aboutImage2 from "../../assets/images/about2.jpg";
+import aboutImage3 from "../../assets/images/about3.jpg";
+import aboutImage4 from "../../assets/images/about4.jpg";
+import aboutImage5 from "../../assets/images/about5.jpg";
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const aboutRef = useRef(null);
   const isInView = useInView(aboutRef, { once: true, margin: "-100px" });
 
-  const images = [aboutImage1, aboutImage2, aboutImage3];
+  const images = [
+    { src: aboutImage1, fit: "cover" },
+    { src: aboutImage2, fit: "cover" },
+    { src: aboutImage3, fit: "contain" }, // Example: person's head should not be cropped
+    { src: aboutImage4, fit: "cover" },
+    { src: aboutImage5, fit: "cover" },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const features = [
     {
@@ -55,9 +71,8 @@ const About = () => {
 
   const stats = [
     { number: "25+", label: "Years Experience" },
-    { number: "500+", label: "Happy Customers" },
-    { number: "98%", label: "Satisfaction Rate" },
-    { number: "24/7", label: "Customer Support" },
+    { number: "98%", label: "Customer Satisfaction" },
+    { number: "5-Star", label: "Service Rating" },
   ];
 
   const containerVariants = {
@@ -197,17 +212,16 @@ const About = () => {
                       }`}
                     >
                       <div
-                        className="w-full h-full bg-cover bg-center"
-                        style={{ backgroundImage: `url(${image})` }}
+                        className={`w-full h-full bg-center bg-no-repeat ${
+                          image.fit === "contain" ? "bg-contain" : "bg-cover"
+                        }`}
+                        style={{ backgroundImage: `url(${image.src})` }}
                       />
                     </motion.div>
                   ))}
 
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                  {/* Glass Effect */}
-                  <div className="absolute inset-0 bg-glass-gradient backdrop-blur-[1px]" />
                 </div>
 
                 {/* Image Indicators */}
@@ -225,25 +239,6 @@ const About = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Floating Elements */}
-              <motion.div
-                className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-brand-red/20 to-brand-accent-gold/20 rounded-full backdrop-blur-sm border border-white/10 flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <FaCar className="text-3xl text-white" />
-              </motion.div>
-
-              <motion.div
-                className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-brand-accent-gold/20 to-brand-red/20 rounded-full backdrop-blur-sm border border-white/10"
-                animate={{ y: [0, -20, 0] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
             </motion.div>
           </div>
 
