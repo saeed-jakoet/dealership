@@ -226,10 +226,10 @@ const Listings = () => {
                 </div>
 
                 {/* Filter Button */}
-                <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-red/20 to-brand-accent-gold/20 border border-white/20 text-white hover:from-brand-red/30 hover:to-brand-accent-gold/30 transition-all duration-300">
+                {/* <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-red/20 to-brand-accent-gold/20 border border-white/20 text-white hover:from-brand-red/30 hover:to-brand-accent-gold/30 transition-all duration-300">
                   <MdFilterList className="text-lg" />
                   <span className="font-medium">Filters</span>
-                </button>
+                </button> */}
               </div>
             </div>
           </motion.div>
