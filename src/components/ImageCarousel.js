@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaTimes,
@@ -10,11 +10,7 @@ import {
   FaPause,
   FaSearchPlus,
   FaSearchMinus,
-  FaDownload,
-  FaShare,
-  FaHeart,
   FaPhone,
-  FaEnvelope,
   FaWhatsapp,
   FaCar,
   FaCalendarAlt,
@@ -23,15 +19,13 @@ import {
   FaCog,
   FaCheckCircle,
   FaInfoCircle,
-  FaStar,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const ImageCarousel = ({ carDetails, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showThumbnails, setShowThumbnails] = useState(true);
+  const [showThumbnails] = useState(true);
   const [zoom, setZoom] = useState(1);
   const [showDetails, setShowDetails] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
@@ -51,6 +45,37 @@ const ImageCarousel = ({ carDetails, onClose }) => {
   const images =
     carDetails?.sortedImageUrls ||
     getSortedImageUrls(carDetails?.allImageUrls || carDetails?.imageUrls || []);
+
+  const handlePrevClick = useCallback(() => {
+    setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+  }, [images.length]);
+
+  const handleNextClick = useCallback(() => {
+    setCurrentImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+  }, [images.length]);
+
+  const exitFullscreen = useCallback(() => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+    setIsFullscreen(false);
+  }, []);
+
+  const toggleFullscreen = useCallback(() => {
+    if (!isFullscreen) {
+      if (imageRef.current?.requestFullscreen) {
+        imageRef.current.requestFullscreen();
+      }
+    } else {
+      exitFullscreen();
+    }
+    setIsFullscreen(!isFullscreen);
+  }, [isFullscreen, exitFullscreen]);
+
+
+  const toggleSlideshow = useCallback(() => {
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -76,12 +101,14 @@ const ImageCarousel = ({ carDetails, onClose }) => {
         case "F":
           toggleFullscreen();
           break;
+        default:
+          break;
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isFullscreen]);
+  }, [isFullscreen, onClose, handlePrevClick, handleNextClick, toggleSlideshow, toggleFullscreen, exitFullscreen]);
 
   useEffect(() => {
     if (isPlaying) {
@@ -94,36 +121,6 @@ const ImageCarousel = ({ carDetails, onClose }) => {
 
     return () => clearInterval(intervalRef.current);
   }, [isPlaying, images.length]);
-
-  const handlePrevClick = () => {
-    setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
-  };
-
-  const handleNextClick = () => {
-    setCurrentImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
-  };
-
-  const toggleFullscreen = () => {
-    if (!isFullscreen) {
-      if (imageRef.current?.requestFullscreen) {
-        imageRef.current.requestFullscreen();
-      }
-    } else {
-      exitFullscreen();
-    }
-    setIsFullscreen(!isFullscreen);
-  };
-
-  const exitFullscreen = () => {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    }
-    setIsFullscreen(false);
-  };
-
-  const toggleSlideshow = () => {
-    setIsPlaying(!isPlaying);
-  };
 
   const handleZoom = (direction) => {
     if (direction === "in") {
@@ -153,9 +150,8 @@ const ImageCarousel = ({ carDetails, onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-black ${
-        isFullscreen ? "bg-black" : "bg-black/95"
-      }`}
+      className={`fixed inset-0 z-50 bg-black ${isFullscreen ? "bg-black" : "bg-black/95"
+        }`}
     >
       <div className="h-full flex flex-col">
         {/* Top Controls */}
@@ -220,9 +216,8 @@ const ImageCarousel = ({ carDetails, onClose }) => {
         <div className="flex-1 relative flex">
           {/* Image Display */}
           <div
-            className={`${
-              showDetails ? "flex-1" : "w-full"
-            } relative overflow-hidden`}
+            className={`${showDetails ? "flex-1" : "w-full"
+              } relative overflow-hidden`}
           >
             <div
               ref={imageRef}
@@ -230,9 +225,8 @@ const ImageCarousel = ({ carDetails, onClose }) => {
             >
               <img
                 src={images[currentImageIndex]}
-                alt={`${carDetails.brand} ${carDetails.name} - Image ${
-                  currentImageIndex + 1
-                }`}
+                alt={`${carDetails.brand} ${carDetails.name} - View ${currentImageIndex + 1
+                  }`}
                 className="max-h-full max-w-full object-contain transition-transform duration-300"
                 style={{ transform: `scale(${zoom})` }}
               />
@@ -321,11 +315,10 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                           <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`pb-2 px-1 text-sm font-medium border-b-2 transition-colors ${
-                              activeTab === tab
-                                ? "text-brand-red border-brand-red"
-                                : "text-gray-400 border-transparent hover:text-white"
-                            }`}
+                            className={`pb-2 px-1 text-sm font-medium border-b-2 transition-colors ${activeTab === tab
+                              ? "text-brand-red border-brand-red"
+                              : "text-gray-400 border-transparent hover:text-white"
+                              }`}
                           >
                             {tab.charAt(0).toUpperCase() + tab.slice(1)}
                           </button>
@@ -373,7 +366,7 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             {carDetails.vehicleDetails?.serviceHistory ===
-                            "Yes" ? (
+                              "Yes" ? (
                               <>
                                 <FaCheckCircle className="text-green-500" />
                                 <span className="text-gray-300">
@@ -466,11 +459,10 @@ const ImageCarousel = ({ carDetails, onClose }) => {
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                    index === currentImageIndex
-                      ? "border-brand-red"
-                      : "border-transparent hover:border-white/50"
-                  }`}
+                  className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${index === currentImageIndex
+                    ? "border-brand-red"
+                    : "border-transparent hover:border-white/50"
+                    }`}
                 >
                   <img
                     src={image}

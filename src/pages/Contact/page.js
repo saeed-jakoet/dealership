@@ -90,7 +90,7 @@ const Contact = () => {
         return;
       }
       try {
-        const result = await emailjs.sendForm(
+        await emailjs.sendForm(
           process.env.REACT_APP_EMAILJS_SERVICE_ID,
           process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
           form.current,
@@ -256,11 +256,10 @@ const Contact = () => {
                     <div className="relative">
                       <label
                         htmlFor="to_name"
-                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                          focusedField === "to_name" || formData.to_name
+                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === "to_name" || formData.to_name
                             ? "-top-2 text-xs bg-brand-gray-dark px-2 text-brand-red"
                             : "top-4 text-gray-400"
-                        }`}
+                          }`}
                       >
                         First Name *
                       </label>
@@ -281,11 +280,10 @@ const Contact = () => {
                     <div className="relative">
                       <label
                         htmlFor="lastname"
-                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                          focusedField === "lastname" || formData.lastname
+                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === "lastname" || formData.lastname
                             ? "-top-2 text-xs bg-brand-gray-dark px-2 text-brand-red"
                             : "top-4 text-gray-400"
-                        }`}
+                          }`}
                       >
                         Last Name *
                       </label>
@@ -308,11 +306,10 @@ const Contact = () => {
                     <div className="relative">
                       <label
                         htmlFor="email"
-                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                          focusedField === "email" || formData.email
+                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === "email" || formData.email
                             ? "-top-2 text-xs bg-brand-gray-dark px-2 text-brand-red"
                             : "top-4 text-gray-400"
-                        }`}
+                          }`}
                       >
                         Email Address *
                       </label>
@@ -333,11 +330,10 @@ const Contact = () => {
                     <div className="relative">
                       <label
                         htmlFor="phone"
-                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                          focusedField === "phone" || formData.phone
+                        className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === "phone" || formData.phone
                             ? "-top-2 text-xs bg-brand-gray-dark px-2 text-brand-red"
                             : "top-4 text-gray-400"
-                        }`}
+                          }`}
                       >
                         Phone Number *
                       </label>
@@ -360,11 +356,10 @@ const Contact = () => {
                   <div className="relative">
                     <label
                       htmlFor="details"
-                      className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                        focusedField === "details" || formData.details
+                      className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === "details" || formData.details
                           ? "-top-2 text-xs bg-brand-gray-dark px-2 text-brand-red"
                           : "top-4 text-gray-400"
-                      }`}
+                        }`}
                     >
                       Message *
                     </label>
@@ -386,11 +381,10 @@ const Contact = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className={`p-4 rounded-xl ${
-                        submitStatus.type === "success"
+                      className={`p-4 rounded-xl ${submitStatus.type === "success"
                           ? "bg-green-500/20 border border-green-500/30 text-green-300"
                           : "bg-red-500/20 border border-red-500/30 text-red-300"
-                      }`}
+                        }`}
                     >
                       {submitStatus.message}
                     </motion.div>

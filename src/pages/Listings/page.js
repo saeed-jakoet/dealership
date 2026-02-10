@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { apiGet } from "../../api/client";
 import ImageCarousel from "../../components/ImageCarousel";
-import { MdFilterList, MdGridView, MdViewList, MdSearch } from "react-icons/md";
+import { MdGridView, MdViewList, MdSearch } from "react-icons/md";
 import {
   FaHeart,
   FaEye,
@@ -150,18 +150,18 @@ const Listings = () => {
         const items = Array.isArray(data.data?.data)
           ? data.data.data
           : Array.isArray(data.data)
-          ? data.data
-          : Array.isArray(data.items)
-          ? data.items
-          : Array.isArray(data)
-          ? data
-          : [];
+            ? data.data
+            : Array.isArray(data.items)
+              ? data.items
+              : Array.isArray(data)
+                ? data
+                : [];
         const count =
           typeof data.data?.total === "number"
             ? data.data.total
             : typeof data.total === "number"
-            ? data.total
-            : items.length;
+              ? data.total
+              : items.length;
         setVehicles(items);
         setTotal(count);
       } catch (e) {
@@ -248,22 +248,20 @@ const Listings = () => {
             {/* View Toggle */}
             <div className="flex items-center gap-2 p-1 rounded-lg bg-white/10 backdrop-blur-sm">
               <button
-                className={`p-2 rounded-md ${
-                  view === "grid"
+                className={`p-2 rounded-md ${view === "grid"
                     ? "bg-brand-red text-white"
                     : "text-gray-400 hover:text-white"
-                }`}
+                  }`}
                 onClick={() => handleViewChange("grid")}
                 aria-label="Grid view"
               >
                 <MdGridView />
               </button>
               <button
-                className={`p-2 rounded-md ${
-                  view === "list"
+                className={`p-2 rounded-md ${view === "list"
                     ? "bg-brand-red text-white"
                     : "text-gray-400 hover:text-white"
-                }`}
+                  }`}
                 onClick={() => handleViewChange("list")}
                 aria-label="List view"
               >
@@ -328,7 +326,7 @@ const Listings = () => {
                   >
                     <div className="w-full md:w-1/3 flex-shrink-0 aspect-[4/3] rounded-xl overflow-hidden bg-black/20 flex items-center justify-center">
                       {vehicle.sortedImageUrls &&
-                      vehicle.sortedImageUrls.length > 0 ? (
+                        vehicle.sortedImageUrls.length > 0 ? (
                         <img
                           src={vehicle.sortedImageUrls[0]}
                           alt={`${vehicle.brand} ${vehicle.name}`}
@@ -366,8 +364,8 @@ const Listings = () => {
                             <FaTachometerAlt className="inline mr-1 text-brand-red" />
                             {vehicle.mileage
                               ? `${parseInt(
-                                  vehicle.mileage
-                                ).toLocaleString()} km`
+                                vehicle.mileage
+                              ).toLocaleString()} km`
                               : "N/A"}
                           </span>
                           <span>
@@ -381,7 +379,7 @@ const Listings = () => {
                           <span>{vehicle.vehicleDetails?.bodyType}</span>
                           <span className="flex items-center gap-1">
                             {vehicle.vehicleDetails?.serviceHistory ===
-                            "Yes" ? (
+                              "Yes" ? (
                               <>
                                 <FaCheckCircle className="text-green-500" />
                                 <span>Service History</span>
@@ -527,11 +525,10 @@ const ListingItem = ({ vehicle, onClick }) => {
 
         {/* Favorite Button */}
         <motion.button
-          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-300 ${
-            isFavorite
+          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-300 ${isFavorite
               ? "bg-brand-red text-white"
               : "bg-black/20 text-white/60 hover:text-white"
-          }`}
+            }`}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={(e) => {
@@ -666,11 +663,10 @@ const Banner = ({ page, totalPages, onPageChange }) => {
   return (
     <div className="flex items-center justify-center gap-8">
       <motion.button
-        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-          page === 1
+        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${page === 1
             ? "bg-white/5 text-gray-500 cursor-not-allowed"
             : "bg-gradient-to-r from-brand-red/20 to-brand-red/10 border border-brand-red/30 text-white hover:from-brand-red/30 hover:to-brand-red/20"
-        }`}
+          }`}
         onClick={() => onPageChange("prev")}
         disabled={page === 1}
         whileHover={page !== 1 ? { scale: 1.05, x: -2 } : {}}
@@ -695,11 +691,10 @@ const Banner = ({ page, totalPages, onPageChange }) => {
             return (
               <motion.button
                 key={pageNumber}
-                className={`w-12 h-12 rounded-xl font-medium transition-all duration-300 ${
-                  isActive
+                className={`w-12 h-12 rounded-xl font-medium transition-all duration-300 ${isActive
                     ? "bg-gradient-to-r from-brand-red to-brand-red-dark text-white shadow-lg"
                     : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white"
-                }`}
+                  }`}
                 onClick={() =>
                   onPageChange(pageNumber > page ? "next" : "prev")
                 }
@@ -721,11 +716,10 @@ const Banner = ({ page, totalPages, onPageChange }) => {
       </div>
 
       <motion.button
-        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-          page === totalPages
+        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${page === totalPages
             ? "bg-white/5 text-gray-500 cursor-not-allowed"
             : "bg-gradient-to-r from-brand-red/20 to-brand-red/10 border border-brand-red/30 text-white hover:from-brand-red/30 hover:to-brand-red/20"
-        }`}
+          }`}
         onClick={() => onPageChange("next")}
         disabled={page === totalPages}
         whileHover={page !== totalPages ? { scale: 1.05, x: 2 } : {}}
