@@ -324,7 +324,7 @@ const Listings = () => {
                     className="bg-glass-gradient rounded-2xl border border-white/10 flex flex-col md:flex-row gap-6 p-6 hover:shadow-card-hover transition-all duration-300 cursor-pointer"
                     onClick={() => handleListingClick(vehicle)}
                   >
-                    <div className="w-full md:w-1/3 flex-shrink-0 aspect-[4/3] rounded-xl overflow-hidden bg-black/20 flex items-center justify-center">
+                    <div className="relative w-full md:w-1/3 flex-shrink-0 aspect-[4/3] rounded-xl overflow-hidden bg-black/20 flex items-center justify-center">
                       {vehicle.sortedImageUrls &&
                         vehicle.sortedImageUrls.length > 0 ? (
                         <img
@@ -338,6 +338,13 @@ const Listings = () => {
                           alt="No Car Available"
                           className="w-20 h-20 opacity-50"
                         />
+                      )}
+                      {vehicle.sold && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                          <span className="text-white font-black text-3xl border-4 border-white px-4 py-2 rotate-[-15deg] tracking-widest opacity-95 select-none">
+                            SOLD
+                          </span>
+                        </div>
                       )}
                     </div>
                     <div className="flex-1 flex flex-col gap-2 justify-between">
@@ -515,6 +522,15 @@ const ListingItem = ({ vehicle, onClick }) => {
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+        {/* SOLD Watermark */}
+        {vehicle.sold && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+            <span className="text-white font-black text-4xl border-4 border-white px-5 py-2 rotate-[-15deg] tracking-widest opacity-95 select-none">
+              SOLD
+            </span>
+          </div>
+        )}
 
         {/* Brand Badge */}
         <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">

@@ -284,21 +284,36 @@ const ImageCarousel = ({ carDetails, onClose }) => {
 
                   {/* Price and Actions */}
                   <div className="space-y-3">
+                    {carDetails.sold && (
+                      <div className="flex items-center justify-center py-2 px-4 rounded-lg bg-red-600 text-white font-black text-lg tracking-widest text-center">
+                        SOLD
+                      </div>
+                    )}
                     <div className="text-2xl font-bold text-brand-red">
                       {formatPrice(carDetails.price)}
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <button
-                        className="flex items-center justify-center gap-2 px-4 py-2 bg-brand-red rounded-lg text-white font-semibold hover:bg-brand-red/80 transition-colors"
-                        onClick={() => window.open("tel:+27718740886", "_self")}
+                        className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-white font-semibold transition-colors ${
+                          carDetails.sold
+                            ? "bg-gray-500 cursor-not-allowed opacity-60"
+                            : "bg-brand-red hover:bg-brand-red/80"
+                        }`}
+                        disabled={!!carDetails.sold}
+                        onClick={() => !carDetails.sold && window.open("tel:+27718740886", "_self")}
                       >
                         <FaPhone size={14} />
                         Call
                       </button>
                       <button
-                        className="flex items-center justify-center gap-2 px-4 py-2 bg-green-600 rounded-lg text-white font-semibold hover:bg-green-500 transition-colors"
+                        className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-white font-semibold transition-colors ${
+                          carDetails.sold
+                            ? "bg-gray-500 cursor-not-allowed opacity-60"
+                            : "bg-green-600 hover:bg-green-500"
+                        }`}
+                        disabled={!!carDetails.sold}
                         onClick={() =>
-                          window.open("https://wa.me/+27718740886", "_blank")
+                          !carDetails.sold && window.open("https://wa.me/+27718740886", "_blank")
                         }
                       >
                         <FaWhatsapp size={14} />
